@@ -1989,12 +1989,12 @@ MonoBehaviour:
   m_margin: {x: 7.164993, y: 0, z: -2.5924625, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 78899273}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 78899273}
+  m_maskType: 0
 --- !u!23 &78899273
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2006,6 +2006,7 @@ MeshRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -3467,7 +3468,10 @@ MonoBehaviour:
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4071,12 +4075,12 @@ MonoBehaviour:
   m_margin: {x: 7.164993, y: 0, z: -2.5924625, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 149222980}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 149222980}
+  m_maskType: 0
 --- !u!23 &149222980
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4088,6 +4092,7 @@ MeshRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -4845,12 +4850,12 @@ MonoBehaviour:
   m_margin: {x: 8.974749, y: 0, z: -6.1376963, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 168262816}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 168262816}
+  m_maskType: 0
 --- !u!23 &168262816
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4862,6 +4867,7 @@ MeshRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -16181,7 +16187,10 @@ MonoBehaviour:
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -16984,7 +16993,10 @@ MonoBehaviour:
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -17000,7 +17012,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 598290573}
-  m_LocalRotation: {x: 0.00020647643, y: 0.99847364, z: 0.0037413312, w: -0.055103723}
+  m_LocalRotation: {x: 0.00020647641, y: 0.99847364, z: 0.0037413312, w: -0.055103723}
   m_LocalPosition: {x: 37.461563, y: 0.5553326, z: 70.704994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -17430,7 +17442,10 @@ MonoBehaviour:
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -17446,7 +17461,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 615347229}
-  m_LocalRotation: {x: 0.0032266953, y: 0.99602485, z: -0.040558066, w: 0.079241164}
+  m_LocalRotation: {x: 0.0032266956, y: 0.99602485, z: -0.04055807, w: 0.07924116}
   m_LocalPosition: {x: 18.693542, y: 6.0310235, z: 44.382904}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -17864,7 +17879,10 @@ MonoBehaviour:
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -17880,7 +17898,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 626021365}
-  m_LocalRotation: {x: -0.006231207, y: 0.8644202, z: 0.010716668, w: 0.50261724}
+  m_LocalRotation: {x: -0.006231203, y: 0.8644202, z: 0.010716661, w: 0.50261724}
   m_LocalPosition: {x: 14.755651, y: 0.8153314, z: -6.575945}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -19321,12 +19339,12 @@ MonoBehaviour:
   m_margin: {x: 7.164993, y: 0, z: -2.5924625, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 673851941}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 673851941}
+  m_maskType: 0
 --- !u!23 &673851941
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19338,6 +19356,7 @@ MeshRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -20856,7 +20875,10 @@ MonoBehaviour:
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -20872,7 +20894,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 722972391}
-  m_LocalRotation: {x: 0.020576427, y: 0.97433174, z: -0.20068496, w: 0.09989919}
+  m_LocalRotation: {x: 0.020576423, y: 0.97433174, z: -0.20068496, w: 0.09989919}
   m_LocalPosition: {x: 25.722345, y: 5.6965585, z: -2.785471}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -21985,12 +22007,12 @@ MonoBehaviour:
   m_margin: {x: 8.974749, y: 0, z: -6.1376963, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 762073804}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 762073804}
+  m_maskType: 0
 --- !u!23 &762073804
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22002,6 +22024,7 @@ MeshRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -24809,7 +24832,10 @@ MonoBehaviour:
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -27166,7 +27192,10 @@ MonoBehaviour:
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -29201,12 +29230,12 @@ MonoBehaviour:
   m_margin: {x: 8.974749, y: 0, z: -6.1376963, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 1022467365}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 1022467365}
+  m_maskType: 0
 --- !u!23 &1022467365
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29218,6 +29247,7 @@ MeshRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -29589,12 +29619,12 @@ MonoBehaviour:
   m_margin: {x: 8.974749, y: 0, z: -6.1376963, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 1030671994}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 1030671994}
+  m_maskType: 0
 --- !u!23 &1030671994
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29606,6 +29636,7 @@ MeshRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -33868,7 +33899,10 @@ MonoBehaviour:
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -35798,7 +35832,10 @@ MonoBehaviour:
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -35814,7 +35851,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1248995711}
-  m_LocalRotation: {x: -0.0026917877, y: 0.9521684, z: 0.0083911065, w: 0.30544665}
+  m_LocalRotation: {x: -0.002691786, y: 0.9521684, z: 0.008391102, w: 0.30544665}
   m_LocalPosition: {x: 15.510973, y: 0.814707, z: 3.4036007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -42467,12 +42504,12 @@ MonoBehaviour:
   m_margin: {x: 8.974749, y: 0, z: -6.1376963, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 1485346513}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 1485346513}
+  m_maskType: 0
 --- !u!23 &1485346513
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -42484,6 +42521,7 @@ MeshRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -48576,7 +48614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NoiseProfile: {fileID: 11400000, guid: 46965f9cbaf525742a6da4c2172a99cd, type: 2}
+  m_NoiseProfile: {fileID: 11400000, guid: b241f91b9ccf8ff489abf204b30d3112, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
   m_AmplitudeGain: 1
   m_FrequencyGain: 1
@@ -48687,7 +48725,10 @@ MonoBehaviour:
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -48913,7 +48954,10 @@ MonoBehaviour:
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -50400,7 +50444,10 @@ MonoBehaviour:
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -51980,12 +52027,12 @@ MonoBehaviour:
   m_margin: {x: 8.974749, y: 0, z: -6.1376963, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 1786987502}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 1786987502}
+  m_maskType: 0
 --- !u!23 &1786987502
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -51997,6 +52044,7 @@ MeshRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -53974,7 +54022,10 @@ MonoBehaviour:
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -53990,7 +54041,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1860051758}
-  m_LocalRotation: {x: 0.09844452, y: 0.720603, z: -0.10458282, w: 0.67830855}
+  m_LocalRotation: {x: 0.098444514, y: 0.720603, z: -0.10458282, w: 0.67830855}
   m_LocalPosition: {x: 3.9852772, y: 8.348619, z: -12.695044}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -54586,7 +54637,10 @@ MonoBehaviour:
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -54602,7 +54656,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1879575808}
-  m_LocalRotation: {x: 0.00081456435, y: 0.9973949, z: -0.011407091, w: 0.071222566}
+  m_LocalRotation: {x: 0.0008145642, y: 0.9973949, z: -0.011407091, w: 0.07122256}
   m_LocalPosition: {x: 25.795889, y: 1.5607598, z: 1.6666775}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -60009,7 +60063,10 @@ MonoBehaviour:
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
+    ModeOverride: 0
     LensShift: {x: 0, y: 0}
+    GateFit: 2
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -60025,7 +60082,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2061506046}
-  m_LocalRotation: {x: -0.0031990986, y: 0.94827664, z: 0.009561214, w: 0.31728506}
+  m_LocalRotation: {x: -0.0031990989, y: 0.94827664, z: 0.009561215, w: 0.31728506}
   m_LocalPosition: {x: -6.1435223, y: 0.048722684, z: 31.246695}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -60624,12 +60681,12 @@ MonoBehaviour:
   m_margin: {x: 8.974749, y: 0, z: -6.1376963, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 2084560141}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 2084560141}
+  m_maskType: 0
 --- !u!23 &2084560141
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -60641,6 +60698,7 @@ MeshRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -61236,12 +61294,12 @@ MonoBehaviour:
   m_margin: {x: 8.974749, y: 0, z: -6.1376963, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 2118950409}
-  m_maskType: 0
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 2118950409}
+  m_maskType: 0
 --- !u!23 &2118950409
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -61253,6 +61311,7 @@ MeshRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
