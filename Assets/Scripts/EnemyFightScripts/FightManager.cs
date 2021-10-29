@@ -21,4 +21,8 @@ public class FightManager : MonoBehaviour {
 			else enemyAI.gameObject.SetActive(false);
 		}
 	}
+
+	public void HitEnemy() {
+		enemies.GetComponentInChildren<EnemyAI>(false).Hit(10);
+	}
 }

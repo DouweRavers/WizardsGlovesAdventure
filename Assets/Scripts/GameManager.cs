@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour {
 		game = this;
 		storyData = new StoryData("Dummy", new int[0]);
 		enemyFightData = new EnemyFightData();
+		enemyFightData.enemyType = EnemyType.SOLDIER;
 	}
 
 	public void LoadFightScene(int enemyID, EnemyType enemyType) {

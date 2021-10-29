@@ -3,7 +3,7 @@ using UnityEngine;
 public enum Finger {
 	PINK_LEFT, RING_LEFT, MIDDLE_LEFT, POINT_LEFT, THUMB_LEFT,
 	THUMB_RIGHT, POINT_RIGHT, MIDDLE_RIGHT, RING_RIGHT, PINK_RIGHT,
-	NONE
+	NONE, BLOCK
 };
 
 public class InputManager : MonoBehaviour {
@@ -34,7 +34,8 @@ public class InputManager : MonoBehaviour {
 			Array.Exists(fingers, value => value == Finger.POINT_RIGHT),
 			Array.Exists(fingers, value => value == Finger.MIDDLE_RIGHT),
 			Array.Exists(fingers, value => value == Finger.RING_RIGHT),
-			Array.Exists(fingers, value => value == Finger.PINK_RIGHT)
+			Array.Exists(fingers, value => value == Finger.PINK_RIGHT),
+			Array.Exists(fingers, value => value == Finger.BLOCK),
 			};
 		return IsCombinationPressed(fingerArray);
 	}
@@ -45,7 +46,7 @@ public class InputManager : MonoBehaviour {
 		Finger fifthFinger = Finger.NONE, Finger sixthFinger = Finger.NONE,
 		Finger seventhFinger = Finger.NONE, Finger eigthFinger = Finger.NONE,
 		Finger ninethFinger = Finger.NONE, Finger tenthFinger = Finger.NONE) {
-		bool[] fingerArray = new bool[] { false, false, false, false, false, false, false, false, false, false };
+		bool[] fingerArray = new bool[] { false, false, false, false, false, false, false, false, false, false, false };
 		if (firstFinger != Finger.NONE) fingerArray[(int)firstFinger] = true;
 		if (secondFinger != Finger.NONE) fingerArray[(int)secondFinger] = true;
 		if (thirdthFinger != Finger.NONE) fingerArray[(int)thirdthFinger] = true;
@@ -75,6 +76,7 @@ public class InputManager : MonoBehaviour {
 			leftToRightFingers[6] == rightPoint &&
 			leftToRightFingers[7] == rightMiddle &&
 			leftToRightFingers[8] == rightRing &&
-			leftToRightFingers[9] == rightPink;
+			leftToRightFingers[9] == rightPink &&
+			!leftToRightFingers[10];
 	}
 }
