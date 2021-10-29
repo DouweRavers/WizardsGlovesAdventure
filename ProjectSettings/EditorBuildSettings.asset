@@ -9,9 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/StartMenu.unity
     guid: e502b855c00208146afbde3876f0ee16
   - enabled: 1
-    path: Assets/Scenes/ExampleLevel.unity
+    path: Assets/Scenes/OpenWorld.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
   - enabled: 1
     path: Assets/Scenes/AttackMonster.unity
     guid: b49e15b5a6d279644af12c341e631f43
+  - enabled: 1
+    path: Assets/Scenes/DemoScenes/demo-world.unity
+    guid: cea9e8152bdfe524582b812fc9ad40c5
+  - enabled: 1
+    path: Assets/Scenes/DemoScenes/demo-fight.unity
+    guid: fe336420614f33446aca87cd0b2c3944
   m_configObjects: {}

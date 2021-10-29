@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1338505933798797731}
   - component: {fileID: 4932418897227394009}
+  - component: {fileID: 7854103825325912512}
   m_Layer: 0
   m_Name: GUImonster
   m_TagString: Untagged
@@ -83,6 +84,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7854103825325912512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862384279441648409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 039d16052d91ebe4f82629c29bcdc291, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 1
 --- !u!1 &3486727159810959283
 GameObject:
   m_ObjectHideFlags: 0

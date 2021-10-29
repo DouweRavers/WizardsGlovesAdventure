@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5515365612263496690}
-  - component: {fileID: 5515365612263496694}
+  - component: {fileID: 373928737944334365}
   - component: {fileID: 5515365612263496691}
   - component: {fileID: 5515365612263496692}
   - component: {fileID: 2028415161177605219}
@@ -36,7 +36,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5515365612263496694
+--- !u!114 &373928737944334365
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,13 +45,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5515365612263496689}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a716f98809251c45a2e06a04b006270, type: 3}
+  m_Script: {fileID: 11500000, guid: 00e247941ca072444ae4610b2dc517c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 5515365612263496691}
   UI: {fileID: 5515365612263496692}
   movement: {fileID: 2028415161177605219}
-  animator: {fileID: 3255065858104662236}
 --- !u!114 &5515365612263496691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,8 +87,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ec083df954cb8a4e9a1d020c8f4863b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 5515365612263496693}
-  animator: {fileID: 3255065858104662236}
 --- !u!195 &5515365612263496693
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -176,10 +173,5 @@ PrefabInstance:
 --- !u!4 &3202510786334157806 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4371997290663660, guid: 31c5c12bb5ddd814388a27a7c3e71aa6, type: 3}
-  m_PrefabInstance: {fileID: 3206020709054014722}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &3255065858104662236 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 95213307331444190, guid: 31c5c12bb5ddd814388a27a7c3e71aa6, type: 3}
   m_PrefabInstance: {fileID: 3206020709054014722}
   m_PrefabAsset: {fileID: 0}
