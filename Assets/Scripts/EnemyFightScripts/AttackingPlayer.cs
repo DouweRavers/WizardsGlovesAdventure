@@ -62,7 +62,7 @@ public class AttackingPlayer : MonoBehaviour {
 	}
 
 	public IEnumerator HideImage(float time) {
-		yield return new WaitForSeconds(1);
+		yield return new WaitForSeconds(2);
 		vid.enabled = false;
 	}
 
