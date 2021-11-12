@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 public enum EnemyType {
-	ARMORED_SKELETON, SOLDIER
+	ARMORED_SKELETON, SOLDIER, DEMON, GUI
 }
 
 public class EnemyAI : MonoBehaviour {
