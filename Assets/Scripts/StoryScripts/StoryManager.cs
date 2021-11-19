@@ -1,13 +1,22 @@
 using UnityEngine;
 using Cinemachine;
 
+public enum Level {
+	TOWN, GRASSLAND, DUNGEON, NONE
+}
 public struct StoryData {
+	public Level level;
 	public string checkpoint_name; // name of active checkpoint
 	public int[] deathEnemyIDs; // IDs of all the enemies -> used for removing dead ones on load
+	float ligthDarkFactor;
 
-	public StoryData(string checkpoint, int[] enemyid) {
-		checkpoint_name = checkpoint;
-		deathEnemyIDs = enemyid;
+	public bool isDogDeath;
+	public StoryData(int dummy = 0) {
+		level = Level.NONE;
+		checkpoint_name = "Dummy";
+		deathEnemyIDs = new int[0];
+		ligthDarkFactor = 0f;
+		isDogDeath = false;
 	}
 }
 

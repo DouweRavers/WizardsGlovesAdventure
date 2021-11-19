@@ -1,0 +1,210 @@
+Edit the dialogue on the go.
+You can edit and add comments, edit the tags, and set node type.
+Do not attempt to add more nodes: the number of nodes must match when importing the text file.
+Do not modify the IDs.
+Do not add or remove empty lines.
+Do not restructure the data.
+
+Dialogue name: GrasslandsTowerSoldiers
+---------------------------------
+#NODEID#
+0
+#TAG#
+Soldier1
+#ISPLAYER#
+False
+---
+#COMMENT#
+I tell you John. This is the end of the world! I swear it!
+---------------------------------
+#NODEID#
+1
+#TAG#
+Soldier2
+#ISPLAYER#
+False
+---
+#COMMENT#
+Ohh boohoo, Don’t be a wussie. One tower gets attacked and it’s the end of the world!
+---------------------------------
+#NODEID#
+2
+#TAG#
+Player
+#ISPLAYER#
+True
+---
+#COMMENT#
+What happened here?
+---------------------------------
+#NODEID#
+3
+#TAG#
+Soldier2
+#ISPLAYER#
+False
+---
+#COMMENT#
+Have you taken the king’s shilling?
+
+---------------------------------
+#NODEID#
+4
+#TAG#
+Player
+#ISPLAYER#
+True
+---
+#COMMENT#
+Well no, but ….
+---------------------------------
+#NODEID#
+5
+#TAG#
+Soldier2
+#ISPLAYER#
+False
+---
+#COMMENT#
+Ahh, then it’s not of your concern, is it?
+---------------------------------
+#NODEID#
+6
+#TAG#
+Soldier1
+#ISPLAYER#
+False
+---
+#COMMENT#
+Are we not going to warn the people of what happened?
+---------------------------------
+#NODEID#
+7
+#TAG#
+Soldier2
+#ISPLAYER#
+False
+---
+#COMMENT#
+Shut up!
+
+---------------------------------
+#NODEID#
+8
+#TAG#
+Player
+#ISPLAYER#
+True
+---
+#COMMENT#
+I may not be a soldier of his majesty’s crown but I can still help. 
+
+#COMMENT#
+Guys I probably have seen more combat than you two bozos, just tell me what is going on?
+#COMMENT#
+I give you a simple choice or you tell me what happened or I will spend the afternoon galavanting with your mother. So tell what’s it going to be?
+---------------------------------
+#NODEID#
+9
+#TAG#
+Soldier1
+#ISPLAYER#
+False
+---
+#COMMENT#
+A dragon just attacked the tower. The two guards inside were burned alive. It was awful.
+---------------------------------
+#NODEID#
+10
+#TAG#
+Soldier1
+#ISPLAYER#
+False
+---
+#COMMENT#
+Be a guard they said. No real danger they said…
+Should have followed my dreams and become a painter.
+
+---------------------------------
+#NODEID#
+11
+#TAG#
+Soldier2
+#ISPLAYER#
+False
+---
+#COMMENT#
+You idiot. Ok so now you know. Don’t tell the town folk, alright?
+
+---------------------------------
+#NODEID#
+12
+#TAG#
+Player
+#ISPLAYER#
+True
+---
+#COMMENT#
+No problem. So is there something I can do?
+---------------------------------
+#NODEID#
+13
+#TAG#
+Soldier2
+#ISPLAYER#
+False
+---
+#COMMENT#
+Well not really. Except killing the dragon of course.
+---------------------------------
+#NODEID#
+14
+#TAG#
+Player
+#ISPLAYER#
+True
+---
+#COMMENT#
+Ok, where did he fly to?
+---------------------------------
+#NODEID#
+15
+#TAG#
+Soldier2
+#ISPLAYER#
+False
+---
+#COMMENT#
+Ohh... Mhmm, you are serious about it? He went inside the mountain.
+---------------------------------
+#NODEID#
+16
+#TAG#
+Soldier1
+#ISPLAYER#
+False
+---
+#COMMENT#
+Please kill him. I don’t want to be eaten by that thing!
+---------------------------------
+#NODEID#
+17
+#TAG#
+Soldier2
+#ISPLAYER#
+False
+---
+#COMMENT#
+Tsss, don’t mind him. Good luck on your journey! May God save you!
+---------------------------------
+#NODEID#
+18
+#TAG#
+Player
+#ISPLAYER#
+True
+---
+#COMMENT#
+Bye guys!
+---------------------------------
+#END#
