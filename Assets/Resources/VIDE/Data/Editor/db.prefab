@@ -67,7 +67,7 @@ MonoBehaviour:
       outRect:
         serializedVersion: 2
         x: 301
-        y: 63
+        y: 65
         width: 30
         height: 33
       sprites: {fileID: 0}
@@ -79,7 +79,7 @@ MonoBehaviour:
       x: 180
       y: 100
       width: 348
-      height: 235
+      height: 238.6
     pTag: Soldier1
     expand: 1
     sprite: {fileID: 21300000, guid: 9276730d1b2a62349bf45f5e1d2bfe0f, type: 3}
@@ -98,9 +98,9 @@ MonoBehaviour:
       outRect:
         serializedVersion: 2
         x: 301
-        y: 63
+        y: 65
         width: 30
-        height: 48
+        height: 47
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
@@ -110,7 +110,7 @@ MonoBehaviour:
       x: 180
       y: 370
       width: 348
-      height: 250
+      height: 253
     pTag: Soldier2
     expand: 1
     sprite: {fileID: 21300000, guid: 7ab6372998a478342821961ad7597386, type: 3}
@@ -128,9 +128,9 @@ MonoBehaviour:
       outRect:
         serializedVersion: 2
         x: 301
-        y: 63
+        y: 65
         width: 30
-        height: 23
+        height: 24
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
@@ -140,7 +140,7 @@ MonoBehaviour:
       x: 180
       y: 650
       width: 348
-      height: 225
+      height: 230
     pTag: Player
     expand: 1
     sprite: {fileID: 21300000, guid: 9293ec0a777b9b94bac8204fb763e522, type: 3}
@@ -158,9 +158,9 @@ MonoBehaviour:
       outRect:
         serializedVersion: 2
         x: 301
-        y: 63
+        y: 65
         width: 30
-        height: 33
+        height: 47
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
@@ -170,10 +170,10 @@ MonoBehaviour:
       x: 590
       y: 110
       width: 348
-      height: 139
+      height: 253
     pTag: Soldier2
-    expand: 0
-    sprite: {fileID: 0}
+    expand: 1
+    sprite: {fileID: 21300000, guid: 7ab6372998a478342821961ad7597386, type: 3}
     vars: []
     varKeys: []
     isPlayer: 0
@@ -188,9 +188,9 @@ MonoBehaviour:
       outRect:
         serializedVersion: 2
         x: 301
-        y: 63
+        y: 65
         width: 30
-        height: 23
+        height: 24
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
@@ -198,12 +198,12 @@ MonoBehaviour:
     rect:
       serializedVersion: 2
       x: 590
-      y: 280
+      y: 390
       width: 348
-      height: 129
+      height: 230
     pTag: Player
-    expand: 0
-    sprite: {fileID: 0}
+    expand: 1
+    sprite: {fileID: 21300000, guid: 9293ec0a777b9b94bac8204fb763e522, type: 3}
     vars: []
     varKeys: []
     isPlayer: 1
@@ -218,7 +218,7 @@ MonoBehaviour:
       outRect:
         serializedVersion: 2
         x: 301
-        y: 63
+        y: 65
         width: 30
         height: 33
       sprites: {fileID: 0}
@@ -228,12 +228,12 @@ MonoBehaviour:
     rect:
       serializedVersion: 2
       x: 590
-      y: 450
+      y: 640
       width: 348
-      height: 139
+      height: 238.6
     pTag: Soldier2
-    expand: 0
-    sprite: {fileID: 0}
+    expand: 1
+    sprite: {fileID: 21300000, guid: 7ab6372998a478342821961ad7597386, type: 3}
     vars: []
     varKeys: []
     isPlayer: 0
@@ -248,7 +248,7 @@ MonoBehaviour:
       outRect:
         serializedVersion: 2
         x: 301
-        y: 63
+        y: 65
         width: 30
         height: 33
       sprites: {fileID: 0}
@@ -257,13 +257,13 @@ MonoBehaviour:
     ID: 6
     rect:
       serializedVersion: 2
-      x: 590
-      y: 640
+      x: 980
+      y: 110
       width: 348
-      height: 139
+      height: 238.6
     pTag: Soldier1
-    expand: 0
-    sprite: {fileID: 0}
+    expand: 1
+    sprite: {fileID: 21300000, guid: 9276730d1b2a62349bf45f5e1d2bfe0f, type: 3}
     vars: []
     varKeys: []
     isPlayer: 0
@@ -280,7 +280,7 @@ MonoBehaviour:
       outRect:
         serializedVersion: 2
         x: 301
-        y: 63
+        y: 65
         width: 30
         height: 33
       sprites: {fileID: 0}
@@ -289,21 +289,20 @@ MonoBehaviour:
     ID: 7
     rect:
       serializedVersion: 2
-      x: 590
-      y: 820
+      x: 980
+      y: 390
       width: 348
-      height: 139
+      height: 238.6
     pTag: Soldier2
-    expand: 0
-    sprite: {fileID: 0}
+    expand: 1
+    sprite: {fileID: 21300000, guid: 7ab6372998a478342821961ad7597386, type: 3}
     vars: []
     varKeys: []
     isPlayer: 0
   - commentCount: 3
     s_comment:
-    - text: "I may not be a soldier of his majesty\u2019s crown but I can still help.
-        \n"
-      extraData: ExtraData
+    - text: "I may not be a soldier but I can still help. \n"
+      extraData: 0
       inputSetIndex: 8
       outputNodeIndex: 9
       outActionIndex: -1
@@ -311,55 +310,53 @@ MonoBehaviour:
       outRect:
         serializedVersion: 2
         x: 301
-        y: 63
+        y: 65
         width: 30
-        height: 48
+        height: 47
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
-    - text: Guys I probably have seen more combat than you two bozos, just tell me
-        what is going on?
-      extraData: ExtraData
+    - text: I probably have seen more combat than you two bozos.
+      extraData: 1
       inputSetIndex: 8
-      outputNodeIndex: -1
+      outputNodeIndex: 19
       outActionIndex: -1
       showmore: 0
       outRect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 0
-        height: 0
+        x: 300
+        y: 113
+        width: 30
+        height: 33
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
-    - text: "I give you a simple choice or you tell me what happened or I will spend
-        the afternoon galavanting with your mother. So tell what\u2019s it going
-        to be?"
-      extraData: ExtraData
+    - text: 'In that case I will spend the afternoon galavanting with your mother
+        then. '
+      extraData: 9
       inputSetIndex: 8
-      outputNodeIndex: -1
+      outputNodeIndex: 28
       outActionIndex: -1
       showmore: 0
       outRect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 0
-        height: 0
+        x: 300
+        y: 147
+        width: 30
+        height: 47
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 8
     rect:
       serializedVersion: 2
-      x: 1000
-      y: 770
+      x: 980
+      y: 640
       width: 348
-      height: 282
+      height: 334.6
     pTag: Player
-    expand: 0
-    sprite: {fileID: 0}
+    expand: 1
+    sprite: {fileID: 21300000, guid: 9293ec0a777b9b94bac8204fb763e522, type: 3}
     vars: []
     varKeys: []
     isPlayer: 1
@@ -375,22 +372,22 @@ MonoBehaviour:
       outRect:
         serializedVersion: 2
         x: 301
-        y: 63
+        y: 65
         width: 30
-        height: 48
+        height: 47
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 9
     rect:
       serializedVersion: 2
-      x: 1410
-      y: 170
+      x: 1800
+      y: -270
       width: 348
-      height: 154
+      height: 253
     pTag: Soldier1
-    expand: 0
-    sprite: {fileID: 0}
+    expand: 1
+    sprite: {fileID: 21300000, guid: 9276730d1b2a62349bf45f5e1d2bfe0f, type: 3}
     vars: []
     varKeys: []
     isPlayer: 0
@@ -406,30 +403,240 @@ MonoBehaviour:
       outRect:
         serializedVersion: 2
         x: 301
-        y: 63
+        y: 65
         width: 30
-        height: 78
+        height: 76
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 10
     rect:
       serializedVersion: 2
-      x: 1410
-      y: 350
+      x: 1800
+      y: -20
       width: 348
-      height: 184
-    pTag: 
-    expand: 0
-    sprite: {fileID: 0}
+      height: 281.8
+    pTag: Soldier1
+    expand: 1
+    sprite: {fileID: 21300000, guid: 9276730d1b2a62349bf45f5e1d2bfe0f, type: 3}
     vars: []
     varKeys: []
     isPlayer: 0
   - commentCount: 1
     s_comment:
-    - text: Comment...
+    - text: "You idiot. Ok so now you know. Don\u2019t tell the town folk, alright?\r\n"
       extraData: ExtraData
       inputSetIndex: 11
+      outputNodeIndex: 12
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 47
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 11
+    rect:
+      serializedVersion: 2
+      x: 1800
+      y: 260
+      width: 348
+      height: 253
+    pTag: Soldier2
+    expand: 1
+    sprite: {fileID: 21300000, guid: 7ab6372998a478342821961ad7597386, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: No problem. So is there something I can do?
+      extraData: ExtraData
+      inputSetIndex: 12
+      outputNodeIndex: 13
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 33
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 12
+    rect:
+      serializedVersion: 2
+      x: 2210
+      y: -270
+      width: 348
+      height: 238.6
+    pTag: Player
+    expand: 1
+    sprite: {fileID: 21300000, guid: 9293ec0a777b9b94bac8204fb763e522, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 1
+  - commentCount: 1
+    s_comment:
+    - text: Well not really. Except killing the dragon of course.
+      extraData: ExtraData
+      inputSetIndex: 13
+      outputNodeIndex: 14
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 33
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 13
+    rect:
+      serializedVersion: 2
+      x: 2200
+      y: -20
+      width: 348
+      height: 238.6
+    pTag: Soldier2
+    expand: 1
+    sprite: {fileID: 21300000, guid: 7ab6372998a478342821961ad7597386, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Ok, where did he fly to?
+      extraData: ExtraData
+      inputSetIndex: 14
+      outputNodeIndex: 15
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 24
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 14
+    rect:
+      serializedVersion: 2
+      x: 2210
+      y: 230
+      width: 348
+      height: 230
+    pTag: Player
+    expand: 1
+    sprite: {fileID: 21300000, guid: 9293ec0a777b9b94bac8204fb763e522, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 1
+  - commentCount: 1
+    s_comment:
+    - text: Ohh... Mhmm, you are serious about it? He went inside the mountain.
+      extraData: ExtraData
+      inputSetIndex: 15
+      outputNodeIndex: 16
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 47
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 15
+    rect:
+      serializedVersion: 2
+      x: 2640
+      y: -270
+      width: 348
+      height: 253
+    pTag: Soldier2
+    expand: 1
+    sprite: {fileID: 21300000, guid: 7ab6372998a478342821961ad7597386, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "Please kill him. I don\u2019t want to be eaten by that thing!\r"
+      extraData: ExtraData
+      inputSetIndex: 16
+      outputNodeIndex: 17
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 33
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 16
+    rect:
+      serializedVersion: 2
+      x: 2640
+      y: -10
+      width: 348
+      height: 238.6
+    pTag: Soldier1
+    expand: 1
+    sprite: {fileID: 21300000, guid: 9276730d1b2a62349bf45f5e1d2bfe0f, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "Tsss, don\u2019t mind him. Good luck on your journey! May God save you!"
+      extraData: ExtraData
+      inputSetIndex: 17
+      outputNodeIndex: 18
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 47
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 17
+    rect:
+      serializedVersion: 2
+      x: 2640
+      y: 240
+      width: 348
+      height: 253
+    pTag: Soldier2
+    expand: 1
+    sprite: {fileID: 21300000, guid: 7ab6372998a478342821961ad7597386, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "Bye guys!\r"
+      extraData: ExtraData
+      inputSetIndex: 18
       outputNodeIndex: -1
       outActionIndex: -1
       showmore: 0
@@ -442,18 +649,498 @@ MonoBehaviour:
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
-    ID: 11
+    ID: 18
     rect:
       serializedVersion: 2
-      x: 1310
+      x: 3080
+      y: -270
+      width: 348
+      height: 230
+    pTag: Player
+    expand: 1
+    sprite: {fileID: 21300000, guid: 9293ec0a777b9b94bac8204fb763e522, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 1
+  - commentCount: 1
+    s_comment:
+    - text: Is that so? So you were at the battle of Devilten town?
+      extraData: ExtraData
+      inputSetIndex: 19
+      outputNodeIndex: 20
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 33
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 19
+    rect:
+      serializedVersion: 2
+      x: 1800
       y: 620
       width: 348
-      height: 129
-    pTag: 
-    expand: 0
-    sprite: {fileID: 0}
+      height: 238.6
+    pTag: Soldier2
+    expand: 1
+    sprite: {fileID: 21300000, guid: 7ab6372998a478342821961ad7597386, type: 3}
     vars: []
     varKeys: []
     isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "Well\u2026 no..."
+      extraData: ExtraData
+      inputSetIndex: 20
+      outputNodeIndex: 21
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 24
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 20
+    rect:
+      serializedVersion: 2
+      x: 1800
+      y: 890
+      width: 348
+      height: 230
+    pTag: 
+    expand: 1
+    sprite: {fileID: 21300000, guid: 9293ec0a777b9b94bac8204fb763e522, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 1
+  - commentCount: 1
+    s_comment:
+    - text: "Ah so you didn\u2019t see thousands of people burned to ashes."
+      extraData: ExtraData
+      inputSetIndex: 21
+      outputNodeIndex: 22
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 33
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 21
+    rect:
+      serializedVersion: 2
+      x: 1800
+      y: 1140
+      width: 348
+      height: 238.6
+    pTag: 
+    expand: 1
+    sprite: {fileID: 21300000, guid: 7ab6372998a478342821961ad7597386, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Eaten by gaint spiders?
+      extraData: ExtraData
+      inputSetIndex: 22
+      outputNodeIndex: 23
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 24
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 22
+    rect:
+      serializedVersion: 2
+      x: 2210
+      y: 700
+      width: 348
+      height: 230
+    pTag: 
+    expand: 1
+    sprite: {fileID: 21300000, guid: 7ab6372998a478342821961ad7597386, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Killed by slow poison?
+      extraData: ExtraData
+      inputSetIndex: 23
+      outputNodeIndex: 24
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 24
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 23
+    rect:
+      serializedVersion: 2
+      x: 2210
+      y: 950
+      width: 348
+      height: 230
+    pTag: 
+    expand: 1
+    sprite: {fileID: 21300000, guid: 7ab6372998a478342821961ad7597386, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: No but I did kill a goblin just some moments earlier...
+      extraData: ExtraData
+      inputSetIndex: 24
+      outputNodeIndex: 25
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 33
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 24
+    rect:
+      serializedVersion: 2
+      x: 2210
+      y: 1200
+      width: 348
+      height: 238.6
+    pTag: 
+    expand: 1
+    sprite: {fileID: 21300000, guid: 9293ec0a777b9b94bac8204fb763e522, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 1
+  - commentCount: 1
+    s_comment:
+    - text: A goblin? What are you? A level 3 Runscape character? Pathetic...
+      extraData: ExtraData
+      inputSetIndex: 25
+      outputNodeIndex: 26
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 33
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 25
+    rect:
+      serializedVersion: 2
+      x: 2620
+      y: 710
+      width: 348
+      height: 238.6
+    pTag: 
+    expand: 1
+    sprite: {fileID: 21300000, guid: 7ab6372998a478342821961ad7597386, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "Pfff, Aren\u2019t you a treat?"
+      extraData: ExtraData
+      inputSetIndex: 26
+      outputNodeIndex: 27
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 24
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 26
+    rect:
+      serializedVersion: 2
+      x: 2620
+      y: 970
+      width: 348
+      height: 230
+    pTag: 
+    expand: 1
+    sprite: {fileID: 21300000, guid: 9293ec0a777b9b94bac8204fb763e522, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 1
+  - commentCount: 1
+    s_comment:
+    - text: "Don\u2019t mind him... He is just mad at the whole world for some reason\u2026"
+      extraData: ExtraData
+      inputSetIndex: 27
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 27
+    rect:
+      serializedVersion: 2
+      x: 2620
+      y: 1220
+      width: 348
+      height: 253
+    pTag: 
+    expand: 1
+    sprite: {fileID: 21300000, guid: 9276730d1b2a62349bf45f5e1d2bfe0f, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: So you are a tough guy, eh?
+      extraData: ExtraData
+      inputSetIndex: 28
+      outputNodeIndex: 29
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 24
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 28
+    rect:
+      serializedVersion: 2
+      x: 1800
+      y: 1550
+      width: 348
+      height: 230
+    pTag: 
+    expand: 1
+    sprite: {fileID: 21300000, guid: 7ab6372998a478342821961ad7597386, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "I am curious how tough when standing at the executioner\u2019s block..."
+      extraData: ExtraData
+      inputSetIndex: 29
+      outputNodeIndex: 30
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 47
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 29
+    rect:
+      serializedVersion: 2
+      x: 1800
+      y: 1780
+      width: 348
+      height: 253
+    pTag: 
+    expand: 1
+    sprite: {fileID: 21300000, guid: 7ab6372998a478342821961ad7597386, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Is that a treat?
+      extraData: ExtraData
+      inputSetIndex: 30
+      outputNodeIndex: 31
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 24
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 30
+    rect:
+      serializedVersion: 2
+      x: 1800
+      y: 2040
+      width: 348
+      height: 230
+    pTag: 
+    expand: 1
+    sprite: {fileID: 21300000, guid: 9293ec0a777b9b94bac8204fb763e522, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 1
+  - commentCount: 1
+    s_comment:
+    - text: What do you think, smartass?
+      extraData: ExtraData
+      inputSetIndex: 31
+      outputNodeIndex: 32
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 24
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 31
+    rect:
+      serializedVersion: 2
+      x: 2220
+      y: 1490
+      width: 348
+      height: 230
+    pTag: 
+    expand: 1
+    sprite: {fileID: 21300000, guid: 7ab6372998a478342821961ad7597386, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Guys, guys calm down.
+      extraData: ExtraData
+      inputSetIndex: 32
+      outputNodeIndex: 33
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 24
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 32
+    rect:
+      serializedVersion: 2
+      x: 2220
+      y: 1720
+      width: 348
+      height: 230
+    pTag: 
+    expand: 1
+    sprite: {fileID: 21300000, guid: 9276730d1b2a62349bf45f5e1d2bfe0f, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: I think you better leave.
+      extraData: ExtraData
+      inputSetIndex: 33
+      outputNodeIndex: 34
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 301
+        y: 65
+        width: 30
+        height: 24
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 33
+    rect:
+      serializedVersion: 2
+      x: 2220
+      y: 1950
+      width: 348
+      height: 230
+    pTag: 
+    expand: 1
+    sprite: {fileID: 21300000, guid: 9276730d1b2a62349bf45f5e1d2bfe0f, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Pff guards... Filth of the earth. Filth I tell you...
+      extraData: ExtraData
+      inputSetIndex: 34
+      outputNodeIndex: -1
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 34
+    rect:
+      serializedVersion: 2
+      x: 2630
+      y: 1950
+      width: 348
+      height: 238.6
+    pTag: 
+    expand: 1
+    sprite: {fileID: 21300000, guid: 9293ec0a777b9b94bac8204fb763e522, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 1
   S_actionNodes: []
   S_selNodes: []
