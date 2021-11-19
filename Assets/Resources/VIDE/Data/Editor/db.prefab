@@ -66,17 +66,10 @@ MonoBehaviour:
       showmore: 0
       outRect:
         serializedVersion: 2
-<<<<<<< HEAD
         x: 301
         y: 65
         width: 30
         height: 33
-=======
-        x: 0
-        y: 0
-        width: 0
-        height: 0
->>>>>>> a8439748e6759d029184eef289b0cdf1113998d0
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
@@ -86,13 +79,8 @@ MonoBehaviour:
       x: 380
       y: 340
       width: 348
-<<<<<<< HEAD
-      height: 238.6
-    pTag: Soldier1
-=======
       height: 235
     pTag: 
->>>>>>> a8439748e6759d029184eef289b0cdf1113998d0
     expand: 1
     sprite: {fileID: 21300000, guid: 479352127e34bef45aed0ccbccd1bd0a, type: 3}
     vars: []
@@ -103,7 +91,6 @@ MonoBehaviour:
     - text: It's okay buddy, here I'll help you!
       extraData: ExtraData
       inputSetIndex: 1
-<<<<<<< HEAD
       outputNodeIndex: 2
       outActionIndex: -1
       showmore: 0
@@ -332,9 +319,6 @@ MonoBehaviour:
       extraData: 1
       inputSetIndex: 8
       outputNodeIndex: 19
-=======
-      outputNodeIndex: -1
->>>>>>> a8439748e6759d029184eef289b0cdf1113998d0
       outActionIndex: -1
       showmore: 0
       outRect:
@@ -346,7 +330,6 @@ MonoBehaviour:
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
-<<<<<<< HEAD
     - text: 'In that case I will spend the afternoon galavanting with your mother
         then. '
       extraData: 9
@@ -653,11 +636,6 @@ MonoBehaviour:
     - text: "Bye guys!\r"
       extraData: ExtraData
       inputSetIndex: 18
-=======
-    - text: This will teach you, annoying mut
-      extraData: ExtraData
-      inputSetIndex: 1
->>>>>>> a8439748e6759d029184eef289b0cdf1113998d0
       outputNodeIndex: -1
       outActionIndex: -1
       showmore: 0
@@ -670,7 +648,6 @@ MonoBehaviour:
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
-<<<<<<< HEAD
     ID: 18
     rect:
       serializedVersion: 2
@@ -1163,20 +1140,6 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 9293ec0a777b9b94bac8204fb763e522, type: 3}
     vars: []
     varKeys: []
-=======
-    ID: 1
-    rect:
-      serializedVersion: 2
-      x: 760
-      y: 400
-      width: 348
-      height: 153
-    pTag: 
-    expand: 0
-    sprite: {fileID: 0}
-    vars: []
-    varKeys: []
->>>>>>> a8439748e6759d029184eef289b0cdf1113998d0
     isPlayer: 1
   S_actionNodes: []
   S_selNodes: []
