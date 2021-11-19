@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.03
@@ -33419,7 +33419,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7854103825325912512, guid: b882f01fcd2767b49b85b68bf910dae0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7854103825325912512, guid: b882f01fcd2767b49b85b68bf910dae0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b882f01fcd2767b49b85b68bf910dae0, type: 3}
 --- !u!4 &1080155462 stripped
 Transform:
@@ -38722,8 +38727,10 @@ MonoBehaviour:
   - CrazyCap
   - DEMO_Condition
   - demo_Narration
+  - DogTownInteraction
   - Example3Dialogue
   - Example4_dialogue
+  - GoblinAttack
   - GrasslandsTowerSoldiers
   - Item_LookUp
   - KnightInTown
@@ -38735,7 +38742,7 @@ MonoBehaviour:
   - TriggeredDude
   - Witch
   - WomanTown
-  assignedIndex: 18
+  assignedIndex: 20
   assignedID: 70089
   assignedDialogue: WomanTown
   interactionCount: 0
@@ -60359,129 +60366,13 @@ MonoBehaviour:
   defaultNPCSprite: {fileID: 0}
   defaultPlayerSprite: {fileID: 0}
   targetManager: {fileID: 0}
-  preload: 1
-  notuptodate: 1
+  preload: 0
+  notuptodate: 0
   startp: 0
   loadtag: 
   langs: []
-  S_playerDiags:
-  - commentCount: 1
-    s_comment:
-    - text: '*The Dog seems stuck under the rock*'
-      extraData: ExtraData
-      inputSetIndex: 0
-      outputNodeIndex: 1
-      outActionIndex: -1
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 0
-    pTag: 
-    sprite: {fileID: 21300000, guid: 479352127e34bef45aed0ccbccd1bd0a, type: 3}
-    vars: []
-    varKeys: []
-    isPlayer: 0
-  - commentCount: 2
-    s_comment:
-    - text: It's okay buddy, here I'll help you!
-      extraData: ExtraData
-      inputSetIndex: 1
-      outputNodeIndex: 2
-      outActionIndex: -1
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    - text: This will teach you, annoying mutt! *Kick*
-      extraData: ExtraData
-      inputSetIndex: 1
-      outputNodeIndex: 3
-      outActionIndex: -1
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 1
-    pTag: 
-    sprite: {fileID: 21300000, guid: 9293ec0a777b9b94bac8204fb763e522, type: 3}
-    vars: []
-    varKeys: []
-    isPlayer: 1
-  - commentCount: 1
-    s_comment:
-    - text: '*The dog seems very happy*'
-      extraData: ExtraData
-      inputSetIndex: 2
-      outputNodeIndex: -1
-      outActionIndex: 0
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 2
-    pTag: 
-    sprite: {fileID: 21300000, guid: 479352127e34bef45aed0ccbccd1bd0a, type: 3}
-    vars: []
-    varKeys: []
-    isPlayer: 0
-  - commentCount: 1
-    s_comment:
-    - text: '*Dies*'
-      extraData: ExtraData
-      inputSetIndex: 3
-      outputNodeIndex: 4
-      outActionIndex: -1
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 3
-    pTag: 
-    sprite: {fileID: 21300000, guid: 479352127e34bef45aed0ccbccd1bd0a, type: 3}
-    vars: []
-    varKeys: []
-    isPlayer: 0
-  - commentCount: 1
-    s_comment:
-    - text: Good.
-      extraData: ExtraData
-      inputSetIndex: 4
-      outputNodeIndex: -1
-      outActionIndex: 1
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 4
-    pTag: 
-    sprite: {fileID: 21300000, guid: 9293ec0a777b9b94bac8204fb763e522, type: 3}
-    vars: []
-    varKeys: []
-    isPlayer: 1
-  S_actionNodes:
-  - pauseHere: 0
-    gameObjectName: DogCharacters
-    methodName: DialogActionGoToLocation
-    paramType: 3
-    gotoNode: -1
-    param_bool: 0
-    param_string: 
-    param_int: 0
-    param_float: 0
-    ID: 5
-    outPlayerIndex: -1
-    outActionIndex: -1
-    ovrStartNode: -1
-    renameDialogue: 
-  - pauseHere: 0
-    gameObjectName: DogCharacters
-    methodName: DialogActionGoToLocation
-    paramType: 3
-    gotoNode: -1
-    param_bool: 0
-    param_string: 
-    param_int: 0
-    param_float: 0
-    ID: 6
-    outPlayerIndex: -1
-    outActionIndex: -1
-    ovrStartNode: -1
-    renameDialogue: 
+  S_playerDiags: []
+  S_actionNodes: []
 --- !u!1001 &1918652381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64111,8 +64002,10 @@ MonoBehaviour:
   - CrazyCap
   - DEMO_Condition
   - demo_Narration
+  - DogTownInteraction
   - Example3Dialogue
   - Example4_dialogue
+  - GoblinAttack
   - GrasslandsTowerSoldiers
   - Item_LookUp
   - KnightInTown
@@ -64124,7 +64017,7 @@ MonoBehaviour:
   - TriggeredDude
   - Witch
   - WomanTown
-  assignedIndex: 15
+  assignedIndex: 17
   assignedID: 58409
   assignedDialogue: SalesmanTown
   interactionCount: 0
@@ -67550,91 +67443,13 @@ MonoBehaviour:
   defaultNPCSprite: {fileID: 0}
   defaultPlayerSprite: {fileID: 0}
   targetManager: {fileID: 0}
-  preload: 1
-  notuptodate: 1
+  preload: 0
+  notuptodate: 0
   startp: 0
   loadtag: 
   langs: []
-  S_playerDiags:
-  - commentCount: 1
-    s_comment:
-    - text: I am a goblin, GRRRR
-      extraData: ExtraData
-      inputSetIndex: 0
-      outputNodeIndex: 3
-      outActionIndex: -1
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 0
-    pTag: 
-    sprite: {fileID: 21300000, guid: 281a9b8439c88c145939eedb1c317238, type: 3}
-    vars: []
-    varKeys: []
-    isPlayer: 0
-  - commentCount: 1
-    s_comment:
-    - text: You wish to fight me?! So be it!!
-      extraData: ExtraData
-      inputSetIndex: 1
-      outputNodeIndex: 2
-      outActionIndex: -1
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 1
-    pTag: 
-    sprite: {fileID: 21300000, guid: 281a9b8439c88c145939eedb1c317238, type: 3}
-    vars: []
-    varKeys: []
-    isPlayer: 0
-  - commentCount: 1
-    s_comment:
-    - text: '*Death*'
-      extraData: ExtraData
-      inputSetIndex: 2
-      outputNodeIndex: -1
-      outActionIndex: 0
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 2
-    pTag: 
-    sprite: {fileID: 21300000, guid: 281a9b8439c88c145939eedb1c317238, type: 3}
-    vars: []
-    varKeys: []
-    isPlayer: 0
-  - commentCount: 1
-    s_comment:
-    - text: What do you mean I don't look like a Goblin in the overworld?!?!
-      extraData: ExtraData
-      inputSetIndex: 3
-      outputNodeIndex: 1
-      outActionIndex: -1
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 3
-    pTag: 
-    sprite: {fileID: 21300000, guid: 281a9b8439c88c145939eedb1c317238, type: 3}
-    vars: []
-    varKeys: []
-    isPlayer: 0
-  S_actionNodes:
-  - pauseHere: 0
-    gameObjectName: OutskirtsCharacters
-    methodName: DialogActionGoToLocation
-    paramType: 3
-    gotoNode: -1
-    param_bool: 0
-    param_string: 
-    param_int: 0
-    param_float: 0
-    ID: 4
-    outPlayerIndex: -1
-    outActionIndex: -1
-    ovrStartNode: -1
-    renameDialogue: 
+  S_playerDiags: []
+  S_actionNodes: []
 --- !u!1001 &2129932024
 PrefabInstance:
   m_ObjectHideFlags: 0
