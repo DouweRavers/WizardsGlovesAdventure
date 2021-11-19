@@ -17,7 +17,7 @@ public class AttackingPlayer : MonoBehaviour {
 		player = this;
 	}
 	void Update() {
-		if (input.IsCombinationPressed(Finger.MIDDLE_LEFT, Finger.MIDDLE_RIGHT, Finger.POINT_LEFT, Finger.POINT_RIGHT)) {
+		if (input.IsCombinationPressed(Finger.PINK_LEFT)) {
 			if (toggler) return;
 			else toggler = true;
 			fireAttack.Play();
@@ -30,7 +30,7 @@ public class AttackingPlayer : MonoBehaviour {
 				time = (float)video.length;
 			}
 			StartCoroutine(HideImage(time));
-		} else if (input.IsCombinationPressed(Finger.RING_LEFT, Finger.RING_RIGHT, Finger.PINK_LEFT, Finger.PINK_RIGHT)) {
+		} else if (input.IsCombinationPressed(Finger.RING_LEFT)) {
 			if (toggler) return;
 			else toggler = true;
 			lightAttack.Play();
@@ -43,7 +43,7 @@ public class AttackingPlayer : MonoBehaviour {
 				time = (float)video.length;
 			}
 			StartCoroutine(HideImage(time));
-		} else if (input.IsCombinationPressed(Finger.THUMB_LEFT, Finger.THUMB_RIGHT)) {
+		} else if (input.IsCombinationPressed(Finger.MIDDLE_LEFT)) {
 			if (toggler) return;
 			else toggler = true;
 			darkAttack.Play();

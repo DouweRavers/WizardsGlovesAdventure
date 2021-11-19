@@ -2329,7 +2329,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 74442798}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
   m_Name: 
@@ -7754,8 +7754,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273411201}
-  m_LocalRotation: {x: 0.112870395, y: 0.5369956, z: -0.072761595, w: 0.83282757}
-  m_LocalPosition: {x: 126.31968, y: 19.832966, z: 310.379}
+  m_LocalRotation: {x: -0.01962658, y: 0.3884454, z: 0.008247295, w: 0.9212257}
+  m_LocalPosition: {x: -25.066236, y: 19.391718, z: -7.1413956}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10778,7 +10778,6 @@ MonoBehaviour:
   - Example3Dialogue
   - Example4_dialogue
   - GoblinAttack
-  - GrasslandsSheriff
   - GrasslandsTowerSoldiers
   - Item_LookUp
   - KnightInTown
@@ -10790,7 +10789,7 @@ MonoBehaviour:
   - TriggeredDude
   - Witch
   - WomanTown
-  assignedIndex: 10
+  assignedIndex: -1
   assignedID: 87518
   assignedDialogue: GrasslandsSheriff
   interactionCount: 0
@@ -20559,7 +20558,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &767783160
 Transform:
   m_ObjectHideFlags: 0
@@ -28938,7 +28937,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1066056543
 Transform:
   m_ObjectHideFlags: 0
@@ -36539,18 +36538,23 @@ MonoBehaviour:
   - CrazyCap
   - DEMO_Condition
   - demo_Narration
+  - DogTownInteraction
   - Example3Dialogue
   - Example4_dialogue
-  - GrasslandsSheriff
+  - GoblinAttack
+  - GrasslandsMillManAndDog
   - GrasslandsTowerSoldiers
   - Item_LookUp
+  - KnightInTown
   - Laura
   - MrCube
   - NPCOnly
   - QuestChartDemo
+  - SalesmanTown
   - TriggeredDude
   - Witch
-  assignedIndex: 9
+  - WomanTown
+  assignedIndex: 11
   assignedID: 18609
   assignedDialogue: GrasslandsTowerSoldiers
   interactionCount: 0
@@ -36560,7 +36564,7 @@ MonoBehaviour:
   defaultPlayerSprite: {fileID: 21300000, guid: 9293ec0a777b9b94bac8204fb763e522, type: 3}
   targetManager: {fileID: 0}
   preload: 1
-  notuptodate: 1
+  notuptodate: 0
   startp: 0
   loadtag: 
   langs: []
@@ -36881,7 +36885,7 @@ MonoBehaviour:
       extraData: ExtraData
       inputSetIndex: 18
       outputNodeIndex: -1
-      outActionIndex: -1
+      outActionIndex: 0
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
@@ -37147,7 +37151,21 @@ MonoBehaviour:
     vars: []
     varKeys: []
     isPlayer: 1
-  S_actionNodes: []
+  S_actionNodes:
+  - pauseHere: 0
+    gameObjectName: Soldiers
+    methodName: DialogActionGoToLocation
+    paramType: 3
+    gotoNode: -1
+    param_bool: 0
+    param_string: 
+    param_int: 0
+    param_float: 0
+    ID: 35
+    outPlayerIndex: -1
+    outActionIndex: -1
+    ovrStartNode: -1
+    renameDialogue: 
 --- !u!114 &1361160097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37163,7 +37181,8 @@ MonoBehaviour:
   fingers: 04000000
   UI: {fileID: 4023638674406664683, guid: a26f44e82305cde419cc64aa7e2fbfc6, type: 3}
   title: Soldiers at the tower
-  dialogDestinations: []
+  dialogDestinations:
+  - {fileID: 492001086}
 --- !u!4 &1361479921 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4880770922608714, guid: f4e3b0b9e2a90464abf3016f52c69e32, type: 3}
@@ -44264,7 +44283,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1740428922
 Transform:
   m_ObjectHideFlags: 0
@@ -44273,7 +44292,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1740428921}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 136, y: 15.599998, z: 313}
+  m_LocalPosition: {x: 132.12, y: 15.599998, z: 311.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1576276623}

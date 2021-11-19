@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour {
 		DontDestroyOnLoad(gameObject);
 		// Easy reference to object for other classes
 		game = this;
-		storyData = new StoryData();
+		storyData = new StoryData(0);
 		enemyFightData = new EnemyFightData();
 		enemyFightData.enemyType = EnemyType.SOLDIER;
 	}

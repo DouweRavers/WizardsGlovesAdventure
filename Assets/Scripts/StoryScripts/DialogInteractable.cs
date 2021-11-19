@@ -3,7 +3,7 @@ using VIDE_Data;
 
 [RequireComponent(typeof(VIDE_Assign))]
 public class DialogInteractable : Interactable {
-	[HideInInspector]
+	//[HideInInspector]
 	public GameObject UI;
 
 	public string title = "Dialog";
