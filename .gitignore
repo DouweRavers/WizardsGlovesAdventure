@@ -60,4 +60,4 @@ sysinfo.txt
 crashlytics-build.properties
 
 # custom ignore
-Assets/Resources/VIDE/Resources/EditorSettings.json
+*/EditorSettings.json
