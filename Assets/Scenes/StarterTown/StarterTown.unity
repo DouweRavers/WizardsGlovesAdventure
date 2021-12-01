@@ -2274,72 +2274,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f19c957688bdf7849aa321d60569a6b2, type: 3}
---- !u!1001 &59591887
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 2128933773}
-    m_Modifications:
-    - target: {fileID: 143088, guid: 32a02de6a6cf2194798f0e6e0e1c82ea, type: 3}
-      propertyPath: m_Name
-      value: Character_Samurai_Warrior_Black
-      objectReference: {fileID: 0}
-    - target: {fileID: 456556, guid: 32a02de6a6cf2194798f0e6e0e1c82ea, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 456556, guid: 32a02de6a6cf2194798f0e6e0e1c82ea, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 24.231232
-      objectReference: {fileID: 0}
-    - target: {fileID: 456556, guid: 32a02de6a6cf2194798f0e6e0e1c82ea, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.4477143
-      objectReference: {fileID: 0}
-    - target: {fileID: 456556, guid: 32a02de6a6cf2194798f0e6e0e1c82ea, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -18.40308
-      objectReference: {fileID: 0}
-    - target: {fileID: 456556, guid: 32a02de6a6cf2194798f0e6e0e1c82ea, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 456556, guid: 32a02de6a6cf2194798f0e6e0e1c82ea, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 456556, guid: 32a02de6a6cf2194798f0e6e0e1c82ea, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 456556, guid: 32a02de6a6cf2194798f0e6e0e1c82ea, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 456556, guid: 32a02de6a6cf2194798f0e6e0e1c82ea, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 456556, guid: 32a02de6a6cf2194798f0e6e0e1c82ea, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 456556, guid: 32a02de6a6cf2194798f0e6e0e1c82ea, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9539092, guid: 32a02de6a6cf2194798f0e6e0e1c82ea, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: c6a48b11b69390d439ad1acf3206994b, type: 2}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 32a02de6a6cf2194798f0e6e0e1c82ea, type: 3}
---- !u!4 &59591888 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 456556, guid: 32a02de6a6cf2194798f0e6e0e1c82ea, type: 3}
-  m_PrefabInstance: {fileID: 59591887}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &62961172 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 430254, guid: f21c48374d4fdc4489f7894214718503, type: 3}
@@ -5673,6 +5607,28 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 1363947406}
+--- !u!1 &176055765 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e58817443cb05d744a8720832f9b978b, type: 3}
+  m_PrefabInstance: {fileID: 449004817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &176055766 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e58817443cb05d744a8720832f9b978b, type: 3}
+  m_PrefabInstance: {fileID: 449004817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &176055767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176055765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9be6fa96b029744eb384ca2572ab216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &178216191 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 475842, guid: 576b6d70e3da01b489b5b99e260ddc93, type: 3}
@@ -14539,6 +14495,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5e310684d533124e895f9100f7931f4, type: 3}
+--- !u!1001 &449004817
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1918203700}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: e58817443cb05d744a8720832f9b978b, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e58817443cb05d744a8720832f9b978b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 31.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e58817443cb05d744a8720832f9b978b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.8200724
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e58817443cb05d744a8720832f9b978b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -19.87
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e58817443cb05d744a8720832f9b978b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.49576062
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e58817443cb05d744a8720832f9b978b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e58817443cb05d744a8720832f9b978b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.8684592
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e58817443cb05d744a8720832f9b978b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e58817443cb05d744a8720832f9b978b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e58817443cb05d744a8720832f9b978b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -120.56
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e58817443cb05d744a8720832f9b978b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e58817443cb05d744a8720832f9b978b, type: 3}
+      propertyPath: m_Name
+      value: Cachorro
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: e58817443cb05d744a8720832f9b978b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6895fb2026e5e404faf01e2101fe76cd, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e58817443cb05d744a8720832f9b978b, type: 3}
 --- !u!4 &449281011 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 493852, guid: 52d2ac88e4266ae4287982747ca76a1c, type: 3}
@@ -17308,13 +17325,14 @@ GameObject:
   - component: {fileID: 560009469}
   - component: {fileID: 560009471}
   - component: {fileID: 560009470}
+  - component: {fileID: 560009472}
   m_Layer: 0
-  m_Name: Kick the dog
+  m_Name: Go back to crossing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &560009469
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17354,9 +17372,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Kick the dog
+  m_text: 'Go back to the crossing
 
-    R ring thumb'
+    R middle thumb'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -17419,7 +17437,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 8.974749, y: 0, z: 0.27580827, w: 0}
+  m_margin: {x: 8.974749, y: 0, z: -8.461109, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -17469,6 +17487,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &560009472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560009468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc4a06fd5b540e54396cd69e58ef5c59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fingers: 0500000007000000
+  nextCheckpoint: {fileID: 43822810}
 --- !u!4 &560683988 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 455490, guid: 122f65ce20a93d54d9dcba16303e0785, type: 3}
@@ -23322,72 +23354,6 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 454216, guid: 132d1de61c7a2714f9cff49ced16356d, type: 3}
   m_PrefabInstance: {fileID: 1514942304}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &741594161
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1918203700}
-    m_Modifications:
-    - target: {fileID: 145326, guid: 91a56ed4bbd7cea42b402e691f87d555, type: 3}
-      propertyPath: m_Name
-      value: Character_Ninja_Black
-      objectReference: {fileID: 0}
-    - target: {fileID: 441984, guid: 91a56ed4bbd7cea42b402e691f87d555, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 441984, guid: 91a56ed4bbd7cea42b402e691f87d555, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 32.00305
-      objectReference: {fileID: 0}
-    - target: {fileID: 441984, guid: 91a56ed4bbd7cea42b402e691f87d555, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.7455893
-      objectReference: {fileID: 0}
-    - target: {fileID: 441984, guid: 91a56ed4bbd7cea42b402e691f87d555, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -19.541862
-      objectReference: {fileID: 0}
-    - target: {fileID: 441984, guid: 91a56ed4bbd7cea42b402e691f87d555, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.5015108
-      objectReference: {fileID: 0}
-    - target: {fileID: 441984, guid: 91a56ed4bbd7cea42b402e691f87d555, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 441984, guid: 91a56ed4bbd7cea42b402e691f87d555, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.8651514
-      objectReference: {fileID: 0}
-    - target: {fileID: 441984, guid: 91a56ed4bbd7cea42b402e691f87d555, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 441984, guid: 91a56ed4bbd7cea42b402e691f87d555, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 441984, guid: 91a56ed4bbd7cea42b402e691f87d555, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -119.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 441984, guid: 91a56ed4bbd7cea42b402e691f87d555, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9551236, guid: 91a56ed4bbd7cea42b402e691f87d555, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 7aed3b20d75857f48a8228cb5710cb64, type: 2}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 91a56ed4bbd7cea42b402e691f87d555, type: 3}
---- !u!4 &741594162 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 441984, guid: 91a56ed4bbd7cea42b402e691f87d555, type: 3}
-  m_PrefabInstance: {fileID: 741594161}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &744416378 stripped
 Transform:
@@ -34781,7 +34747,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1107887157}
   m_LocalRotation: {x: -0.05750918, y: 0.7346017, z: 0.0627089, w: 0.6731424}
-  m_LocalPosition: {x: 27.84, y: 3.32, z: -18.68}
+  m_LocalPosition: {x: 26.441, y: 2.834, z: -18.334}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1231217491}
@@ -38628,14 +38594,19 @@ MonoBehaviour:
   - CrazyCap
   - DEMO_Condition
   - demo_Narration
+  - DemonStorage
   - DogTownInteraction
+  - DwarfKing
+  - DwarvenWorkshop
   - Example3Dialogue
   - Example4_dialogue
   - GoblinAttack
   - GrasslandsTowerSoldiers
+  - HugeDemon
   - Item_LookUp
   - KnightInTown
   - Laura
+  - LavaPool
   - MrCube
   - NPCOnly
   - QuestChartDemo
@@ -38643,7 +38614,7 @@ MonoBehaviour:
   - TriggeredDude
   - Witch
   - WomanTown
-  assignedIndex: 12
+  assignedIndex: 16
   assignedID: 85508
   assignedDialogue: KnightInTown
   interactionCount: 0
@@ -38652,12 +38623,61 @@ MonoBehaviour:
   defaultNPCSprite: {fileID: 0}
   defaultPlayerSprite: {fileID: 0}
   targetManager: {fileID: 0}
-  preload: 0
+  preload: 1
   notuptodate: 0
   startp: 0
   loadtag: 
   langs: []
-  S_playerDiags: []
+  S_playerDiags:
+  - commentCount: 1
+    s_comment:
+    - text: 'Hello good sir, I am very sorry to tell you this, but our magnificent
+        King GUI is currently in an audience. '
+      extraData: ExtraData
+      inputSetIndex: 0
+      outputNodeIndex: 1
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 0
+    pTag: Knight
+    sprite: {fileID: 21300000, guid: f7ffbc46ae442ad489f237b2fba6e9d4, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Please come back another time.
+      extraData: ExtraData
+      inputSetIndex: 1
+      outputNodeIndex: 2
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 1
+    pTag: 
+    sprite: {fileID: 21300000, guid: f7ffbc46ae442ad489f237b2fba6e9d4, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: k.
+      extraData: ExtraData
+      inputSetIndex: 2
+      outputNodeIndex: -1
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 2
+    pTag: 
+    sprite: {fileID: 21300000, guid: 9293ec0a777b9b94bac8204fb763e522, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 1
   S_actionNodes: []
 --- !u!1 &1213659974
 GameObject:
@@ -38728,6 +38748,7 @@ MonoBehaviour:
   - DEMO_Condition
   - demo_Narration
   - DogTownInteraction
+  - DwarfKing
   - Example3Dialogue
   - Example4_dialogue
   - GoblinAttack
@@ -38742,7 +38763,7 @@ MonoBehaviour:
   - TriggeredDude
   - Witch
   - WomanTown
-  assignedIndex: 20
+  assignedIndex: 21
   assignedID: 70089
   assignedDialogue: WomanTown
   interactionCount: 0
@@ -38751,12 +38772,46 @@ MonoBehaviour:
   defaultNPCSprite: {fileID: 0}
   defaultPlayerSprite: {fileID: 0}
   targetManager: {fileID: 0}
-  preload: 0
+  preload: 1
   notuptodate: 0
   startp: 0
   loadtag: 
   langs: []
-  S_playerDiags: []
+  S_playerDiags:
+  - commentCount: 1
+    s_comment:
+    - text: Be careful stranger! I hear there is a dangerous goblin somewhere nearby.
+        I really hate those foul creatures, I hope they just stay away in the outskirts
+        of town.
+      extraData: ExtraData
+      inputSetIndex: 0
+      outputNodeIndex: 1
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 0
+    pTag: Woman
+    sprite: {fileID: 21300000, guid: fc30b196ad17e554ea914e727ee38eec, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Thank you for the warning. I will keep an eye out!
+      extraData: ExtraData
+      inputSetIndex: 1
+      outputNodeIndex: -1
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 1
+    pTag: 
+    sprite: {fileID: 21300000, guid: 9293ec0a777b9b94bac8204fb763e522, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 1
   S_actionNodes: []
 --- !u!4 &1214598858 stripped
 Transform:
@@ -40001,6 +40056,68 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a342473935e669649a9be973cda516c1, type: 3}
+--- !u!1001 &1252514048
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2128933773}
+    m_Modifications:
+    - target: {fileID: 153010, guid: 80afb8f52d27bae4f8ff4cf083945861, type: 3}
+      propertyPath: m_Name
+      value: Orc_Wolfrider
+      objectReference: {fileID: 0}
+    - target: {fileID: 413006, guid: 80afb8f52d27bae4f8ff4cf083945861, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 413006, guid: 80afb8f52d27bae4f8ff4cf083945861, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 24.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 413006, guid: 80afb8f52d27bae4f8ff4cf083945861, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.3159049
+      objectReference: {fileID: 0}
+    - target: {fileID: 413006, guid: 80afb8f52d27bae4f8ff4cf083945861, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -19.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 413006, guid: 80afb8f52d27bae4f8ff4cf083945861, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 413006, guid: 80afb8f52d27bae4f8ff4cf083945861, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 413006, guid: 80afb8f52d27bae4f8ff4cf083945861, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 413006, guid: 80afb8f52d27bae4f8ff4cf083945861, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 413006, guid: 80afb8f52d27bae4f8ff4cf083945861, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 413006, guid: 80afb8f52d27bae4f8ff4cf083945861, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 413006, guid: 80afb8f52d27bae4f8ff4cf083945861, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 80afb8f52d27bae4f8ff4cf083945861, type: 3}
+--- !u!4 &1252514049 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 413006, guid: 80afb8f52d27bae4f8ff4cf083945861, type: 3}
+  m_PrefabInstance: {fileID: 1252514048}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1254704817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -60302,7 +60419,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 741594162}
+  - {fileID: 176055766}
   m_Father: {fileID: 141272721}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -60342,14 +60459,19 @@ MonoBehaviour:
   - CrazyCap
   - DEMO_Condition
   - demo_Narration
+  - DemonStorage
   - DogTownInteraction
+  - DwarfKing
+  - DwarvenWorkshop
   - Example3Dialogue
   - Example4_dialogue
   - GoblinAttack
   - GrasslandsTowerSoldiers
+  - HugeDemon
   - Item_LookUp
   - KnightInTown
   - Laura
+  - LavaPool
   - MrCube
   - NPCOnly
   - QuestChartDemo
@@ -60357,7 +60479,7 @@ MonoBehaviour:
   - TriggeredDude
   - Witch
   - WomanTown
-  assignedIndex: 6
+  assignedIndex: 7
   assignedID: 49033
   assignedDialogue: DogTownInteraction
   interactionCount: 0
@@ -60366,13 +60488,235 @@ MonoBehaviour:
   defaultNPCSprite: {fileID: 0}
   defaultPlayerSprite: {fileID: 0}
   targetManager: {fileID: 0}
-  preload: 0
+  preload: 1
   notuptodate: 0
   startp: 0
   loadtag: 
   langs: []
-  S_playerDiags: []
-  S_actionNodes: []
+  S_playerDiags:
+  - commentCount: 1
+    s_comment:
+    - text: '*The Dog seems stuck under the rock*'
+      extraData: ExtraData
+      inputSetIndex: 0
+      outputNodeIndex: 1
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 0
+    pTag: 
+    sprite: {fileID: 21300000, guid: 479352127e34bef45aed0ccbccd1bd0a, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 2
+    s_comment:
+    - text: It's okay buddy, here I'll help you!
+      extraData: ExtraData
+      inputSetIndex: 1
+      outputNodeIndex: 2
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: This will teach you, annoying mutt! *Kick*
+      extraData: ExtraData
+      inputSetIndex: 1
+      outputNodeIndex: 3
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 1
+    pTag: 
+    sprite: {fileID: 21300000, guid: 9293ec0a777b9b94bac8204fb763e522, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 1
+  - commentCount: 1
+    s_comment:
+    - text: '*The dog seems very happy*'
+      extraData: ExtraData
+      inputSetIndex: 2
+      outputNodeIndex: 5
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 2
+    pTag: 
+    sprite: {fileID: 21300000, guid: 479352127e34bef45aed0ccbccd1bd0a, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: '*You kill the dog*'
+      extraData: ExtraData
+      inputSetIndex: 3
+      outputNodeIndex: -1
+      outActionIndex: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 3
+    pTag: 
+    sprite: {fileID: 21300000, guid: 479352127e34bef45aed0ccbccd1bd0a, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Good.
+      extraData: ExtraData
+      inputSetIndex: 4
+      outputNodeIndex: 9
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 4
+    pTag: 
+    sprite: {fileID: 21300000, guid: 9293ec0a777b9b94bac8204fb763e522, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 1
+  - commentCount: 1
+    s_comment:
+    - text: Now to return to your owner, good boy!
+      extraData: ExtraData
+      inputSetIndex: 5
+      outputNodeIndex: 6
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 5
+    pTag: 
+    sprite: {fileID: 21300000, guid: 9293ec0a777b9b94bac8204fb763e522, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 1
+  - commentCount: 1
+    s_comment:
+    - text: 'I congratulate you, good sir.
+
+'
+      extraData: ExtraData
+      inputSetIndex: 6
+      outputNodeIndex: 7
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 6
+    pTag: 
+    sprite: {fileID: 21300000, guid: c2359529a25f8cf47a1f8718f8d042cb, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "You seem to be a very helpful person. Somebody truly light of heart.He
+        calls him somebody light of heart and grants them the Light Element. \r"
+      extraData: ExtraData
+      inputSetIndex: 7
+      outputNodeIndex: 8
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 8
+    pTag: 
+    sprite: {fileID: 21300000, guid: c2359529a25f8cf47a1f8718f8d042cb, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "It would only seem fitting that I should grant you this. The Light Element.
+        \r"
+      extraData: ExtraData
+      inputSetIndex: 8
+      outputNodeIndex: -1
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 9
+    pTag: 
+    sprite: {fileID: 21300000, guid: c2359529a25f8cf47a1f8718f8d042cb, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: 'Oh my, these days you rarely meet somebody so evil.
+
+'
+      extraData: ExtraData
+      inputSetIndex: 9
+      outputNodeIndex: 10
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 10
+    pTag: 
+    sprite: {fileID: 21300000, guid: c2359529a25f8cf47a1f8718f8d042cb, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: "Your heart is truly tainted and rotten to the core. He says that this
+        element might suit them, giving him the Dark Element.\r"
+      extraData: ExtraData
+      inputSetIndex: 10
+      outputNodeIndex: 11
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 11
+    pTag: 
+    sprite: {fileID: 21300000, guid: c2359529a25f8cf47a1f8718f8d042cb, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: In this case,  this element might suit them. I bestow upon thee, The
+        Dark Element.
+      extraData: ExtraData
+      inputSetIndex: 11
+      outputNodeIndex: -1
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 12
+    pTag: 
+    sprite: {fileID: 21300000, guid: c2359529a25f8cf47a1f8718f8d042cb, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  S_actionNodes:
+  - pauseHere: 0
+    gameObjectName: Cachorro
+    methodName: Die
+    paramType: 0
+    gotoNode: -1
+    param_bool: 0
+    param_string: 
+    param_int: 0
+    param_float: 0
+    ID: 7
+    outPlayerIndex: 4
+    outActionIndex: -1
+    ovrStartNode: -1
+    renameDialogue: 
 --- !u!1001 &1918652381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64003,6 +64347,7 @@ MonoBehaviour:
   - DEMO_Condition
   - demo_Narration
   - DogTownInteraction
+  - DwarfKing
   - Example3Dialogue
   - Example4_dialogue
   - GoblinAttack
@@ -64017,7 +64362,7 @@ MonoBehaviour:
   - TriggeredDude
   - Witch
   - WomanTown
-  assignedIndex: 17
+  assignedIndex: 18
   assignedID: 58409
   assignedDialogue: SalesmanTown
   interactionCount: 0
@@ -64026,12 +64371,167 @@ MonoBehaviour:
   defaultNPCSprite: {fileID: 0}
   defaultPlayerSprite: {fileID: 0}
   targetManager: {fileID: 0}
-  preload: 0
+  preload: 1
   notuptodate: 0
   startp: 0
   loadtag: 
   langs: []
-  S_playerDiags: []
+  S_playerDiags:
+  - commentCount: 1
+    s_comment:
+    - text: Hello good sir! Can I intrest you in a fine loaf of bread? I promise
+        it is the best bread you will ever eat!
+      extraData: ExtraData
+      inputSetIndex: 0
+      outputNodeIndex: 1
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 0
+    pTag: 
+    sprite: {fileID: 21300000, guid: c2359529a25f8cf47a1f8718f8d042cb, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Just 5 gold pieces and this delicious bread is yours! What do you say?
+      extraData: ExtraData
+      inputSetIndex: 1
+      outputNodeIndex: 2
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 1
+    pTag: 
+    sprite: {fileID: 21300000, guid: c2359529a25f8cf47a1f8718f8d042cb, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 2
+    s_comment:
+    - text: No thank you, maybe some other time.
+      extraData: ExtraData
+      inputSetIndex: 2
+      outputNodeIndex: 3
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: Sure, I'll have some bread.
+      extraData: ExtraData
+      inputSetIndex: 2
+      outputNodeIndex: 5
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 2
+    pTag: 
+    sprite: {fileID: 21300000, guid: 9293ec0a777b9b94bac8204fb763e522, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 1
+  - commentCount: 1
+    s_comment:
+    - text: Oh that's too bad, good sir. Please try and reconsider.
+      extraData: ExtraData
+      inputSetIndex: 3
+      outputNodeIndex: 4
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 3
+    pTag: 
+    sprite: {fileID: 21300000, guid: c2359529a25f8cf47a1f8718f8d042cb, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Do come back soon as I don't know how fast all my bread will be sold
+        out!
+      extraData: ExtraData
+      inputSetIndex: 4
+      outputNodeIndex: -1
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 4
+    pTag: 
+    sprite: {fileID: 21300000, guid: c2359529a25f8cf47a1f8718f8d042cb, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Oh fantastic! That will be five gol...
+      extraData: ExtraData
+      inputSetIndex: 5
+      outputNodeIndex: 6
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 5
+    pTag: 
+    sprite: {fileID: 21300000, guid: c2359529a25f8cf47a1f8718f8d042cb, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Wait a minute...
+      extraData: ExtraData
+      inputSetIndex: 6
+      outputNodeIndex: 7
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 6
+    pTag: 
+    sprite: {fileID: 21300000, guid: c2359529a25f8cf47a1f8718f8d042cb, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: You don't have any gold!!! How dare you stand here and waste my precious,
+        PRECIOUS time!
+      extraData: ExtraData
+      inputSetIndex: 7
+      outputNodeIndex: 8
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 7
+    pTag: 
+    sprite: {fileID: 21300000, guid: c2359529a25f8cf47a1f8718f8d042cb, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Now scram you! Don't come back till you finally have some gold coins.
+      extraData: ExtraData
+      inputSetIndex: 8
+      outputNodeIndex: -1
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 8
+    pTag: 
+    sprite: {fileID: 21300000, guid: c2359529a25f8cf47a1f8718f8d042cb, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
   S_actionNodes: []
 --- !u!4 &2035097283 stripped
 Transform:
@@ -67379,7 +67879,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 59591888}
+  - {fileID: 1252514049}
   m_Father: {fileID: 1068245076}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -67419,14 +67919,19 @@ MonoBehaviour:
   - CrazyCap
   - DEMO_Condition
   - demo_Narration
+  - DemonStorage
   - DogTownInteraction
+  - DwarfKing
+  - DwarvenWorkshop
   - Example3Dialogue
   - Example4_dialogue
   - GoblinAttack
   - GrasslandsTowerSoldiers
+  - HugeDemon
   - Item_LookUp
   - KnightInTown
   - Laura
+  - LavaPool
   - MrCube
   - NPCOnly
   - QuestChartDemo
@@ -67434,7 +67939,7 @@ MonoBehaviour:
   - TriggeredDude
   - Witch
   - WomanTown
-  assignedIndex: 9
+  assignedIndex: 12
   assignedID: 13976
   assignedDialogue: GoblinAttack
   interactionCount: 0
@@ -67443,13 +67948,75 @@ MonoBehaviour:
   defaultNPCSprite: {fileID: 0}
   defaultPlayerSprite: {fileID: 0}
   targetManager: {fileID: 0}
-  preload: 0
+  preload: 1
   notuptodate: 0
   startp: 0
   loadtag: 
   langs: []
-  S_playerDiags: []
-  S_actionNodes: []
+  S_playerDiags:
+  - commentCount: 1
+    s_comment:
+    - text: I am a goblin, GRRRR
+      extraData: ExtraData
+      inputSetIndex: 0
+      outputNodeIndex: 1
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 0
+    pTag: 
+    sprite: {fileID: 21300000, guid: 281a9b8439c88c145939eedb1c317238, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: You wish to fight me?! So be it!!
+      extraData: ExtraData
+      inputSetIndex: 1
+      outputNodeIndex: 2
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 1
+    pTag: 
+    sprite: {fileID: 21300000, guid: 281a9b8439c88c145939eedb1c317238, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: '*Dies*'
+      extraData: ExtraData
+      inputSetIndex: 2
+      outputNodeIndex: -1
+      outActionIndex: 0
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 2
+    pTag: 
+    sprite: {fileID: 21300000, guid: 281a9b8439c88c145939eedb1c317238, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  S_actionNodes:
+  - pauseHere: 0
+    gameObjectName: OutskirtsCharacters
+    methodName: DialogActionGoToLocation
+    paramType: 3
+    gotoNode: -1
+    param_bool: 0
+    param_string: 
+    param_int: 0
+    param_float: 0
+    ID: 4
+    outPlayerIndex: -1
+    outActionIndex: -1
+    ovrStartNode: -1
+    renameDialogue: 
 --- !u!1001 &2129932024
 PrefabInstance:
   m_ObjectHideFlags: 0
