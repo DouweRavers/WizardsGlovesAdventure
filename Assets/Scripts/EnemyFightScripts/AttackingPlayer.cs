@@ -4,13 +4,11 @@ using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.UI;
 
-public enum elementType
-{
+public enum elementType {
 	Fire, Earth, Dark, Light
 }
 
-public struct PlayerFightData
-{
+public struct PlayerFightData {
 	public elementType element;
 	public bool[] unlockedAttacks;
 	/*
@@ -41,7 +39,7 @@ public class AttackingPlayer : MonoBehaviour {
 	public int manaMedium = 100;
 	public int manaHigh = 150;
 
-	public ParticleSystem fireAttackLow, fireAttackMedium, fireAttackHigh, lightAttackLow, lightAttackMedium, lightAttackHigh, darkAttackLow, darkAttackMedium, darkAttackHigh;
+	public ParticleSystem fireAttackLow, fireAttackMedium, fireAttackHigh, lightAttackLow, lightAttackMedium, lightAttackHigh, darkAttackLow, darkAttackMedium, darkAttackHigh, earthAttackLow, earthAttackMedium, earthAttackHigh;
 	public ParticleSystem heal;
 	public Transform enemy;
 	public Image vid;
@@ -63,8 +61,7 @@ public class AttackingPlayer : MonoBehaviour {
 			//update mana
 			manaPoints -= manaLow;
 			//attack
-			if (GameManager.game.playerFightData.element == elementType.Fire)
-            {
+			if (GameManager.game.playerFightData.element == elementType.Fire) {
 				Debug.Log("FireLow");
 
 				fireAttackLow.Play();
@@ -86,9 +83,7 @@ public class AttackingPlayer : MonoBehaviour {
 				y = z = 0;
 
 				//StartCoroutine(HideImage(time));
-			}
-			else if (GameManager.game.playerFightData.element == elementType.Light)
-            {
+			} else if (GameManager.game.playerFightData.element == elementType.Light) {
 				Debug.Log("LightLow");
 
 				lightAttackLow.Play();
@@ -110,9 +105,7 @@ public class AttackingPlayer : MonoBehaviour {
 				y = z = 0;
 
 				//StartCoroutine(HideImage(time));
-			}
-			else if (GameManager.game.playerFightData.element == elementType.Dark)
-            {
+			} else if (GameManager.game.playerFightData.element == elementType.Dark) {
 				Debug.Log("DarkLow");
 
 				darkAttackLow.Play();
@@ -134,13 +127,11 @@ public class AttackingPlayer : MonoBehaviour {
 				y = z = 0;
 
 				//StartCoroutine(HideImage(time));
-			}
-			else if (GameManager.game.playerFightData.element == elementType.Earth)
-            {
+			} else if (GameManager.game.playerFightData.element == elementType.Earth) {
 				Debug.Log("EarthLow");
 
-				//camerashake
-				StartCoroutine(camerashake.Shake(.15f, .4f));
+				earthAttackLow.Play();
+				//StartCoroutine(camerashake.Shake(.15f, .4f));
 				FindObjectOfType<SoundManager>().Play("PlayerAttackEarth");
 				FightManager.fight.HitEnemy(damageLow, x);
 				/*
@@ -183,8 +174,7 @@ public class AttackingPlayer : MonoBehaviour {
 			//update mana
 			manaPoints -= manaMedium;
 			//attack
-			if (GameManager.game.playerFightData.element == elementType.Fire)
-			{
+			if (GameManager.game.playerFightData.element == elementType.Fire) {
 				Debug.Log("FireMedium");
 
 				fireAttackMedium.Play();
@@ -206,9 +196,7 @@ public class AttackingPlayer : MonoBehaviour {
 				x = z = 0;
 
 				//StartCoroutine(HideImage(time));
-			}
-			else if (GameManager.game.playerFightData.element == elementType.Light)
-			{
+			} else if (GameManager.game.playerFightData.element == elementType.Light) {
 				Debug.Log("LightMedium");
 
 				lightAttackMedium.Play();
@@ -230,9 +218,7 @@ public class AttackingPlayer : MonoBehaviour {
 				x = z = 0;
 
 				//StartCoroutine(HideImage(time));
-			}
-			else if (GameManager.game.playerFightData.element == elementType.Dark)
-			{
+			} else if (GameManager.game.playerFightData.element == elementType.Dark) {
 				Debug.Log("DarkMedium");
 
 				darkAttackMedium.Play();
@@ -254,12 +240,11 @@ public class AttackingPlayer : MonoBehaviour {
 				x = z = 0;
 
 				//StartCoroutine(HideImage(time));
-			}
-			else if (GameManager.game.playerFightData.element == elementType.Earth)
-			{
+			} else if (GameManager.game.playerFightData.element == elementType.Earth) {
 				Debug.Log("EarthMedium");
 
 				//camerashake
+				earthAttackMedium.Play();
 				FindObjectOfType<SoundManager>().Play("PlayerAttackEarth");
 				FightManager.fight.HitEnemy(damageMedium, y);
 				/*
@@ -288,8 +273,7 @@ public class AttackingPlayer : MonoBehaviour {
 			//update mana
 			manaPoints -= manaHigh;
 			//attack
-			if (GameManager.game.playerFightData.element == elementType.Fire)
-			{
+			if (GameManager.game.playerFightData.element == elementType.Fire) {
 				Debug.Log("FireHigh");
 
 				fireAttackHigh.Play();
@@ -311,9 +295,7 @@ public class AttackingPlayer : MonoBehaviour {
 				x = y = 0;
 
 				//StartCoroutine(HideImage(time));
-			}
-			else if (GameManager.game.playerFightData.element == elementType.Light)
-			{
+			} else if (GameManager.game.playerFightData.element == elementType.Light) {
 				Debug.Log("LightHigh");
 
 				lightAttackHigh.Play();
@@ -335,9 +317,7 @@ public class AttackingPlayer : MonoBehaviour {
 				y = x = 0;
 
 				//StartCoroutine(HideImage(time));
-			}
-			else if (GameManager.game.playerFightData.element == elementType.Dark)
-			{
+			} else if (GameManager.game.playerFightData.element == elementType.Dark) {
 				Debug.Log("DarkHigh");
 
 				darkAttackHigh.Play();
@@ -359,13 +339,12 @@ public class AttackingPlayer : MonoBehaviour {
 				y = x = 0;
 
 				//StartCoroutine(HideImage(time));
-			}
-			else if (GameManager.game.playerFightData.element == elementType.Earth)
-			{
+			} else if (GameManager.game.playerFightData.element == elementType.Earth) {
 				Debug.Log("EarthHigh");
 
-				//camerashake
-				StartCoroutine(camerashake.Shake(.15f, .4f));
+
+				//StartCoroutine(camerashake.Shake(.15f, .4f));
+				earthAttackHigh.Play();
 				FindObjectOfType<SoundManager>().Play("PlayerAttackEarth");
 				FightManager.fight.HitEnemy(damageHigh, z);
 				/*
@@ -387,14 +366,11 @@ public class AttackingPlayer : MonoBehaviour {
 			}
 			//HEALING (e)
 		} else if (input.IsCombinationPressed(Finger.MIDDLE_LEFT)) {
-			if (healthPoints < 100) 
-            {
+			if (healthPoints < 100) {
 				heal.Play();
-				if (healthPoints + healing > 100)
-                {
+				if (healthPoints + healing > 100) {
 					healthPoints = 100;
-                } else
-                {
+				} else {
 					healthPoints += healing;
 				}
 			}
@@ -403,8 +379,7 @@ public class AttackingPlayer : MonoBehaviour {
 		}
 	}
 
-	int function(int damage, int amountUsed, Color color, string attack, ParticleSystem attackSystem)
-    {
+	int function(int damage, int amountUsed, Color color, string attack, ParticleSystem attackSystem) {
 		attackSystem.Play();
 		FindObjectOfType<SoundManager>().Play(attack);
 		FightManager.fight.HitEnemy(damage, amountUsed);
@@ -429,19 +404,16 @@ public class AttackingPlayer : MonoBehaviour {
 
 	public void Hit(int points) {
 		healthPoints -= points;
-		if (AttackingPlayer.player.health <= 0)
-		{
+		if (AttackingPlayer.player.health <= 0) {
 			Die();
 		}
 	}
 
-	void Die()
-	{
+	void Die() {
 		StartCoroutine(DieCoroutine());
 	}
 
-	IEnumerator DieCoroutine()
-	{
+	IEnumerator DieCoroutine() {
 		yield return new WaitForSeconds(3.5f);
 		GameManager.game.LoadFightSceneAgain();
 	}
