@@ -43,16 +43,16 @@ public class DialogInteractable : Interactable {
 						VD.Next();
 					}
 				} else {
-					if (Player.player.input.IsCombinationPressed(Finger.THUMB_RIGHT, Finger.RING_RIGHT)) {
+					if (Player.player.input.IsCombinationPressedDown(Finger.THUMB_RIGHT, Finger.RING_RIGHT)) {
 						selectOption++;
 						if (selectOption == comments.Length) selectOption = 0;
 					}
-					if (Player.player.input.IsCombinationPressed(Finger.THUMB_RIGHT, Finger.PINK_RIGHT)) {
+					if (Player.player.input.IsCombinationPressedDown(Finger.THUMB_RIGHT, Finger.PINK_RIGHT)) {
 						selectOption--;
 						if (selectOption < 0) selectOption = comments.Length - 1;
 					}
 					comments[selectOption] = " >> " + comments[selectOption] + " << ";
-					if (Player.player.input.IsCombinationPressed(Finger.THUMB_RIGHT, Finger.POINT_RIGHT)) {
+					if (Player.player.input.IsCombinationPressedDown(Finger.THUMB_RIGHT, Finger.POINT_RIGHT)) {
 						timerOver = false;
 						data.commentIndex = selectOption;
 						VD.Next();
@@ -66,7 +66,7 @@ public class DialogInteractable : Interactable {
 					dialogUI.SetSprite(GetComponent<VIDE_Assign>().defaultNPCSprite);
 				dialogUI.SetText(data.comments[data.commentIndex]);
 				if (!isTiming) StartCoroutine(Timer(data.comments[data.commentIndex]));
-				if (timerOver || Player.player.input.IsCombinationPressed(Finger.THUMB_RIGHT, Finger.POINT_RIGHT)) {
+				if (timerOver || Player.player.input.IsCombinationPressedDown(Finger.THUMB_RIGHT, Finger.POINT_RIGHT)) {
 					timerOver = false;
 					VD.Next();
 				}

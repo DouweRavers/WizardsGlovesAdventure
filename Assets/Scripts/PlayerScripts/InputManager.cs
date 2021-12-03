@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 public enum Finger {
 	PINK_LEFT = 0, RING_LEFT = 1, MIDDLE_LEFT = 2, POINT_LEFT = 3, THUMB_LEFT = 4,
@@ -12,6 +13,9 @@ public class InputManager : MonoBehaviour {
 		false, false, false, false, false,
 		false, false, false, false, false
 	};
+
+	bool pressed = false;
+	bool[] prevCom = null;
 	Vector3 gyroData, magnoData, acceloData;
 
 	public bool leftPink { get { return Input.GetKey("q") || Input.GetKey("a") || fingerData[0]; } }
@@ -81,6 +85,59 @@ public class InputManager : MonoBehaviour {
 			leftToRightFingers[8] == rightRing &&
 			leftToRightFingers[9] == rightPink &&
 			!leftToRightFingers[10];
+	}
+
+	public bool IsCombinationPressedDown(Finger[] fingers) {
+		bool[] fingerArray = new bool[] {
+			Array.Exists(fingers, value => value == Finger.PINK_LEFT),
+			Array.Exists(fingers, value => value == Finger.RING_LEFT),
+			Array.Exists(fingers, value => value == Finger.MIDDLE_LEFT),
+			Array.Exists(fingers, value => value == Finger.POINT_LEFT),
+			Array.Exists(fingers, value => value == Finger.THUMB_LEFT),
+			Array.Exists(fingers, value => value == Finger.THUMB_RIGHT),
+			Array.Exists(fingers, value => value == Finger.POINT_RIGHT),
+			Array.Exists(fingers, value => value == Finger.MIDDLE_RIGHT),
+			Array.Exists(fingers, value => value == Finger.RING_RIGHT),
+			Array.Exists(fingers, value => value == Finger.PINK_RIGHT),
+			Array.Exists(fingers, value => value == Finger.BLOCK),
+			};
+		return IsCombinationPressedDown(fingerArray);
+	}
+
+	public bool IsCombinationPressedDown(Finger firstFinger = Finger.NONE, Finger secondFinger = Finger.NONE,
+		Finger thirdthFinger = Finger.NONE, Finger forthFinger = Finger.NONE,
+		Finger fifthFinger = Finger.NONE, Finger sixthFinger = Finger.NONE,
+		Finger seventhFinger = Finger.NONE, Finger eigthFinger = Finger.NONE,
+		Finger ninethFinger = Finger.NONE, Finger tenthFinger = Finger.NONE) {
+		bool[] fingerArray = new bool[] { false, false, false, false, false, false, false, false, false, false, false };
+		if (firstFinger != Finger.NONE) fingerArray[(int)firstFinger] = true;
+		if (secondFinger != Finger.NONE) fingerArray[(int)secondFinger] = true;
+		if (thirdthFinger != Finger.NONE) fingerArray[(int)thirdthFinger] = true;
+		if (forthFinger != Finger.NONE) fingerArray[(int)forthFinger] = true;
+		if (fifthFinger != Finger.NONE) fingerArray[(int)fifthFinger] = true;
+		if (sixthFinger != Finger.NONE) fingerArray[(int)sixthFinger] = true;
+		if (seventhFinger != Finger.NONE) fingerArray[(int)seventhFinger] = true;
+		if (eigthFinger != Finger.NONE) fingerArray[(int)eigthFinger] = true;
+		if (ninethFinger != Finger.NONE) fingerArray[(int)ninethFinger] = true;
+		if (tenthFinger != Finger.NONE) fingerArray[(int)tenthFinger] = true;
+		return IsCombinationPressedDown(fingerArray);
+	}
+
+	public bool IsCombinationPressedDown(bool[] leftToRightFingers) {
+		bool result = IsCombinationPressed(leftToRightFingers);
+		if (pressed && Enumerable.SequenceEqual(leftToRightFingers, prevCom)) {
+			if (!result) {
+				prevCom = null;
+				pressed = false;
+			}
+			return false;
+		} else {
+			if (result) {
+				prevCom = leftToRightFingers;
+				pressed = true;
+			}
+			return result;
+		}
 	}
 
 	void Update() {
