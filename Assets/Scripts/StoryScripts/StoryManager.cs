@@ -23,6 +23,7 @@ public struct StoryData {
 public class StoryManager : MonoBehaviour {
 	public static StoryManager story;
 	public Level level;
+	public AudioSource pop, select, playerMumble;
 
 	// Set the first checkpoint that will be loaded.
 	public StoryCheckpoint startCheckpoint;

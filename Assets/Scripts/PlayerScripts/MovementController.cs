@@ -10,11 +10,14 @@ public class MovementController : MonoBehaviour {
 	public Vector3 velocity { get { return navMeshAgent.velocity; } }
 	NavMeshAgent navMeshAgent;
 	Animator animator;
+	AudioSource footsteps;
 	List<Vector3> path;
+
 
 	void Start() {
 		navMeshAgent = GetComponent<NavMeshAgent>();
 		animator = GetComponentInChildren<Animator>();
+		footsteps = GetComponent<AudioSource>();
 	}
 
 	// Set target for nav mesh to walk to.
@@ -32,7 +35,8 @@ public class MovementController : MonoBehaviour {
 	}
 
 	void Update() {
-
+		if (velocity.magnitude > 0.1f && !footsteps.isPlaying) footsteps.Play();
+		else if (velocity.magnitude < 0.1f && footsteps.isPlaying) footsteps.Stop();
 		animator.SetFloat("MoveX", animator.transform.InverseTransformVector(velocity).x / 3.5f);
 		animator.SetFloat("MoveY", animator.transform.InverseTransformVector(velocity).z / 3.5f);
 		UpdatePath();

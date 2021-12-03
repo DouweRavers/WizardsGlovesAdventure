@@ -7,21 +7,24 @@ public enum Finger {
 };
 
 public class InputManager : MonoBehaviour {
+	public SerialController serialController1;
+	bool[] fingerData = new bool[] {
+		false, false, false, false, false,
+		false, false, false, false, false
+	};
+	Vector3 gyroData, magnoData, acceloData;
 
-	// A enumb containing every left and right finger
+	public bool leftPink { get { return Input.GetKey("q") || Input.GetKey("a") || fingerData[0]; } }
+	public bool leftRing { get { return Input.GetKey("w") || Input.GetKey("z") || fingerData[1]; } }
+	public bool leftMiddle { get { return Input.GetKey("e") || fingerData[2]; } }
+	public bool leftPoint { get { return Input.GetKey("r") || fingerData[3]; } }
+	public bool leftThumb { get { return Input.GetKey("c") || fingerData[4]; } }
 
-
-	public bool leftPink { get { return Input.GetKey("q") || Input.GetKey("a"); } }
-	public bool leftRing { get { return Input.GetKey("w") || Input.GetKey("z"); } }
-	public bool leftMiddle { get { return Input.GetKey("e"); } }
-	public bool leftPoint { get { return Input.GetKey("r"); } }
-	public bool leftThumb { get { return Input.GetKey("c"); } }
-
-	public bool rightThumb { get { return Input.GetKey("n"); } }
-	public bool rightPoint { get { return Input.GetKey("u"); } }
-	public bool rightMiddle { get { return Input.GetKey("i"); } }
-	public bool rightRing { get { return Input.GetKey("o"); } }
-	public bool rightPink { get { return Input.GetKey("p"); } }
+	public bool rightThumb { get { return Input.GetKey("n") || fingerData[5]; } }
+	public bool rightPoint { get { return Input.GetKey("u") || fingerData[6]; } }
+	public bool rightMiddle { get { return Input.GetKey("i") || fingerData[7]; } }
+	public bool rightRing { get { return Input.GetKey("o") || fingerData[8]; } }
+	public bool rightPink { get { return Input.GetKey("p") || fingerData[9]; } }
 
 	public bool IsCombinationPressed(Finger[] fingers) {
 		bool[] fingerArray = new bool[] {
@@ -78,5 +81,24 @@ public class InputManager : MonoBehaviour {
 			leftToRightFingers[8] == rightRing &&
 			leftToRightFingers[9] == rightPink &&
 			!leftToRightFingers[10];
+	}
+
+	void Update() {
+		ParseData();
+	}
+
+	void ParseData() {
+		string rawData = serialController1.ReadSerialMessage();
+		if (rawData == null || rawData.Length == 0 || rawData[0] != '{') return;
+		rawData = rawData.Trim('{', '}');
+		string[] stringData = rawData.Split(';');
+		float[] data = new float[stringData.Length];
+		for (int i = 0; i < stringData.Length; i++) {
+			data[i] = System.Single.Parse(stringData[i], System.Globalization.CultureInfo.InvariantCulture);
+		}
+		fingerData = new bool[] {
+			false, false, false, false, false,
+			data[0]> 0.5f,data[1]> 0.5f,data[2]> 0.5f,data[3]> 0.5f, data[4]> 0.5f,data[5]> 0.5f
+		};
 	}
 }
