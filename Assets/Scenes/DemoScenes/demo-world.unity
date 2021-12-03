@@ -10161,7 +10161,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9420cf6bf1184bd449f8e9c73b753413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fingers: 0b000000
+  fingers: 00000000
+  UI: {fileID: 4023638674406664683, guid: a26f44e82305cde419cc64aa7e2fbfc6, type: 3}
+  title: Dialog
   dialogDestinations:
   - {fileID: 206745871}
   - {fileID: 1923173757}
@@ -10184,15 +10186,22 @@ MonoBehaviour:
   - CrazyCap
   - DEMO_Condition
   - demo_Narration
+  - DogTownInteraction
   - Example3Dialogue
   - Example4_dialogue
+  - GoblinAttack
+  - GrasslandsMillManAndDog
+  - GrasslandsTowerSoldiers
   - Item_LookUp
+  - KnightInTown
   - Laura
   - MrCube
   - NPCOnly
   - QuestChartDemo
+  - SalesmanTown
   - TriggeredDude
   - Witch
+  - WomanTown
   assignedIndex: 0
   assignedID: 20364
   assignedDialogue: Benny

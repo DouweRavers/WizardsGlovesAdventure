@@ -1,8 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Fantasy Wooden GUI  Free/Scene/Demo.unity.meta
 guid: a5a06ca349139534f8cc1094d2fc7747
 timeCreated: 1510800044
 licenseType: Store
+=======
+guid: 35e2ac7db1165da40aad559f01021327
+>>>>>>> 25677ae89cf0ddc948b696c691f49a4890626774:Assets/Resources/PolygonPrototype/URP_ExtractMe.unitypackage.meta
 DefaultImporter:
+  externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 

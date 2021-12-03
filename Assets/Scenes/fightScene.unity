@@ -4726,7 +4726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 741415262}
-  damage: 40
+  damage: 10
   defense: 5
   enemyType: 1
 --- !u!1001 &1790638096

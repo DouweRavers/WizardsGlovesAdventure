@@ -1,18 +1,28 @@
 using UnityEngine;
 using Cinemachine;
 
+public enum Level {
+	TOWN, GRASSLAND, DUNGEON, NONE
+}
 public struct StoryData {
+	public Level level;
 	public string checkpoint_name; // name of active checkpoint
 	public int[] deathEnemyIDs; // IDs of all the enemies -> used for removing dead ones on load
+	public float ligthDarkFactor;
+	public bool isDogDeath;
 
-	public StoryData(string checkpoint, int[] enemyid) {
-		checkpoint_name = checkpoint;
-		deathEnemyIDs = enemyid;
+	public StoryData(int dummy = 0) {
+		level = Level.NONE;
+		checkpoint_name = "Dummy";
+		deathEnemyIDs = new int[0];
+		ligthDarkFactor = 0f;
+		isDogDeath = false;
 	}
 }
 
 public class StoryManager : MonoBehaviour {
 	public static StoryManager story;
+	public Level level;
 
 	// Set the first checkpoint that will be loaded.
 	public StoryCheckpoint startCheckpoint;
@@ -21,10 +31,12 @@ public class StoryManager : MonoBehaviour {
 
 	void Awake() {
 		story = this;
+		activeCheckpoint = startCheckpoint;
 	}
 
 	void Start() {
-		activeCheckpoint = startCheckpoint;
+		ChangeCheckpoint(startCheckpoint);
+		CameraManager.cameraManager.SetCheckpointCamera(startCheckpoint);
 		assignEnemyIds(); // configures enemyids, it counts from the hierarchy down and includes inactive ones.
 		LoadStory();
 	}
@@ -44,7 +56,7 @@ public class StoryManager : MonoBehaviour {
 		} else if (!Player.player.movement.isMoving) {
 			if (movementToggle) {
 				Player.player.transform.LookAt(activeCheckpoint.checkpointPosition.position + activeCheckpoint.checkpointPosition.forward);
-				CameraManager.cameraManager.SetCheckpointCamera(activeCheckpoint.GetComponentInChildren<CinemachineVirtualCamera>());
+				CameraManager.cameraManager.SetCheckpointCamera(activeCheckpoint);
 				movementToggle = false;
 			}
 			activeCheckpoint.DoCurrentState();
@@ -60,6 +72,7 @@ public class StoryManager : MonoBehaviour {
 
 	public void SaveStory() {
 		// save the last played checkpoint
+		GameManager.game.storyData.level = level;
 		GameManager.game.storyData.checkpoint_name = activeCheckpoint.name;
 	}
 

@@ -11,6 +11,10 @@ public class GameManager : MonoBehaviour {
 	public EnemyFightData enemyFightData;
 	public PlayerFightData playerFightData;
 
+	public GameObject LoadingScreenPrefab;
+	Transform loadingScreenTransform;
+	private AsyncOperation loader;
+
 	GameObject[] gameObjects; // a list of object that can live through scene changes
 
 	void Awake() {
@@ -23,7 +27,7 @@ public class GameManager : MonoBehaviour {
 		DontDestroyOnLoad(gameObject);
 		// Easy reference to object for other classes
 		game = this;
-		storyData = new StoryData("Dummy", new int[0]);
+		storyData = new StoryData(0);
 		enemyFightData = new EnemyFightData();
 		enemyFightData.enemyType = EnemyType.SOLDIER;
 		playerFightData = new PlayerFightData();
@@ -43,16 +47,29 @@ public class GameManager : MonoBehaviour {
 		SceneManager.LoadScene(4);
 	}
 
-	public void LoadWorldScene() {
-		SceneManager.LoadScene(3);
+	public void LoadNextLevel() {
+		if (StoryManager.story != null) StoryManager.story.SaveStory();
+		switch (storyData.level) {
+			case Level.NONE:
+				LoadLevel(Level.TOWN);
+				break;
+			case Level.TOWN:
+				LoadLevel(Level.GRASSLAND);
+				break;
+			case Level.GRASSLAND:
+				LoadLevel(Level.DUNGEON);
+				break;
+			default:
+				break;
+		}
 	}
 
 	public void LoadIntroToFightScene(string type)
-    {
+	{
 		if (type.Equals("Earth"))
-        {
+		{
 			playerFightData.element = elementType.Earth;
-        } else if (type.Equals("Fire"))
+		} else if (type.Equals("Fire"))
 		{
 			playerFightData.element = elementType.Fire;
 		} else if (type.Equals("Dark"))
@@ -62,6 +79,26 @@ public class GameManager : MonoBehaviour {
 		{
 			playerFightData.element = elementType.Light;
 		}
-		SceneManager.LoadScene(1);
+		SceneManager.LoadScene(1); //modify according to build settings!!
+	}
+
+	public void LoadLevel(Level level) {
+		if (StoryManager.story != null) StoryManager.story.SaveStory();
+		loadingScreenTransform = Instantiate(LoadingScreenPrefab).transform;
+		loadingScreenTransform.SetParent(transform);
+		switch (level)
+		{
+			case Level.TOWN:
+				loadingScreenTransform.GetComponent<LoadingScreen>().loader = SceneManager.LoadSceneAsync(1);
+				break;
+			case Level.GRASSLAND:
+				loadingScreenTransform.GetComponent<LoadingScreen>().loader = SceneManager.LoadSceneAsync(2);
+				break;
+			case Level.DUNGEON:
+				loadingScreenTransform.GetComponent<LoadingScreen>().loader = SceneManager.LoadSceneAsync(3);
+				break;
+			default:
+				break;
+		}
 	}
 }
