@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 public enum Finger {
 	PINK_LEFT = 0, RING_LEFT = 1, MIDDLE_LEFT = 2, POINT_LEFT = 3, THUMB_LEFT = 4,
@@ -7,21 +8,27 @@ public enum Finger {
 };
 
 public class InputManager : MonoBehaviour {
+	public SerialController serialController1;
+	bool[] fingerData = new bool[] {
+		false, false, false, false, false,
+		false, false, false, false, false
+	};
 
-	// A enumb containing every left and right finger
+	bool pressed = false;
+	bool[] prevCom = null;
+	Vector3 gyroData, magnoData, acceloData;
 
+	public bool leftPink { get { return Input.GetKey("q") || Input.GetKey("a") || fingerData[0]; } }
+	public bool leftRing { get { return Input.GetKey("w") || Input.GetKey("z") || fingerData[1]; } }
+	public bool leftMiddle { get { return Input.GetKey("e") || fingerData[2]; } }
+	public bool leftPoint { get { return Input.GetKey("r") || fingerData[3]; } }
+	public bool leftThumb { get { return Input.GetKey("c") || fingerData[4]; } }
 
-	public bool leftPink { get { return Input.GetKey("q") || Input.GetKey("a"); } }
-	public bool leftRing { get { return Input.GetKey("w") || Input.GetKey("z"); } }
-	public bool leftMiddle { get { return Input.GetKey("e"); } }
-	public bool leftPoint { get { return Input.GetKey("r"); } }
-	public bool leftThumb { get { return Input.GetKey("c"); } }
-
-	public bool rightThumb { get { return Input.GetKey("n"); } }
-	public bool rightPoint { get { return Input.GetKey("u"); } }
-	public bool rightMiddle { get { return Input.GetKey("i"); } }
-	public bool rightRing { get { return Input.GetKey("o"); } }
-	public bool rightPink { get { return Input.GetKey("p"); } }
+	public bool rightThumb { get { return Input.GetKey("n") || fingerData[5]; } }
+	public bool rightPoint { get { return Input.GetKey("u") || fingerData[6]; } }
+	public bool rightMiddle { get { return Input.GetKey("i") || fingerData[7]; } }
+	public bool rightRing { get { return Input.GetKey("o") || fingerData[8]; } }
+	public bool rightPink { get { return Input.GetKey("p") || fingerData[9]; } }
 
 	public bool IsCombinationPressed(Finger[] fingers) {
 		bool[] fingerArray = new bool[] {
@@ -78,5 +85,77 @@ public class InputManager : MonoBehaviour {
 			leftToRightFingers[8] == rightRing &&
 			leftToRightFingers[9] == rightPink &&
 			!leftToRightFingers[10];
+	}
+
+	public bool IsCombinationPressedDown(Finger[] fingers) {
+		bool[] fingerArray = new bool[] {
+			Array.Exists(fingers, value => value == Finger.PINK_LEFT),
+			Array.Exists(fingers, value => value == Finger.RING_LEFT),
+			Array.Exists(fingers, value => value == Finger.MIDDLE_LEFT),
+			Array.Exists(fingers, value => value == Finger.POINT_LEFT),
+			Array.Exists(fingers, value => value == Finger.THUMB_LEFT),
+			Array.Exists(fingers, value => value == Finger.THUMB_RIGHT),
+			Array.Exists(fingers, value => value == Finger.POINT_RIGHT),
+			Array.Exists(fingers, value => value == Finger.MIDDLE_RIGHT),
+			Array.Exists(fingers, value => value == Finger.RING_RIGHT),
+			Array.Exists(fingers, value => value == Finger.PINK_RIGHT),
+			Array.Exists(fingers, value => value == Finger.BLOCK),
+			};
+		return IsCombinationPressedDown(fingerArray);
+	}
+
+	public bool IsCombinationPressedDown(Finger firstFinger = Finger.NONE, Finger secondFinger = Finger.NONE,
+		Finger thirdthFinger = Finger.NONE, Finger forthFinger = Finger.NONE,
+		Finger fifthFinger = Finger.NONE, Finger sixthFinger = Finger.NONE,
+		Finger seventhFinger = Finger.NONE, Finger eigthFinger = Finger.NONE,
+		Finger ninethFinger = Finger.NONE, Finger tenthFinger = Finger.NONE) {
+		bool[] fingerArray = new bool[] { false, false, false, false, false, false, false, false, false, false, false };
+		if (firstFinger != Finger.NONE) fingerArray[(int)firstFinger] = true;
+		if (secondFinger != Finger.NONE) fingerArray[(int)secondFinger] = true;
+		if (thirdthFinger != Finger.NONE) fingerArray[(int)thirdthFinger] = true;
+		if (forthFinger != Finger.NONE) fingerArray[(int)forthFinger] = true;
+		if (fifthFinger != Finger.NONE) fingerArray[(int)fifthFinger] = true;
+		if (sixthFinger != Finger.NONE) fingerArray[(int)sixthFinger] = true;
+		if (seventhFinger != Finger.NONE) fingerArray[(int)seventhFinger] = true;
+		if (eigthFinger != Finger.NONE) fingerArray[(int)eigthFinger] = true;
+		if (ninethFinger != Finger.NONE) fingerArray[(int)ninethFinger] = true;
+		if (tenthFinger != Finger.NONE) fingerArray[(int)tenthFinger] = true;
+		return IsCombinationPressedDown(fingerArray);
+	}
+
+	public bool IsCombinationPressedDown(bool[] leftToRightFingers) {
+		bool result = IsCombinationPressed(leftToRightFingers);
+		if (pressed && Enumerable.SequenceEqual(leftToRightFingers, prevCom)) {
+			if (!result) {
+				prevCom = null;
+				pressed = false;
+			}
+			return false;
+		} else {
+			if (result) {
+				prevCom = leftToRightFingers;
+				pressed = true;
+			}
+			return result;
+		}
+	}
+
+	void Update() {
+		ParseData();
+	}
+
+	void ParseData() {
+		string rawData = serialController1.ReadSerialMessage();
+		if (rawData == null || rawData.Length == 0 || rawData[0] != '{') return;
+		rawData = rawData.Trim('{', '}');
+		string[] stringData = rawData.Split(';');
+		float[] data = new float[stringData.Length];
+		for (int i = 0; i < stringData.Length; i++) {
+			data[i] = System.Single.Parse(stringData[i], System.Globalization.CultureInfo.InvariantCulture);
+		}
+		fingerData = new bool[] {
+			false, false, false, false, false,
+			data[0]> 0.5f,data[1]> 0.5f,data[2]> 0.5f,data[3]> 0.5f, data[4]> 0.5f,data[5]> 0.5f
+		};
 	}
 }

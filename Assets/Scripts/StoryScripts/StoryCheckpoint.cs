@@ -36,20 +36,22 @@ public class StoryCheckpoint : MonoBehaviour {
 	}
 
 	public void DoCurrentState() {
-		if (Input.GetKeyDown(KeyCode.LeftArrow) && !blockInput) {
+		if (Player.player.input.IsCombinationPressedDown(Finger.THUMB_RIGHT, Finger.RING_RIGHT) && !blockInput) {
 			if (activeIndex + 1 >= interactables.Length) activeIndex = 0;
 			else activeIndex++;
 			activeInteractable.Deselect();
 			activeInteractable = interactables[activeIndex];
 			activeInteractable.Select();
+			storyManager.pop.Play();
 			clearShot.LookAt = activeInteractable.transform;
 		}
-		if (Input.GetKeyDown(KeyCode.RightArrow) && !blockInput) {
+		if (Player.player.input.IsCombinationPressedDown(Finger.THUMB_RIGHT, Finger.PINK_RIGHT) && !blockInput) {
 			if (activeIndex <= 0) activeIndex = interactables.Length - 1;
 			else activeIndex--;
 			activeInteractable.Deselect();
 			activeInteractable = interactables[activeIndex];
 			activeInteractable.Select();
+			storyManager.GetComponent<AudioSource>().Play();
 			clearShot.LookAt = activeInteractable.transform;
 		}
 

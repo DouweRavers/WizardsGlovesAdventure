@@ -8,7 +8,8 @@ public class EnemyInteractable : Interactable {
 	public UnityEvent OnDeath;
 
 	public override void PerformAction() {
-		if (Input.GetKeyDown(KeyCode.Space)) {
+		if (Player.player.input.IsCombinationPressed(Finger.THUMB_RIGHT, Finger.POINT_RIGHT)) {
+			StoryManager.story.select.Play();
 			Fight();
 		}
 	}
@@ -17,8 +18,7 @@ public class EnemyInteractable : Interactable {
 
 	public void Fight() {
 		StoryManager.story.SaveStory();
-		//GameManager.game.LoadFightScene(enemyID, enemyType);
-		Die();
+		GameManager.game.LoadFightScene(enemyID, enemyType);
 	}
 
 	public void Die() {
