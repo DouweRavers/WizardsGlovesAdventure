@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour {
 	public static GameManager game;
 	public StoryData storyData;
 	public EnemyFightData enemyFightData;
+	public GameObject LoadingScreenPrefab;
+	Transform loadingScreenTransform;
+	private AsyncOperation loader;
 
 	GameObject[] gameObjects; // a list of object that can live through scene changes
 
@@ -35,8 +38,39 @@ public class GameManager : MonoBehaviour {
 		SceneManager.LoadSceneAsync(4);
 	}
 
-	public void LoadWorldScene() {
-		SceneManager.LoadScene(3);
+	public void LoadNextLevel() {
+		if (StoryManager.story != null) StoryManager.story.SaveStory();
+		switch (storyData.level) {
+			case Level.NONE:
+				LoadLevel(Level.TOWN);
+				break;
+			case Level.TOWN:
+				LoadLevel(Level.GRASSLAND);
+				break;
+			case Level.GRASSLAND:
+				LoadLevel(Level.DUNGEON);
+				break;
+			default:
+				break;
+		}
 	}
 
+	public void LoadLevel(Level level) {
+		if (StoryManager.story != null) StoryManager.story.SaveStory();
+		loadingScreenTransform = Instantiate(LoadingScreenPrefab).transform;
+		loadingScreenTransform.SetParent(transform);
+		switch (level) {
+			case Level.TOWN:
+				loadingScreenTransform.GetComponent<LoadingScreen>().loader = SceneManager.LoadSceneAsync(1);
+				break;
+			case Level.GRASSLAND:
+				loadingScreenTransform.GetComponent<LoadingScreen>().loader = SceneManager.LoadSceneAsync(2);
+				break;
+			case Level.DUNGEON:
+				loadingScreenTransform.GetComponent<LoadingScreen>().loader = SceneManager.LoadSceneAsync(3);
+				break;
+			default:
+				break;
+		}
+	}
 }

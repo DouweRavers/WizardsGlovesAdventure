@@ -1,39 +1,67 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
 public class StoryCheckpoint : MonoBehaviour {
-	Interactable[] interactables = new Interactable[0];
+	Interactable[] interactables;
+	Interactable activeInteractable;
+	CinemachineClearShot clearShot;
+	int activeIndex = 0;
 	StoryManager storyManager;
 	public Transform checkpointPosition;
-
-	void Awake() {
+	public bool blockInput = false;
+	void Start() {
 		storyManager = GetComponentInParent<StoryManager>();
 		checkpointPosition = GetComponentInChildren<CheckpointLocation>().transform;
+		clearShot = GetComponentInChildren<CinemachineClearShot>();
+		interactables = GetComponentsInChildren<Interactable>();
 	}
 
-	public void OnAssignCheckpoint() { }
-	public void OnDeassignCheckpoint() { }
-	public void DoCurrentState() {
+	public void OnAssignCheckpoint() {
+		if (interactables == null) interactables = GetComponentsInChildren<Interactable>();
+		activeInteractable = interactables[activeIndex];
 		foreach (Interactable interactable in interactables) {
-			interactable.PerformAction();
+			interactable.Deselect();
+		}
+		activeInteractable.Select();
+		clearShot.LookAt = activeInteractable.transform;
+	}
+
+	public void OnDeassignCheckpoint() {
+		if (interactables == null) interactables = GetComponentsInChildren<Interactable>();
+		foreach (Interactable interactable in interactables) {
+			interactable.Deselect();
 		}
 	}
-	public void CheckNextState() {
-		foreach (Interactable interactable in interactables) {
-			interactable.UpdateState();
+
+	public void DoCurrentState() {
+		if (Input.GetKeyDown(KeyCode.LeftArrow) && !blockInput) {
+			if (activeIndex + 1 >= interactables.Length) activeIndex = 0;
+			else activeIndex++;
+			activeInteractable.Deselect();
+			activeInteractable = interactables[activeIndex];
+			activeInteractable.Select();
+			clearShot.LookAt = activeInteractable.transform;
 		}
+		if (Input.GetKeyDown(KeyCode.RightArrow) && !blockInput) {
+			if (activeIndex <= 0) activeIndex = interactables.Length - 1;
+			else activeIndex--;
+			activeInteractable.Deselect();
+			activeInteractable = interactables[activeIndex];
+			activeInteractable.Select();
+			clearShot.LookAt = activeInteractable.transform;
+		}
+
+		activeInteractable.PerformAction();
+	}
+	public void CheckNextState() {
+		activeInteractable.UpdateState();
 	}
 
 	public void TeleportPlayerToCheckpoint() {
 		Player.player.transform.position = checkpointPosition.position;
 		Player.player.transform.rotation = checkpointPosition.rotation;
-	}
-
-	public void AddInteractable(Interactable interactable) {
-		int index = interactables.Length;
-		Array.Resize(ref interactables, interactables.Length + 1);
-		interactables[index] = interactable;
 	}
 
 }

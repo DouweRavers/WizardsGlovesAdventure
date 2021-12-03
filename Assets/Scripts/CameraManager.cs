@@ -12,20 +12,22 @@ public class CameraManager : MonoBehaviour {
 		cameraManager = this;
 	}
 
-	public void SetCheckpointCamera(CinemachineVirtualCamera virtualCamera) {
-		path.Priority = 10;
-		foreach (CinemachineVirtualCamera vcam in story.GetComponentsInChildren<CinemachineVirtualCamera>()) {
-			vcam.Priority = 10;
+	public void SetCheckpointCamera(StoryCheckpoint checkpoint) {
+		path.Priority = 0;
+		foreach (CinemachineClearShot vcam in story.GetComponentsInChildren<CinemachineClearShot>()) {
+			vcam.Priority = 0;
 		}
-		virtualCamera.Priority = 100;
-		virtualCamera.MoveToTopOfPrioritySubqueue();
+		foreach (CinemachineClearShot vcam in checkpoint.GetComponentsInChildren<CinemachineClearShot>()) {
+			vcam.Priority = 10;
+			vcam.MoveToTopOfPrioritySubqueue();
+		}
 	}
 
 	public void SetPathCamera() {
-		foreach (CinemachineVirtualCamera vcam in story.GetComponentsInChildren<CinemachineVirtualCamera>()) {
-			vcam.Priority = 10;
+		foreach (CinemachineClearShot vcam in story.GetComponentsInChildren<CinemachineClearShot>()) {
+			vcam.Priority = 0;
 		}
-		path.Priority = 100;
+		path.Priority = 10;
 		path.MoveToTopOfPrioritySubqueue();
 	}
 }

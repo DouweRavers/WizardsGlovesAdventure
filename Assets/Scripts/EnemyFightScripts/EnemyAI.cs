@@ -56,6 +56,6 @@ public class EnemyAI : MonoBehaviour {
 		Array.Copy(deathEnemyIDs, newDeathEnemyIDs, deathEnemyIDs.Length);
 		newDeathEnemyIDs[deathEnemyIDs.Length] = GameManager.game.enemyFightData.enemyID;
 		GameManager.game.storyData.deathEnemyIDs = newDeathEnemyIDs;
-		GameManager.game.LoadWorldScene();
+		GameManager.game.LoadLevel(GameManager.game.storyData.level);
 	}
 }

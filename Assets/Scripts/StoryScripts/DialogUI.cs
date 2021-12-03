@@ -21,7 +21,6 @@ public class DialogUI : MonoBehaviour {
 		text.text = comment;
 	}
 	public void SetText(string[] comments) {
-		if (comments[0].Equals(text.text)) return;
 		for (int i = 1; i < text.transform.parent.childCount; i++) {
 			Destroy(text.transform.parent.GetChild(i).gameObject);
 		}

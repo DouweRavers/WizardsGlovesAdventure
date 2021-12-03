@@ -5,7 +5,7 @@ public class NavigationInteractable : Interactable {
 
 	public override void PerformAction() { }
 	public override void UpdateState() {
-		if (Player.player.input.IsCombinationPressed(fingers)) StoryManager.story.ChangeCheckpoint(nextCheckpoint);
+		if (Input.GetKeyDown(KeyCode.Space)) StoryManager.story.ChangeCheckpoint(nextCheckpoint);
 	}
 
 
