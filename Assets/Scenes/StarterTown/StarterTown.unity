@@ -52884,6 +52884,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
@@ -68090,8 +68091,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2128933773}
-  - component: {fileID: 2128933774}
   - component: {fileID: 2128933775}
+  - component: {fileID: 2128933774}
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Untagged
@@ -68124,12 +68125,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 2128933772}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc4a06fd5b540e54396cd69e58ef5c59, type: 3}
+  m_Script: {fileID: 11500000, guid: bccd3bf521c569f41aa046d47e89ffb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fingers: 
   SelectIndicator: {fileID: 970998609}
-  nextCheckpoint: {fileID: 141272720}
+  enemyID: 0
+  enemyType: 0
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 848380064}
+        m_TargetAssemblyTypeName: StoryManager, Assembly-CSharp
+        m_MethodName: ChangeCheckpoint
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 141272720}
+          m_ObjectArgumentAssemblyTypeName: StoryCheckpoint, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!82 &2128933775
 AudioSource:
   m_ObjectHideFlags: 0
