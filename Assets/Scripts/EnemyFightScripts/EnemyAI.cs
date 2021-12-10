@@ -8,8 +8,7 @@ public enum EnemyType {
 	ARMORED_SKELETON, SOLDIER, DEMON, GUI
 }
 
-public class EnemyAI : MonoBehaviour
-{
+public class EnemyAI : MonoBehaviour {
 	//public BaseRainScript RainScript;
 
 	public Slider healthBar;
@@ -22,7 +21,7 @@ public class EnemyAI : MonoBehaviour
 
 	bool boost = false;
 	int boostCount = 0;
-	int randHealthBoost = UnityEngine.Random.Range(20, 50);
+	int randHealthBoost = 0;
 	bool hit = false;
 
 	public EnemyType enemyType;
@@ -30,89 +29,68 @@ public class EnemyAI : MonoBehaviour
 
 	int randDefend;
 
-	void Start()
-	{
+	void Start() {
 		Attack();
 		AI = this;
-
+		randHealthBoost = UnityEngine.Random.Range(20, 50);
 		healthBar.maxValue = healthPoints;
 	}
 
-	public void Attack()
-	{
+	public void Attack() {
 		StartCoroutine(AttackCoroutine());
 	}
 
-	public void Hit(float points)
-	{
+	public void Hit(float points) {
 		hit = true;
 		randDefend = UnityEngine.Random.Range(0, defense);
-		if (randDefend == 0)
-		{
-			if (boost != true)
-			{
+		if (randDefend == 0) {
+			if (boost != true) {
 				GetComponentInChildren<Animator>().SetTrigger("Defend");
-			}
-			else
-			{
+			} else {
 				GetComponentInChildren<Animator>().SetTrigger("DefendBoost");
 			}
-		}
-		else
-		{
+		} else {
 			healthPoints -= points;
 			healthBar.value = healthPoints;
-			if (health <= 0)
-			{
+			if (health <= 0) {
 				Die();
 				return;
 			}
 
-			if (randHealthBoost <= health && health <= 50 && boostCount <= 0)
-			{
+			if (randHealthBoost <= health && health <= 50 && boostCount <= 0) {
 				enemyBoost();
 			}
-			if (boost == true)
-			{
+			if (boost == true) {
 				GetComponentInChildren<Animator>().SetTrigger("HitBoost");
 				FindObjectOfType<SoundManager>().Play("EnemyHit");
 
 				enemyNormal();
-			}
-			else
-			{
+			} else {
 				GetComponentInChildren<Animator>().SetTrigger("Hit");
 				FindObjectOfType<SoundManager>().Play("EnemyHit");
 			}
 		}
 	}
 
-	void Die()
-	{
+	void Die() {
 		GetComponentInChildren<Animator>().SetTrigger("Die");
 		FindObjectOfType<SoundManager>().Play("EnemyDeath");
 		StartCoroutine(DieCoroutine());
 	}
 
-	IEnumerator AttackCoroutine()
-	{
+	IEnumerator AttackCoroutine() {
 		timeBeforeNextAttack = UnityEngine.Random.Range(2.0f, 5.0f);
-		for (int i = 0; i < 5; i++)
-		{
-			if (hit)
-			{ // reset the attack timer when hit
+		for (int i = 0; i < 5; i++) {
+			if (hit) { // reset the attack timer when hit
 				i = 0;
 				hit = false;
 			}
 			if (healthPoints <= 0) yield return null; // end attack because death
 			yield return new WaitForSeconds(timeBeforeNextAttack / 5f);
 		}
-		if (boost != true)
-		{
+		if (boost != true) {
 			GetComponentInChildren<Animator>().SetTrigger("Attack");
-		}
-		else
-		{
+		} else {
 			GetComponentInChildren<Animator>().SetTrigger("AttackBoost");
 		}
 		Attack();
@@ -129,8 +107,7 @@ public class EnemyAI : MonoBehaviour
 		GameManager.game.LoadWorldScene();
 	}
 	*/
-	public void enemyBoost()
-	{
+	public void enemyBoost() {
 		damage = 20;
 		defense = 2;
 		float timeBeforeNextAttack = UnityEngine.Random.Range(1.0f, 3.0f);
@@ -138,8 +115,7 @@ public class EnemyAI : MonoBehaviour
 		boost = true;
 		boostCount++;
 	}
-	public void enemyNormal()
-	{
+	public void enemyNormal() {
 		damage = 10;
 		defense = 2;
 		timeBeforeNextAttack = UnityEngine.Random.Range(2.0f, 5.0f);
@@ -147,26 +123,20 @@ public class EnemyAI : MonoBehaviour
 		boost = false;
 	}
 
-	public void EnemyAttack()
-	{
-		if (boost != true)
-		{
+	public void EnemyAttack() {
+		if (boost != true) {
 			FindObjectOfType<SoundManager>().Play("EnemyNormalAttack");
-		}
-		else
-		{
+		} else {
 			FindObjectOfType<SoundManager>().Play("EnemyAttackBoosted");
 		}
 		AttackingPlayer.player.Hit(damage);
 	}
 
-	public void setRandDefend(int newRandDefend)
-	{
+	public void setRandDefend(int newRandDefend) {
 		randDefend = newRandDefend;
 	}
 
-	IEnumerator DieCoroutine()
-	{
+	IEnumerator DieCoroutine() {
 		yield return new WaitForSeconds(3.5f);
 		int[] deathEnemyIDs = GameManager.game.storyData.deathEnemyIDs;
 		int[] newDeathEnemyIDs = new int[deathEnemyIDs.Length + 1];

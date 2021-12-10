@@ -20,6 +20,7 @@ public class StoryCheckpoint : MonoBehaviour {
 
 	public void OnAssignCheckpoint() {
 		if (interactables == null) interactables = GetComponentsInChildren<Interactable>();
+		if (clearShot == null) clearShot = GetComponentInChildren<CinemachineClearShot>();
 		activeInteractable = interactables[activeIndex];
 		foreach (Interactable interactable in interactables) {
 			interactable.Deselect();
