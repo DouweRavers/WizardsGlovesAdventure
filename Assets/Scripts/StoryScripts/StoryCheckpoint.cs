@@ -37,7 +37,7 @@ public class StoryCheckpoint : MonoBehaviour {
 	}
 
 	public void DoCurrentState() {
-		if (Player.player.input.IsCombinationPressedDown(Finger.THUMB_RIGHT, Finger.RING_RIGHT) && !blockInput) {
+		if (!blockInput && Player.player.input.IsRigthSwingGesturePerformed()) {
 			if (activeIndex + 1 >= interactables.Length) activeIndex = 0;
 			else activeIndex++;
 			activeInteractable.Deselect();
@@ -46,7 +46,7 @@ public class StoryCheckpoint : MonoBehaviour {
 			storyManager.pop.Play();
 			clearShot.LookAt = activeInteractable.transform;
 		}
-		if (Player.player.input.IsCombinationPressedDown(Finger.THUMB_RIGHT, Finger.PINK_RIGHT) && !blockInput) {
+		if (!blockInput && Player.player.input.IsLeftSwingGesturePerformed()) {
 			if (activeIndex <= 0) activeIndex = interactables.Length - 1;
 			else activeIndex--;
 			activeInteractable.Deselect();

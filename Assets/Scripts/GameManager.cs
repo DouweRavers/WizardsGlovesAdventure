@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour {
 	public PlayerFightData playerFightData;
 
 	public GameObject LoadingScreenPrefab;
+	public string COML = "COM1", COMR = "COM2";
 	Transform loadingScreenTransform;
 	private AsyncOperation loader;
 
@@ -42,8 +43,7 @@ public class GameManager : MonoBehaviour {
 		enemyFightData.enemyType = enemyType;
 		SceneManager.LoadSceneAsync(4);
 	}
-	public void LoadFightSceneAgain()
-	{
+	public void LoadFightSceneAgain() {
 		SceneManager.LoadScene(4);
 	}
 
@@ -64,19 +64,14 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	public void LoadIntroToFightScene(string type)
-	{
-		if (type.Equals("Earth"))
-		{
+	public void LoadIntroToFightScene(string type) {
+		if (type.Equals("Earth")) {
 			playerFightData.element = elementType.Earth;
-		} else if (type.Equals("Fire"))
-		{
+		} else if (type.Equals("Fire")) {
 			playerFightData.element = elementType.Fire;
-		} else if (type.Equals("Dark"))
-		{
+		} else if (type.Equals("Dark")) {
 			playerFightData.element = elementType.Dark;
-		} else if (type.Equals("Light"))
-		{
+		} else if (type.Equals("Light")) {
 			playerFightData.element = elementType.Light;
 		}
 		SceneManager.LoadScene(1); //modify according to build settings!!
@@ -86,8 +81,7 @@ public class GameManager : MonoBehaviour {
 		if (StoryManager.story != null) StoryManager.story.SaveStory();
 		loadingScreenTransform = Instantiate(LoadingScreenPrefab).transform;
 		loadingScreenTransform.SetParent(transform);
-		switch (level)
-		{
+		switch (level) {
 			case Level.TOWN:
 				loadingScreenTransform.GetComponent<LoadingScreen>().loader = SceneManager.LoadSceneAsync(1);
 				break;
@@ -101,4 +95,11 @@ public class GameManager : MonoBehaviour {
 				break;
 		}
 	}
+
+	public void AddSpell(int spellType) { storyData.AddSpell(spellType); }
+	public int GetSpell(int spellType) { return storyData.spells[spellType]; }
+	public void ChangeKarmaBy(int change) { storyData.karma += change; }
+	public int GetKarma(int spellType) { return storyData.karma; }
+
 }
+

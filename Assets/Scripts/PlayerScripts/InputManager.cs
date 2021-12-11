@@ -1,6 +1,8 @@
 using System;
 using System.Linq;
+using System.Collections.Generic;
 using UnityEngine;
+
 public enum Finger {
 	PINK_LEFT = 0, RING_LEFT = 1, MIDDLE_LEFT = 2, POINT_LEFT = 3, THUMB_LEFT = 4,
 	THUMB_RIGHT = 5, POINT_RIGHT = 6, MIDDLE_RIGHT = 7, RING_RIGHT = 8, PINK_RIGHT = 9,
@@ -16,7 +18,9 @@ public class InputManager : MonoBehaviour {
 
 	bool pressed = false;
 	bool[] prevCom = null;
-	Vector3 gyroData, magnoData, acceloData;
+	public Vector3 gyroscopeData, magnetometerData, accelometerData;
+	List<Vector3> gyroDataPoints, magnetoDataPoints, acceloDataPoints;
+	float gestureTimer = 0f;
 
 	public bool leftPink { get { return Input.GetKey("q") || Input.GetKey("a") || fingerData[0]; } }
 	public bool leftRing { get { return Input.GetKey("w") || Input.GetKey("z") || fingerData[1]; } }
@@ -140,13 +144,101 @@ public class InputManager : MonoBehaviour {
 		}
 	}
 
+	public bool IsRigthSwingGesturePerformed() {
+		if (Time.realtimeSinceStartup - gestureTimer < 1) return false;
+		float avg = 0f;
+		for (int i = 0; i < acceloDataPoints.Count; i++) {
+			avg += acceloDataPoints[i].magnitude;
+		}
+		avg /= acceloDataPoints.Count;
+		if (avg < 0.65f) {
+			avg = 0f;
+			for (int i = 0; i < magnetoDataPoints.Count; i++) {
+				avg += magnetoDataPoints[i].z;
+			}
+			avg /= magnetoDataPoints.Count;
+			if (avg > 60) {
+				gestureTimer = Time.realtimeSinceStartup;
+				serialController1.SendSerialMessage("1");
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public bool IsLeftSwingGesturePerformed() {
+		if (Time.realtimeSinceStartup - gestureTimer < 1) return false;
+		float avg = 0f;
+		for (int i = 0; i < acceloDataPoints.Count; i++) {
+			avg += acceloDataPoints[i].magnitude;
+		}
+		avg /= acceloDataPoints.Count;
+		if (avg < 0.65f) {
+			avg = 0f;
+			for (int i = 0; i < magnetoDataPoints.Count; i++) {
+				avg += magnetoDataPoints[i].z;
+			}
+			avg /= magnetoDataPoints.Count;
+			if (avg < -60) {
+				gestureTimer = Time.realtimeSinceStartup;
+				serialController1.SendSerialMessage("1");
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public bool IsForwardGesturePerformed() {
+		if (Time.realtimeSinceStartup - gestureTimer < 1) return false;
+		float avg = 0f;
+		for (int i = 0; i < magnetoDataPoints.Count; i++) {
+			avg += magnetoDataPoints[i].x;
+		}
+		avg /= magnetoDataPoints.Count;
+		if (avg < 30) {
+			if (accelometerData.x < -1.5f) {
+				gestureTimer = Time.realtimeSinceStartup;
+				serialController1.SendSerialMessage("1");
+				return true;
+			}
+		}
+		return false;
+	}
+
+	void Start() {
+		int sampleSize = 10;
+		gyroDataPoints = new List<Vector3>();
+		for (int i = 0; i < sampleSize; i++) {
+			gyroDataPoints.Add(Vector3.zero);
+		}
+
+		magnetoDataPoints = new List<Vector3>();
+		for (int i = 0; i < sampleSize; i++) {
+			magnetoDataPoints.Add(Vector3.zero);
+		}
+
+		acceloDataPoints = new List<Vector3>();
+		for (int i = 0; i < sampleSize; i++) {
+			acceloDataPoints.Add(Vector3.zero);
+		}
+	}
+
 	void Update() {
 		ParseData();
+		UpdateAverageLists();
+		// IsRigthSwingGesturePerformed();
+		// IsLeftSwingGesturePerformed();
+		// IsForwardGesturePerformed();
 	}
 
 	void ParseData() {
+		bool leftHand = false;
 		string rawData = serialController1.ReadSerialMessage();
-		if (rawData == null || rawData.Length == 0 || rawData[0] != '{') return;
+		if (rawData == null || rawData.Length == 0) return;
+		if (rawData.StartsWith("Lhand:")) leftHand = true;
+		if (!leftHand && !rawData.StartsWith("Rhand:")) return;
+		rawData = rawData.Replace("Lhand:", "");
+		rawData = rawData.Replace("Rhand:", "");
 		rawData = rawData.Trim('{', '}');
 		string[] stringData = rawData.Split(';');
 		float[] data = new float[stringData.Length];
@@ -154,8 +246,20 @@ public class InputManager : MonoBehaviour {
 			data[i] = System.Single.Parse(stringData[i], System.Globalization.CultureInfo.InvariantCulture);
 		}
 		fingerData = new bool[] {
-			false, false, false, false, false,
-			data[0]> 0.5f,data[1]> 0.5f,data[2]> 0.5f,data[3]> 0.5f, data[4]> 0.5f,data[5]> 0.5f
+			data[0]> 0.5f,data[1]> 0.5f,data[2]> 0.5f,data[3]> 0.5f, data[4]> 0.5f,data[5]> 0.5f,
+			false, false, false, false, false
 		};
+		magnetometerData = new Vector3(data[6], data[7], data[8]);
+		gyroscopeData = new Vector3(data[9], data[10], data[11]);
+		accelometerData = new Vector3(data[12], data[13], data[13]);
+	}
+
+	void UpdateAverageLists() {
+		gyroDataPoints.RemoveAt(0);
+		gyroDataPoints.Add(gyroscopeData);
+		magnetoDataPoints.RemoveAt(0);
+		magnetoDataPoints.Add(magnetometerData);
+		acceloDataPoints.RemoveAt(0);
+		acceloDataPoints.Add(accelometerData);
 	}
 }

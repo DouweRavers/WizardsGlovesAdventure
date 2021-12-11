@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5515365612263496693}
   - component: {fileID: 6284466076750519804}
   - component: {fileID: 5176577390291100578}
+  - component: {fileID: 1286426547194435895}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -65,6 +66,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serialController1: {fileID: 5176577390291100578}
+  gyroscopeData: {x: 0, y: 0, z: 0}
+  magnetometerData: {x: 0, y: 0, z: 0}
+  accelometerData: {x: 0, y: 0, z: 0}
 --- !u!114 &2028415161177605219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,7 +211,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bc5f48af2cffd747a079fe8c632e2c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portName: COM6
+  portName: COM4
+  baudRate: 9600
+  messageListener: {fileID: 0}
+  reconnectionDelay: 1000
+  maxUnreadMessages: 1
+--- !u!114 &1286426547194435895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5515365612263496689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc5f48af2cffd747a079fe8c632e2c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  portName: COM3
   baudRate: 9600
   messageListener: {fileID: 0}
   reconnectionDelay: 1000

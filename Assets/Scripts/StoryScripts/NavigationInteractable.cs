@@ -5,7 +5,7 @@ public class NavigationInteractable : Interactable {
 
 	public override void PerformAction() { }
 	public override void UpdateState() {
-		if (Player.player.input.IsCombinationPressedDown(Finger.THUMB_RIGHT, Finger.POINT_RIGHT)) {
+		if (Player.player.input.IsForwardGesturePerformed()) {
 			StoryManager.story.select.Play();
 			StoryManager.story.ChangeCheckpoint(nextCheckpoint);
 		}

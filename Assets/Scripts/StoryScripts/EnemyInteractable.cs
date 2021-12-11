@@ -8,9 +8,10 @@ public class EnemyInteractable : Interactable {
 	public UnityEvent OnDeath;
 
 	public override void PerformAction() {
-		if (Player.player.input.IsCombinationPressed(Finger.THUMB_RIGHT, Finger.POINT_RIGHT)) {
+		if (Player.player.input.IsForwardGesturePerformed()) {
 			StoryManager.story.select.Play();
-			Fight();
+			// Fight();
+			Die();
 		}
 	}
 	public override void UpdateState() {

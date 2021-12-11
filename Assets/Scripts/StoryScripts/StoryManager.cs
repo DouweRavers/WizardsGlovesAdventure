@@ -4,19 +4,29 @@ using Cinemachine;
 public enum Level {
 	TOWN, GRASSLAND, DUNGEON, NONE
 }
+public enum SpellType {
+	ROCK, FIRE, LIGHT, DARK
+}
+
 public struct StoryData {
 	public Level level;
 	public string checkpoint_name; // name of active checkpoint
 	public int[] deathEnemyIDs; // IDs of all the enemies -> used for removing dead ones on load
-	public float ligthDarkFactor;
+	public int karma;
 	public bool isDogDeath;
+	public int[] spells;
 
 	public StoryData(int dummy = 0) {
 		level = Level.NONE;
 		checkpoint_name = "Dummy";
 		deathEnemyIDs = new int[0];
-		ligthDarkFactor = 0f;
+		karma = 0;
 		isDogDeath = false;
+		spells = new int[] { 1, 1, 1, 1 };
+	}
+
+	public void AddSpell(int spellType) {
+		if (spells[spellType] < 3) spells[spellType]++;
 	}
 }
 
