@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour {
 	public EnemyFightData enemyFightData;
 	public PlayerFightData playerFightData;
 
+	public bool isTutorial = true;
+
 	public GameObject LoadingScreenPrefab;
 	Transform loadingScreenTransform;
 	private AsyncOperation loader;

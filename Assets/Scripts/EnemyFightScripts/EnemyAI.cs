@@ -13,6 +13,8 @@ public class EnemyAI : MonoBehaviour
 	//public BaseRainScript RainScript;
 
 	public Slider healthBar;
+	public Text txtWarning;
+	public Image imgBackground, imgWarning;
 
 	float timeBeforeNextAttack;
 	float healthPoints = 100;
@@ -20,9 +22,9 @@ public class EnemyAI : MonoBehaviour
 	public int damage;
 	public int defense;
 
-	bool boost = false;
+	public bool boost = false;
 	int boostCount = 0;
-	int randHealthBoost = UnityEngine.Random.Range(20, 50);
+	//int randHealthBoost;
 	bool hit = false;
 
 	public EnemyType enemyType;
@@ -30,12 +32,21 @@ public class EnemyAI : MonoBehaviour
 
 	int randDefend;
 
+	public ParticleSystem boostAnimation;
+
+	public bool enemyActive = true;
+
 	void Start()
 	{
 		Attack();
 		AI = this;
 
 		healthBar.maxValue = healthPoints;
+		txtWarning.enabled = false;
+		imgBackground.enabled = false;
+		imgWarning.enabled = false;
+
+		//int randHealthBoost = UnityEngine.Random.Range(20, 50);
 	}
 
 	public void Attack()
@@ -68,12 +79,10 @@ public class EnemyAI : MonoBehaviour
 				return;
 			}
 
-			if (randHealthBoost <= health && health <= 50 && boostCount <= 0)
-			{
-				enemyBoost();
-			}
 			if (boost == true)
 			{
+				Debug.Log("boosthit");
+
 				GetComponentInChildren<Animator>().SetTrigger("HitBoost");
 				FindObjectOfType<SoundManager>().Play("EnemyHit");
 
@@ -83,6 +92,12 @@ public class EnemyAI : MonoBehaviour
 			{
 				GetComponentInChildren<Animator>().SetTrigger("Hit");
 				FindObjectOfType<SoundManager>().Play("EnemyHit");
+			}
+			Debug.Log("Health: " + health);
+
+			if (20 <= health && health <= 50 && boostCount <= 0)
+			{
+				enemyBoost(20, 2);
 			}
 		}
 	}
@@ -129,17 +144,35 @@ public class EnemyAI : MonoBehaviour
 		GameManager.game.LoadWorldScene();
 	}
 	*/
-	public void enemyBoost()
+	public void enemyBoost(int newDamage, int newDefense)
 	{
-		damage = 20;
-		defense = 2;
+		Debug.Log("inBoost");
+
+		damage = newDamage;
+		defense = newDefense;
 		float timeBeforeNextAttack = UnityEngine.Random.Range(1.0f, 3.0f);
 
 		boost = true;
 		boostCount++;
+
+		boostAnimation.Play();
+		FindObjectOfType<SoundManager>().Play("EnemyBoost");
+
+		txtWarning.text = "enemy boost";
+		txtWarning.enabled = true;
+		imgBackground.enabled = true;
+		imgWarning.enabled = true;
 	}
 	public void enemyNormal()
 	{
+		Debug.Log("normal");
+
+		boostAnimation.Stop();
+
+		imgWarning.enabled = false;
+		txtWarning.enabled = false;
+		imgBackground.enabled = false;
+
 		damage = 10;
 		defense = 2;
 		timeBeforeNextAttack = UnityEngine.Random.Range(2.0f, 5.0f);
