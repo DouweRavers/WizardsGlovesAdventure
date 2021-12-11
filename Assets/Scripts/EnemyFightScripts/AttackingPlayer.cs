@@ -4,13 +4,11 @@ using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.UI;
 
-public enum elementType
-{
+public enum elementType {
 	Fire, Earth, Dark, Light
 }
 
-public struct PlayerFightData
-{
+public struct PlayerFightData {
 	public elementType element;
 	public bool[] unlockedAttacks;
 	/*
@@ -97,7 +95,7 @@ public class AttackingPlayer : MonoBehaviour {
 				{
 					x++;
 					if (x > 2)
-                    {
+					{
 						fireImmune = true;
 					}
 				}
@@ -107,9 +105,7 @@ public class AttackingPlayer : MonoBehaviour {
 				FindObjectOfType<SoundManager>().Play("PlayerAttackFireLow");
 				FightManager.fight.HitEnemy(damageLow, x, fireImmune);
 
-				Debug.Log("fireLow2");
-							}
-			else if (GameManager.game.playerFightData.element == elementType.Light && !noMoreMana)
+			} else if (GameManager.game.playerFightData.element == elementType.Light && !noMoreMana)
 			{
 				Debug.Log("LightLow");
 
@@ -126,8 +122,7 @@ public class AttackingPlayer : MonoBehaviour {
 				lightAttackLow.Play();
 				FindObjectOfType<SoundManager>().Play("PlayerAttackLightLow");
 				FightManager.fight.HitEnemy(damageLow, x, lightImmune);
-			}
-			else if (GameManager.game.playerFightData.element == elementType.Dark && !noMoreMana)
+			} else if (GameManager.game.playerFightData.element == elementType.Dark && !noMoreMana)
 			{
 				Debug.Log("DarkLow");
 
@@ -498,20 +493,17 @@ public class AttackingPlayer : MonoBehaviour {
 
 	public void Hit(int points) {
 		healthPoints -= points;
-		if (AttackingPlayer.player.health <= 0)
-		{
+		if (AttackingPlayer.player.health <= 0) {
 			Die();
 		}
 		
 	}
 
-	void Die()
-	{
+	void Die() {
 		StartCoroutine(DieCoroutine());
 	}
 
-	IEnumerator DieCoroutine()
-	{
+	IEnumerator DieCoroutine() {
 		yield return new WaitForSeconds(3.5f);
 		GameManager.game.LoadFightSceneAgain();
 	}

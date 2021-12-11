@@ -8,8 +8,7 @@ public enum EnemyType {
 	ARMORED_SKELETON, SOLDIER, DEMON, GUI
 }
 
-public class EnemyAI : MonoBehaviour
-{
+public class EnemyAI : MonoBehaviour {
 	//public BaseRainScript RainScript;
 
 	public Slider healthBar;
@@ -25,6 +24,7 @@ public class EnemyAI : MonoBehaviour
 	public bool boost = false;
 	int boostCount = 0;
 	//int randHealthBoost;
+
 	bool hit = false;
 
 	public EnemyType enemyType;
@@ -40,7 +40,6 @@ public class EnemyAI : MonoBehaviour
 	{
 		Attack();
 		AI = this;
-
 		healthBar.maxValue = healthPoints;
 		txtWarning.enabled = false;
 		imgBackground.enabled = false;
@@ -49,32 +48,23 @@ public class EnemyAI : MonoBehaviour
 		//int randHealthBoost = UnityEngine.Random.Range(20, 50);
 	}
 
-	public void Attack()
-	{
+	public void Attack() {
 		StartCoroutine(AttackCoroutine());
 	}
 
-	public void Hit(float points)
-	{
+	public void Hit(float points) {
 		hit = true;
 		randDefend = UnityEngine.Random.Range(0, defense);
-		if (randDefend == 0)
-		{
-			if (boost != true)
-			{
+		if (randDefend == 0) {
+			if (boost != true) {
 				GetComponentInChildren<Animator>().SetTrigger("Defend");
-			}
-			else
-			{
+			} else {
 				GetComponentInChildren<Animator>().SetTrigger("DefendBoost");
 			}
-		}
-		else
-		{
+		} else {
 			healthPoints -= points;
 			healthBar.value = healthPoints;
-			if (health <= 0)
-			{
+			if (health <= 0) {
 				Die();
 				return;
 			}
@@ -87,9 +77,7 @@ public class EnemyAI : MonoBehaviour
 				FindObjectOfType<SoundManager>().Play("EnemyHit");
 
 				enemyNormal();
-			}
-			else
-			{
+			} else {
 				GetComponentInChildren<Animator>().SetTrigger("Hit");
 				FindObjectOfType<SoundManager>().Play("EnemyHit");
 			}
@@ -102,32 +90,25 @@ public class EnemyAI : MonoBehaviour
 		}
 	}
 
-	void Die()
-	{
+	void Die() {
 		GetComponentInChildren<Animator>().SetTrigger("Die");
 		FindObjectOfType<SoundManager>().Play("EnemyDeath");
 		StartCoroutine(DieCoroutine());
 	}
 
-	IEnumerator AttackCoroutine()
-	{
+	IEnumerator AttackCoroutine() {
 		timeBeforeNextAttack = UnityEngine.Random.Range(2.0f, 5.0f);
-		for (int i = 0; i < 5; i++)
-		{
-			if (hit)
-			{ // reset the attack timer when hit
+		for (int i = 0; i < 5; i++) {
+			if (hit) { // reset the attack timer when hit
 				i = 0;
 				hit = false;
 			}
 			if (healthPoints <= 0) yield return null; // end attack because death
 			yield return new WaitForSeconds(timeBeforeNextAttack / 5f);
 		}
-		if (boost != true)
-		{
+		if (boost != true) {
 			GetComponentInChildren<Animator>().SetTrigger("Attack");
-		}
-		else
-		{
+		} else {
 			GetComponentInChildren<Animator>().SetTrigger("AttackBoost");
 		}
 		Attack();
@@ -150,6 +131,7 @@ public class EnemyAI : MonoBehaviour
 
 		damage = newDamage;
 		defense = newDefense;
+
 		float timeBeforeNextAttack = UnityEngine.Random.Range(1.0f, 3.0f);
 
 		boost = true;
@@ -163,6 +145,7 @@ public class EnemyAI : MonoBehaviour
 		imgBackground.enabled = true;
 		imgWarning.enabled = true;
 	}
+
 	public void enemyNormal()
 	{
 		Debug.Log("normal");
@@ -180,26 +163,20 @@ public class EnemyAI : MonoBehaviour
 		boost = false;
 	}
 
-	public void EnemyAttack()
-	{
-		if (boost != true)
-		{
+	public void EnemyAttack() {
+		if (boost != true) {
 			FindObjectOfType<SoundManager>().Play("EnemyNormalAttack");
-		}
-		else
-		{
+		} else {
 			FindObjectOfType<SoundManager>().Play("EnemyAttackBoosted");
 		}
 		AttackingPlayer.player.Hit(damage);
 	}
 
-	public void setRandDefend(int newRandDefend)
-	{
+	public void setRandDefend(int newRandDefend) {
 		randDefend = newRandDefend;
 	}
 
-	IEnumerator DieCoroutine()
-	{
+	IEnumerator DieCoroutine() {
 		yield return new WaitForSeconds(3.5f);
 		int[] deathEnemyIDs = GameManager.game.storyData.deathEnemyIDs;
 		int[] newDeathEnemyIDs = new int[deathEnemyIDs.Length + 1];

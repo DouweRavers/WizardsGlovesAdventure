@@ -6,7 +6,7 @@ using VIDE_Data;
 public class DialogInteractable : Interactable {
 	//[HideInInspector]
 	public GameObject UI;
-
+	public AudioSource mumble;
 	public string title = "Dialog";
 	DialogUI dialogUI;
 	public StoryCheckpoint[] dialogDestinations;
@@ -30,6 +30,8 @@ public class DialogInteractable : Interactable {
 			var data = VD.nodeData;
 			if (data.sprite != null) dialogUI.SetSprite(data.sprite);
 			if (data.isPlayer) {
+				if (!StoryManager.story.playerMumble.isPlaying) StoryManager.story.playerMumble.Play();
+				if (mumble.isPlaying) mumble.Stop();
 				if (data.sprite == null && GetComponent<VIDE_Assign>().defaultPlayerSprite != null)
 					dialogUI.SetSprite(GetComponent<VIDE_Assign>().defaultPlayerSprite);
 				string[] comments = (string[])data.comments.Clone();
@@ -41,16 +43,16 @@ public class DialogInteractable : Interactable {
 						VD.Next();
 					}
 				} else {
-					if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+					if (Player.player.input.IsCombinationPressedDown(Finger.THUMB_RIGHT, Finger.RING_RIGHT)) {
 						selectOption++;
 						if (selectOption == comments.Length) selectOption = 0;
 					}
-					if (Input.GetKeyDown(KeyCode.RightArrow)) {
+					if (Player.player.input.IsCombinationPressedDown(Finger.THUMB_RIGHT, Finger.PINK_RIGHT)) {
 						selectOption--;
 						if (selectOption < 0) selectOption = comments.Length - 1;
 					}
 					comments[selectOption] = " >> " + comments[selectOption] + " << ";
-					if (Input.GetKeyDown("space")) {
+					if (Player.player.input.IsCombinationPressedDown(Finger.THUMB_RIGHT, Finger.POINT_RIGHT)) {
 						timerOver = false;
 						data.commentIndex = selectOption;
 						VD.Next();
@@ -58,11 +60,13 @@ public class DialogInteractable : Interactable {
 				}
 				dialogUI.SetText(comments);
 			} else {
+				if (!mumble.isPlaying) mumble.Play();
+				if (StoryManager.story.playerMumble.isPlaying) StoryManager.story.playerMumble.Stop();
 				if (data.sprite == null && GetComponent<VIDE_Assign>().defaultNPCSprite != null)
 					dialogUI.SetSprite(GetComponent<VIDE_Assign>().defaultNPCSprite);
 				dialogUI.SetText(data.comments[data.commentIndex]);
 				if (!isTiming) StartCoroutine(Timer(data.comments[data.commentIndex]));
-				if (timerOver || Input.GetKeyDown(KeyCode.Space)) {
+				if (timerOver || Player.player.input.IsCombinationPressedDown(Finger.THUMB_RIGHT, Finger.POINT_RIGHT)) {
 					timerOver = false;
 					VD.Next();
 				}
@@ -74,7 +78,8 @@ public class DialogInteractable : Interactable {
 			}
 		} else {
 			dialogUI.gameObject.SetActive(false);
-			if (Input.GetKeyDown("space")) {
+			if (Player.player.input.IsCombinationPressed(Finger.THUMB_RIGHT, Finger.POINT_RIGHT)) {
+				StoryManager.story.select.Play();
 				VD.BeginDialogue(GetComponent<VIDE_Assign>());
 			}
 		}
