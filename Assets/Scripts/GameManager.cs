@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour {
 	public EnemyFightData enemyFightData;
 	public PlayerFightData playerFightData;
 
+	public bool isTutorial = true;
+
 	public GameObject LoadingScreenPrefab;
 	public string COML = "COM1", COMR = "COM2";
 	Transform loadingScreenTransform;
