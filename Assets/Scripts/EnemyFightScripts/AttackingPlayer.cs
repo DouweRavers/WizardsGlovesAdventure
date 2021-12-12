@@ -4,21 +4,6 @@ using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.UI;
 
-public enum elementType {
-	Fire, Earth, Dark, Light
-}
-
-public struct PlayerFightData {
-	public elementType element;
-	public bool[] unlockedAttacks;
-	/*
-	public PlayerFightData(elementType type = elementType.Fire)
-	{
-		this.element = type;
-	}
-	*/
-}
-
 public class AttackingPlayer : MonoBehaviour {
 	public static AttackingPlayer player;
 	public InputManager input;
@@ -76,8 +61,7 @@ public class AttackingPlayer : MonoBehaviour {
 
 			//update mana
 			manaPoints -= manaLow;
-			if (manaPoints <= 0)
-			{
+			if (manaPoints <= 0) {
 				noMoreMana = true;
 
 				FindObjectOfType<SoundManager>().Play("Alert");
@@ -87,15 +71,12 @@ public class AttackingPlayer : MonoBehaviour {
 			}
 
 			//attack
-			if (GameManager.game.playerFightData.element == elementType.Fire && !noMoreMana)
-			{
+			if (GameManager.game.playerFightData.element == elementType.Fire && !noMoreMana) {
 				Debug.Log("FireLow");
 
-				if (EnemyAI.AI.boost == false)
-				{
+				if (EnemyAI.AI.boost == false) {
 					x++;
-					if (x > 2)
-					{
+					if (x > 2) {
 						fireImmune = true;
 					}
 				}
@@ -105,15 +86,12 @@ public class AttackingPlayer : MonoBehaviour {
 				FindObjectOfType<SoundManager>().Play("PlayerAttackFireLow");
 				FightManager.fight.HitEnemy(damageLow, x, fireImmune);
 
-			} else if (GameManager.game.playerFightData.element == elementType.Light && !noMoreMana)
-			{
+			} else if (GameManager.game.playerFightData.element == elementType.Light && !noMoreMana) {
 				Debug.Log("LightLow");
 
-				if (EnemyAI.AI.boost == false)
-				{
+				if (EnemyAI.AI.boost == false) {
 					x++;
-					if (x > 2)
-					{
+					if (x > 2) {
 						lightImmune = true;
 					}
 				}
@@ -122,15 +100,12 @@ public class AttackingPlayer : MonoBehaviour {
 				lightAttackLow.Play();
 				FindObjectOfType<SoundManager>().Play("PlayerAttackLightLow");
 				FightManager.fight.HitEnemy(damageLow, x, lightImmune);
-			} else if (GameManager.game.playerFightData.element == elementType.Dark && !noMoreMana)
-			{
+			} else if (GameManager.game.playerFightData.element == elementType.Dark && !noMoreMana) {
 				Debug.Log("DarkLow");
 
-				if (EnemyAI.AI.boost == false)
-				{
+				if (EnemyAI.AI.boost == false) {
 					x++;
-					if (x > 2)
-					{
+					if (x > 2) {
 						darkImmune = true;
 					}
 				}
@@ -139,16 +114,12 @@ public class AttackingPlayer : MonoBehaviour {
 				darkAttackLow.Play();
 				FindObjectOfType<SoundManager>().Play("PlayerAttackDarkLow");
 				FightManager.fight.HitEnemy(damageLow, x, darkImmune);
-			}
-			else if (GameManager.game.playerFightData.element == elementType.Earth && !noMoreMana)
-			{
+			} else if (GameManager.game.playerFightData.element == elementType.Earth && !noMoreMana) {
 				Debug.Log("EarthLow");
 
-				if (EnemyAI.AI.boost == false)
-				{
+				if (EnemyAI.AI.boost == false) {
 					x++;
-					if (x > 2)
-					{
+					if (x > 2) {
 						earthImmune = true;
 					}
 				}
@@ -163,8 +134,7 @@ public class AttackingPlayer : MonoBehaviour {
 			gestureLow.SetActive(true);
 
 			float time = 0;
-			foreach (VideoPlayer video in gestureLow.GetComponents<VideoPlayer>())
-			{
+			foreach (VideoPlayer video in gestureLow.GetComponents<VideoPlayer>()) {
 				video.Play();
 				time = (float)video.length;
 			}
@@ -178,8 +148,7 @@ public class AttackingPlayer : MonoBehaviour {
 
 			//update mana
 			manaPoints -= manaMedium;
-			if (manaPoints <= 0)
-			{
+			if (manaPoints <= 0) {
 				noMoreMana = true;
 
 				FindObjectOfType<SoundManager>().Play("Alert");
@@ -188,15 +157,12 @@ public class AttackingPlayer : MonoBehaviour {
 				manaPoints += manaMedium;
 			}
 			//attack
-			if (GameManager.game.playerFightData.element == elementType.Fire && !noMoreMana)
-			{
+			if (GameManager.game.playerFightData.element == elementType.Fire && !noMoreMana) {
 				Debug.Log("FireMedium");
 
-				if (EnemyAI.AI.boost == false)
-				{
+				if (EnemyAI.AI.boost == false) {
 					y++;
-					if (y > 2)
-					{
+					if (y > 2) {
 						fireImmune = true;
 					}
 				}
@@ -205,16 +171,12 @@ public class AttackingPlayer : MonoBehaviour {
 				fireAttackMedium.Play();
 				FindObjectOfType<SoundManager>().Play("PlayerAttackFireMedium");
 				FightManager.fight.HitEnemy(damageMedium, y, fireImmune);
-			}
-			else if (GameManager.game.playerFightData.element == elementType.Light && !noMoreMana)
-			{
+			} else if (GameManager.game.playerFightData.element == elementType.Light && !noMoreMana) {
 				Debug.Log("LightMedium");
 
-				if (EnemyAI.AI.boost == false)
-				{
+				if (EnemyAI.AI.boost == false) {
 					y++;
-					if (y > 2)
-					{
+					if (y > 2) {
 						lightImmune = true;
 					}
 				}
@@ -223,16 +185,12 @@ public class AttackingPlayer : MonoBehaviour {
 				lightAttackMedium.Play();
 				FindObjectOfType<SoundManager>().Play("PlayerAttackLightMedium");
 				FightManager.fight.HitEnemy(damageMedium, y, lightImmune);
-			}
-			else if (GameManager.game.playerFightData.element == elementType.Dark && !noMoreMana)
-			{
+			} else if (GameManager.game.playerFightData.element == elementType.Dark && !noMoreMana) {
 				Debug.Log("DarkMedium");
 
-				if (EnemyAI.AI.boost == false)
-				{
+				if (EnemyAI.AI.boost == false) {
 					y++;
-					if (y > 2)
-					{
+					if (y > 2) {
 						darkImmune = true;
 					}
 				}
@@ -241,16 +199,12 @@ public class AttackingPlayer : MonoBehaviour {
 				darkAttackMedium.Play();
 				FindObjectOfType<SoundManager>().Play("PlayerAttackDarkMedium");
 				FightManager.fight.HitEnemy(damageMedium, y, darkImmune);
-			}
-			else if (GameManager.game.playerFightData.element == elementType.Earth && !noMoreMana)
-			{
+			} else if (GameManager.game.playerFightData.element == elementType.Earth && !noMoreMana) {
 				Debug.Log("EarthMedium");
 
-				if (EnemyAI.AI.boost == false)
-				{
+				if (EnemyAI.AI.boost == false) {
 					y++;
-					if (y > 2)
-					{
+					if (y > 2) {
 						earthImmune = true;
 					}
 				}
@@ -266,8 +220,7 @@ public class AttackingPlayer : MonoBehaviour {
 			gestureMedium.SetActive(true);
 
 			float time = 0;
-			foreach (VideoPlayer video in gestureMedium.GetComponents<VideoPlayer>())
-			{
+			foreach (VideoPlayer video in gestureMedium.GetComponents<VideoPlayer>()) {
 				video.Play();
 				time = (float)video.length;
 			}
@@ -281,8 +234,7 @@ public class AttackingPlayer : MonoBehaviour {
 
 			//update mana
 			manaPoints -= manaHigh;
-			if (manaPoints <= 0)
-			{
+			if (manaPoints <= 0) {
 				noMoreMana = true;
 
 				FindObjectOfType<SoundManager>().Play("Alert");
@@ -292,15 +244,12 @@ public class AttackingPlayer : MonoBehaviour {
 			}
 
 			//attack
-			if (GameManager.game.playerFightData.element == elementType.Fire && !noMoreMana)
-			{
+			if (GameManager.game.playerFightData.element == elementType.Fire && !noMoreMana) {
 				Debug.Log("FireHigh");
 
-				if (EnemyAI.AI.boost == false)
-				{
+				if (EnemyAI.AI.boost == false) {
 					z++;
-					if (z > 2)
-					{
+					if (z > 2) {
 						fireImmune = true;
 					}
 				}
@@ -309,16 +258,12 @@ public class AttackingPlayer : MonoBehaviour {
 				fireAttackHigh.Play();
 				FindObjectOfType<SoundManager>().Play("PlayerAttackFireHigh");
 				FightManager.fight.HitEnemy(damageHigh, z, fireImmune);
-			}
-			else if (GameManager.game.playerFightData.element == elementType.Light && !noMoreMana)
-			{
+			} else if (GameManager.game.playerFightData.element == elementType.Light && !noMoreMana) {
 				Debug.Log("LightHigh");
 
-				if (EnemyAI.AI.boost == false)
-				{
+				if (EnemyAI.AI.boost == false) {
 					z++;
-					if (z > 2)
-					{
+					if (z > 2) {
 						lightImmune = true;
 					}
 				}
@@ -327,16 +272,12 @@ public class AttackingPlayer : MonoBehaviour {
 				lightAttackHigh.Play();
 				FindObjectOfType<SoundManager>().Play("PlayerAttackLightHigh");
 				FightManager.fight.HitEnemy(damageHigh, z, lightImmune);
-			}
-			else if (GameManager.game.playerFightData.element == elementType.Dark && !noMoreMana)
-			{
+			} else if (GameManager.game.playerFightData.element == elementType.Dark && !noMoreMana) {
 				Debug.Log("DarkHigh");
 
-				if (EnemyAI.AI.boost == false)
-				{
+				if (EnemyAI.AI.boost == false) {
 					z++;
-					if (z > 2)
-					{
+					if (z > 2) {
 						darkImmune = true;
 					}
 				}
@@ -345,16 +286,12 @@ public class AttackingPlayer : MonoBehaviour {
 				darkAttackHigh.Play();
 				FindObjectOfType<SoundManager>().Play("PlayerAttackDarkHigh");
 				FightManager.fight.HitEnemy(damageHigh, z, darkImmune);
-			}
-			else if (GameManager.game.playerFightData.element == elementType.Earth && !noMoreMana)
-			{
+			} else if (GameManager.game.playerFightData.element == elementType.Earth && !noMoreMana) {
 				Debug.Log("EarthHigh");
 
-				if (EnemyAI.AI.boost == false)
-				{
+				if (EnemyAI.AI.boost == false) {
 					z++;
-					if (z > 2)
-					{
+					if (z > 2) {
 						earthImmune = true;
 					}
 				}
@@ -371,8 +308,7 @@ public class AttackingPlayer : MonoBehaviour {
 			gestureMedium.SetActive(true);
 
 			float time = 0;
-			foreach (VideoPlayer video in gestureMedium.GetComponents<VideoPlayer>())
-			{
+			foreach (VideoPlayer video in gestureMedium.GetComponents<VideoPlayer>()) {
 				video.Play();
 				time = (float)video.length;
 			}
@@ -385,28 +321,22 @@ public class AttackingPlayer : MonoBehaviour {
 			else toggler = true;
 
 			Debug.Log("healing");
-			if (healthPoints < 100)
-			{
+			if (healthPoints < 100) {
 				manaPoints -= manaLow;
-				if (manaPoints <= 0)
-				{
+				if (manaPoints <= 0) {
 					noMoreMana = true;
 					manaPoints += manaLow;
 				}
-				if (!noMoreMana)
-				{
+				if (!noMoreMana) {
 					heal.Play();
-					if (healthPoints + healing > 100)
-					{
+					if (healthPoints + healing > 100) {
 						healthPoints = 100;
-					}
-					else
-					{
+					} else {
 						healthPoints += healing;
 					}
 				}
 			}
-		//change element
+			//change element
 		} else if (input.IsCombinationPressed(Finger.PINK_LEFT)) {
 			//Finger.PINK_LEFT, Finger.PINK_RIGHT, Finger.RING_LEFT, Finger.RING_RIGHT, Finger.MIDDLE_LEFT, Finger.MIDDLE_RIGHT, Finger.POINT_LEFT, Finger.POINT_RIGHT
 			GameManager.game.playerFightData.element = elementType.Dark;
@@ -416,15 +346,13 @@ public class AttackingPlayer : MonoBehaviour {
 			gestureDark.SetActive(true);
 
 			float time = 0;
-			foreach (VideoPlayer video in gestureDark.GetComponents<VideoPlayer>())
-			{
+			foreach (VideoPlayer video in gestureDark.GetComponents<VideoPlayer>()) {
 				video.Play();
 				time = (float)video.length;
 			}
 
 			StartCoroutine(HideImage(time, gestureDark));
-		} else if (input.IsCombinationPressed(Finger.PINK_RIGHT))
-		{
+		} else if (input.IsCombinationPressed(Finger.PINK_RIGHT)) {
 			//Finger.PINK_LEFT, Finger.PINK_RIGHT, Finger.RING_LEFT, Finger.RING_RIGHT, Finger.MIDDLE_LEFT, Finger.MIDDLE_RIGHT, Finger.POINT_LEFT, Finger.POINT_RIGHT
 			GameManager.game.playerFightData.element = elementType.Light;
 			element.text = "Your element: Light";
@@ -433,15 +361,13 @@ public class AttackingPlayer : MonoBehaviour {
 			gestureLight.SetActive(true);
 
 			float time = 0;
-			foreach (VideoPlayer video in gestureLight.GetComponents<VideoPlayer>())
-			{
+			foreach (VideoPlayer video in gestureLight.GetComponents<VideoPlayer>()) {
 				video.Play();
 				time = (float)video.length;
 			}
 
 			StartCoroutine(HideImage(time, gestureLight));
-		} else if (input.IsCombinationPressed(Finger.POINT_LEFT))
-		{
+		} else if (input.IsCombinationPressed(Finger.POINT_LEFT)) {
 			//Finger.PINK_LEFT, Finger.PINK_RIGHT, Finger.RING_LEFT, Finger.RING_RIGHT, Finger.MIDDLE_LEFT, Finger.MIDDLE_RIGHT, Finger.POINT_LEFT, Finger.POINT_RIGHT
 			GameManager.game.playerFightData.element = elementType.Fire;
 			element.text = "Your element: Fire";
@@ -450,15 +376,13 @@ public class AttackingPlayer : MonoBehaviour {
 			gestureFire.SetActive(true);
 
 			float time = 0;
-			foreach (VideoPlayer video in gestureFire.GetComponents<VideoPlayer>())
-			{
+			foreach (VideoPlayer video in gestureFire.GetComponents<VideoPlayer>()) {
 				video.Play();
 				time = (float)video.length;
 			}
 
 			StartCoroutine(HideImage(time, gestureFire));
-		} else if (input.IsCombinationPressed(Finger.RING_LEFT))
-		{
+		} else if (input.IsCombinationPressed(Finger.RING_LEFT)) {
 			//Finger.PINK_LEFT, Finger.PINK_RIGHT, Finger.RING_LEFT, Finger.RING_RIGHT, Finger.MIDDLE_LEFT, Finger.MIDDLE_RIGHT, Finger.POINT_LEFT, Finger.POINT_RIGHT
 			GameManager.game.playerFightData.element = elementType.Earth;
 			element.text = "Your element: Earth";
@@ -467,8 +391,7 @@ public class AttackingPlayer : MonoBehaviour {
 			gestureEarth.SetActive(true);
 
 			float time = 0;
-			foreach (VideoPlayer video in gestureEarth.GetComponents<VideoPlayer>())
-			{
+			foreach (VideoPlayer video in gestureEarth.GetComponents<VideoPlayer>()) {
 				video.Play();
 				time = (float)video.length;
 			}
@@ -478,11 +401,10 @@ public class AttackingPlayer : MonoBehaviour {
 			toggler = false;
 		}
 
-		if(mana <= 100)
-        {
+		if (mana <= 100) {
 			FindObjectOfType<SoundManager>().Play("Alert");
 			txtFeedback.text = "don't forget about your mana!";
-        }
+		}
 	}
 
 
@@ -496,7 +418,7 @@ public class AttackingPlayer : MonoBehaviour {
 		if (AttackingPlayer.player.health <= 0) {
 			Die();
 		}
-		
+
 	}
 
 	void Die() {

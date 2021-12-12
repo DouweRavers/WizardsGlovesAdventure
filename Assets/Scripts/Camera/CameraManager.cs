@@ -11,7 +11,6 @@ public class CameraManager : MonoBehaviour {
 	void Awake() {
 		cameraManager = this;
 	}
-
 	public void SetCheckpointCamera(StoryCheckpoint checkpoint) {
 		path.Priority = 0;
 		foreach (CinemachineClearShot vcam in story.GetComponentsInChildren<CinemachineClearShot>()) {

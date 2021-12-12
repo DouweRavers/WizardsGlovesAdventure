@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18369564, g: 0.22913544, b: 0.30492646, a: 1}
+  m_IndirectSpecularColor: {r: 0.18369593, g: 0.22913624, b: 0.3049276, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -843,6 +843,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoadingScreenPrefab: {fileID: 0}
+  COML: COM1
+  COMR: COM2
 --- !u!4 &244626055 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 415022, guid: 2b1cd4ec8dfee7041b5bc5767613d249, type: 3}
@@ -1844,6 +1846,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoadingScreenPrefab: {fileID: 0}
+  COML: COM1
+  COMR: COM2
 --- !u!1 &458835822
 GameObject:
   m_ObjectHideFlags: 0
@@ -2084,6 +2088,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoadingScreenPrefab: {fileID: 0}
+  COML: COM1
+  COMR: COM2
 --- !u!1 &522566074
 GameObject:
   m_ObjectHideFlags: 0
@@ -2310,6 +2316,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoadingScreenPrefab: {fileID: 0}
+  COML: COM1
+  COMR: COM2
 --- !u!1 &672570101
 GameObject:
   m_ObjectHideFlags: 0
@@ -2593,6 +2601,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 0
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
@@ -3529,8 +3538,16 @@ MonoBehaviour:
   earthAttackHigh: {fileID: 0}
   heal: {fileID: 0}
   enemy: {fileID: 50417136}
-  gesture1: {fileID: 0}
+  gestureLow: {fileID: 0}
+  gestureMedium: {fileID: 0}
+  gestureHigh: {fileID: 0}
+  gestureFire: {fileID: 0}
+  gestureDark: {fileID: 0}
+  gestureLight: {fileID: 0}
+  gestureEarth: {fileID: 0}
   element: {fileID: 0}
+  txtFeedback: {fileID: 0}
+  imgFeedback: {fileID: 0}
 --- !u!114 &1106673008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3543,6 +3560,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dba7f1e2857b77343965563cc4204959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serialController1: {fileID: 0}
+  gyroscopeData: {x: 0, y: 0, z: 0}
+  magnetometerData: {x: 0, y: 0, z: 0}
+  accelometerData: {x: 0, y: 0, z: 0}
 --- !u!1 &1137900674
 GameObject:
   m_ObjectHideFlags: 0
@@ -3923,8 +3944,10 @@ MonoBehaviour:
   enemies: {fileID: 50417136}
   damageDecrease: 1
   txtWarning: {fileID: 0}
+  txtFeedback: {fileID: 0}
   imgBackground: {fileID: 0}
   imgWarning: {fileID: 0}
+  imgFeedback: {fileID: 0}
   defendAnimation: {fileID: 0}
 --- !u!4 &1353962414
 Transform:
@@ -4707,6 +4730,7 @@ GameObject:
   - component: {fileID: 1618705247}
   - component: {fileID: 1618705246}
   - component: {fileID: 1618705248}
+  - component: {fileID: 1618705249}
   m_Layer: 0
   m_Name: IntroManager
   m_TagString: Untagged
@@ -4763,6 +4787,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dba7f1e2857b77343965563cc4204959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serialController1: {fileID: 1618705249}
+  gyroscopeData: {x: 0, y: 0, z: 0}
+  magnetometerData: {x: 0, y: 0, z: 0}
+  accelometerData: {x: 0, y: 0, z: 0}
+--- !u!114 &1618705249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618705245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc5f48af2cffd747a079fe8c632e2c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  portName: COM4
+  baudRate: 9600
+  messageListener: {fileID: 0}
+  reconnectionDelay: 1000
+  maxUnreadMessages: 1
 --- !u!1 &1643377264
 GameObject:
   m_ObjectHideFlags: 0
@@ -5046,8 +5091,9 @@ MonoBehaviour:
   damage: 40
   defense: 5
   boost: 0
-  enemyType: 1
+  enemyType: 0
   boostAnimation: {fileID: 0}
+  enemyActive: 1
 --- !u!1001 &1795403960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -79235,6 +79281,7 @@ MonoBehaviour:
   boost: 0
   enemyType: 0
   boostAnimation: {fileID: 0}
+  enemyActive: 1
 --- !u!108 &8683791388122138875
 Light:
   m_ObjectHideFlags: 0

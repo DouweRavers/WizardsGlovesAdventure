@@ -10,9 +10,6 @@ public class GameManager : MonoBehaviour {
 	public StoryData storyData;
 	public EnemyFightData enemyFightData;
 	public PlayerFightData playerFightData;
-
-	public bool isTutorial = true;
-
 	public GameObject LoadingScreenPrefab;
 	public string COML = "COM1", COMR = "COM2";
 	Transform loadingScreenTransform;
@@ -31,20 +28,17 @@ public class GameManager : MonoBehaviour {
 		// Easy reference to object for other classes
 		game = this;
 		storyData = new StoryData(0);
-		enemyFightData = new EnemyFightData();
-		enemyFightData.enemyType = EnemyType.SOLDIER;
+		enemyFightData = new EnemyFightData(0, EnemyType.KOBOLD, false);
 		playerFightData = new PlayerFightData();
 	}
 
-
-
-	public void LoadFightScene(int enemyID, EnemyType enemyType) {
+	public void LoadFightScene(int enemyID, EnemyType enemyType, bool tutorialEnabled) {
 		StoryManager.story.SaveStory();
-		enemyFightData = new EnemyFightData();
-		enemyFightData.enemyID = enemyID;
-		enemyFightData.enemyType = enemyType;
-		SceneManager.LoadSceneAsync(4);
+		enemyFightData = new EnemyFightData(enemyID, enemyType, tutorialEnabled);
+		if (tutorialEnabled) SceneManager.LoadSceneAsync(5);
+		else SceneManager.LoadSceneAsync(4);
 	}
+
 	public void LoadFightSceneAgain() {
 		SceneManager.LoadScene(4);
 	}

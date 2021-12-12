@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using Cinemachine;
 
 public class StoryCheckpoint : MonoBehaviour {
@@ -14,13 +15,11 @@ public class StoryCheckpoint : MonoBehaviour {
 	void Start() {
 		storyManager = GetComponentInParent<StoryManager>();
 		checkpointPosition = GetComponentInChildren<CheckpointLocation>().transform;
-		clearShot = GetComponentInChildren<CinemachineClearShot>();
-		interactables = GetComponentsInChildren<Interactable>();
 	}
 
 	public void OnAssignCheckpoint() {
-		if (interactables == null) interactables = GetComponentsInChildren<Interactable>();
-		if (clearShot == null) clearShot = GetComponentInChildren<CinemachineClearShot>();
+		interactables = GetComponentsInChildren<Interactable>(false);
+		clearShot = GetComponentInChildren<CinemachineClearShot>();
 		activeInteractable = interactables[activeIndex];
 		foreach (Interactable interactable in interactables) {
 			interactable.Deselect();
@@ -37,6 +36,10 @@ public class StoryCheckpoint : MonoBehaviour {
 	}
 
 	public void DoCurrentState() {
+		if (activeInteractable == null) {
+			activeIndex = 0;
+			OnAssignCheckpoint();
+		}
 		if (!blockInput && Player.player.input.IsRigthSwingGesturePerformed()) {
 			if (activeIndex + 1 >= interactables.Length) activeIndex = 0;
 			else activeIndex++;
@@ -55,7 +58,6 @@ public class StoryCheckpoint : MonoBehaviour {
 			storyManager.GetComponent<AudioSource>().Play();
 			clearShot.LookAt = activeInteractable.transform;
 		}
-
 		activeInteractable.PerformAction();
 	}
 	public void CheckNextState() {
@@ -63,8 +65,10 @@ public class StoryCheckpoint : MonoBehaviour {
 	}
 
 	public void TeleportPlayerToCheckpoint() {
+		Player.player.GetComponent<NavMeshAgent>().enabled = false;
 		Player.player.transform.position = checkpointPosition.position;
 		Player.player.transform.rotation = checkpointPosition.rotation;
+		Player.player.GetComponent<NavMeshAgent>().enabled = true;
 	}
 
 }

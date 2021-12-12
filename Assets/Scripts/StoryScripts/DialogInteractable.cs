@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using VIDE_Data;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(VIDE_Assign))]
 public class DialogInteractable : Interactable {
@@ -8,6 +9,8 @@ public class DialogInteractable : Interactable {
 	public GameObject UI;
 	public AudioSource mumble;
 	public string title = "Dialog";
+	public UnityEvent OnDisabled;
+
 	DialogUI dialogUI;
 	public StoryCheckpoint[] dialogDestinations;
 	GUIStyle style;
@@ -90,10 +93,19 @@ public class DialogInteractable : Interactable {
 	public void DialogActionGoToLocation(int checkpointIndex) {
 		StoryManager.story.ChangeCheckpoint(dialogDestinations[checkpointIndex]);
 	}
+	public void DisableDialog() {
+		if (VD.isActive) {
+			GetComponentInParent<StoryCheckpoint>().blockInput = false;
+			VD.EndDialogue();
+			dialogUI.gameObject.SetActive(false);
+		}
+		OnDisabled.Invoke();
+		Destroy(this);
+	}
 
 	IEnumerator Timer(string text) {
 		isTiming = true;
-		yield return new WaitForSeconds(3f);
+		yield return new WaitForSeconds(2.5f);
 		timerOver = true;
 		isTiming = false;
 	}

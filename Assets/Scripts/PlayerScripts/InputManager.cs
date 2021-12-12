@@ -3,12 +3,6 @@ using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Finger {
-	PINK_LEFT = 0, RING_LEFT = 1, MIDDLE_LEFT = 2, POINT_LEFT = 3, THUMB_LEFT = 4,
-	THUMB_RIGHT = 5, POINT_RIGHT = 6, MIDDLE_RIGHT = 7, RING_RIGHT = 8, PINK_RIGHT = 9,
-	NONE = 10, BLOCK = 11
-};
-
 public class InputManager : MonoBehaviour {
 	public SerialController serialController1;
 	bool[] fingerData = new bool[] {
@@ -18,6 +12,7 @@ public class InputManager : MonoBehaviour {
 
 	bool pressed = false;
 	bool[] prevCom = null;
+	[HideInInspector]
 	public Vector3 gyroscopeData, magnetometerData, accelometerData;
 	List<Vector3> gyroDataPoints, magnetoDataPoints, acceloDataPoints;
 	float gestureTimer = 0f;
@@ -145,6 +140,7 @@ public class InputManager : MonoBehaviour {
 	}
 
 	public bool IsRigthSwingGesturePerformed() {
+		if (Input.GetKeyDown(KeyCode.RightArrow)) return true;
 		if (Time.realtimeSinceStartup - gestureTimer < 1) return false;
 		float avg = 0f;
 		for (int i = 0; i < acceloDataPoints.Count; i++) {
@@ -167,6 +163,7 @@ public class InputManager : MonoBehaviour {
 	}
 
 	public bool IsLeftSwingGesturePerformed() {
+		if (Input.GetKeyDown(KeyCode.LeftArrow)) return true;
 		if (Time.realtimeSinceStartup - gestureTimer < 1) return false;
 		float avg = 0f;
 		for (int i = 0; i < acceloDataPoints.Count; i++) {
@@ -189,6 +186,7 @@ public class InputManager : MonoBehaviour {
 	}
 
 	public bool IsForwardGesturePerformed() {
+		if (Input.GetKeyDown(KeyCode.Return)) return true;
 		if (Time.realtimeSinceStartup - gestureTimer < 1) return false;
 		float avg = 0f;
 		for (int i = 0; i < magnetoDataPoints.Count; i++) {
@@ -201,6 +199,63 @@ public class InputManager : MonoBehaviour {
 				serialController1.SendSerialMessage("1");
 				return true;
 			}
+		}
+		return false;
+	}
+
+	public bool IsSpellGesturePerformed(GestureType gesture) {
+		if (IsCombinationPressedDown((Finger)gesture)) return true; // dirty debugging trick
+		if (Time.realtimeSinceStartup - gestureTimer < 1) return false;
+		switch (gesture) {
+			case GestureType.FIRE:
+				IsCombinationPressedDown(
+					Finger.POINT_LEFT, Finger.POINT_RIGHT,
+					Finger.MIDDLE_LEFT, Finger.MIDDLE_RIGHT
+					);
+				break;
+			case GestureType.EARTH:
+				IsCombinationPressedDown(
+					Finger.PINK_LEFT, Finger.PINK_RIGHT,
+					Finger.RING_LEFT, Finger.RING_RIGHT,
+					Finger.MIDDLE_LEFT, Finger.MIDDLE_RIGHT,
+					Finger.POINT_LEFT, Finger.POINT_RIGHT,
+					Finger.THUMB_LEFT, Finger.THUMB_RIGHT
+					);
+				break;
+			case GestureType.LIGHT:
+				IsCombinationPressedDown(
+					Finger.PINK_LEFT, Finger.PINK_RIGHT,
+					Finger.THUMB_LEFT, Finger.THUMB_RIGHT
+					);
+				break;
+			case GestureType.DARK:
+				IsCombinationPressedDown(
+					Finger.PINK_LEFT, Finger.PINK_RIGHT,
+					Finger.RING_LEFT, Finger.RING_RIGHT,
+					Finger.MIDDLE_LEFT, Finger.MIDDLE_RIGHT,
+					Finger.POINT_LEFT, Finger.POINT_RIGHT
+					);
+				break;
+			case GestureType.LOW:
+				IsCombinationPressedDown(
+					Finger.POINT_LEFT, Finger.POINT_RIGHT,
+					Finger.THUMB_LEFT, Finger.THUMB_RIGHT
+					);
+				break;
+			case GestureType.MEDIUM:
+				IsCombinationPressedDown(
+					Finger.RING_LEFT, Finger.RING_RIGHT,
+					Finger.MIDDLE_LEFT, Finger.MIDDLE_RIGHT,
+					Finger.THUMB_LEFT, Finger.THUMB_RIGHT
+					);
+				break;
+			case GestureType.HIGH:
+				IsCombinationPressedDown(
+					Finger.PINK_LEFT, Finger.PINK_RIGHT,
+					Finger.POINT_LEFT, Finger.POINT_RIGHT,
+					Finger.THUMB_LEFT, Finger.THUMB_RIGHT
+					);
+				break;
 		}
 		return false;
 	}
@@ -247,7 +302,8 @@ public class InputManager : MonoBehaviour {
 		}
 		fingerData = new bool[] {
 			data[0]> 0.5f,data[1]> 0.5f,data[2]> 0.5f,data[3]> 0.5f, data[4]> 0.5f,data[5]> 0.5f,
-			false, false, false, false, false
+			// false, false, false, false, false
+			true,true,true,true,true
 		};
 		magnetometerData = new Vector3(data[6], data[7], data[8]);
 		gyroscopeData = new Vector3(data[9], data[10], data[11]);

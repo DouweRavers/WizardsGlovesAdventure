@@ -2,16 +2,6 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-public struct EnemyFightData {
-	public int enemyID;
-	public EnemyType enemyType;
-	public EnemyFightData(int id = 0, EnemyType typeEn = EnemyType.ARMORED_SKELETON) {
-		this.enemyID = id;
-		this.enemyType = typeEn;
-	}
-}
-
 public class FightManager : MonoBehaviour {
 	public static FightManager fight;
 	public Transform enemies;
@@ -43,8 +33,7 @@ public class FightManager : MonoBehaviour {
 		Debug.Log(damageAttack);
 		Debug.Log(amount_used);
 
-		if (!isImmune)
-		{
+		if (!isImmune) {
 			enemies.GetComponentInChildren<EnemyAI>(false).Hit(damageAttack);
 
 			defendAnimation.Stop();
@@ -52,8 +41,7 @@ public class FightManager : MonoBehaviour {
 			imgWarning.enabled = false;
 			txtWarning.enabled = false;
 			imgBackground.enabled = false;
-		} else
-        {
+		} else {
 			/*
 			if (immune_count <= 0 && GameManager.game.isTutorial)
             {
@@ -74,6 +62,6 @@ public class FightManager : MonoBehaviour {
 
 			immune_count++;
 		}
-		
+
 	}
 }

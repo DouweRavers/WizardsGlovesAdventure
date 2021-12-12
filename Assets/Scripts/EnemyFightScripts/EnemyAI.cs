@@ -3,11 +3,6 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-public enum EnemyType {
-	ARMORED_SKELETON, SOLDIER, DEMON, GUI
-}
-
 public class EnemyAI : MonoBehaviour {
 	//public BaseRainScript RainScript;
 
@@ -36,8 +31,7 @@ public class EnemyAI : MonoBehaviour {
 
 	public bool enemyActive = true;
 
-	void Start()
-	{
+	void Start() {
 		Attack();
 		AI = this;
 		healthBar.maxValue = healthPoints;
@@ -69,8 +63,7 @@ public class EnemyAI : MonoBehaviour {
 				return;
 			}
 
-			if (boost == true)
-			{
+			if (boost == true) {
 				Debug.Log("boosthit");
 
 				GetComponentInChildren<Animator>().SetTrigger("HitBoost");
@@ -83,8 +76,7 @@ public class EnemyAI : MonoBehaviour {
 			}
 			Debug.Log("Health: " + health);
 
-			if (20 <= health && health <= 50 && boostCount <= 0)
-			{
+			if (20 <= health && health <= 50 && boostCount <= 0) {
 				enemyBoost(20, 2);
 			}
 		}
@@ -125,8 +117,7 @@ public class EnemyAI : MonoBehaviour {
 		GameManager.game.LoadWorldScene();
 	}
 	*/
-	public void enemyBoost(int newDamage, int newDefense)
-	{
+	public void enemyBoost(int newDamage, int newDefense) {
 		Debug.Log("inBoost");
 
 		damage = newDamage;
@@ -146,8 +137,7 @@ public class EnemyAI : MonoBehaviour {
 		imgWarning.enabled = true;
 	}
 
-	public void enemyNormal()
-	{
+	public void enemyNormal() {
 		Debug.Log("normal");
 
 		boostAnimation.Stop();

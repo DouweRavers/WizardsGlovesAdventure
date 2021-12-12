@@ -53,6 +53,8 @@ MonoBehaviour:
   input: {fileID: 5515365612263496691}
   UI: {fileID: 0}
   movement: {fileID: 2028415161177605219}
+  leftController: {fileID: 5176577390291100578}
+  rightController: {fileID: 1286426547194435895}
 --- !u!114 &5515365612263496691
 MonoBehaviour:
   m_ObjectHideFlags: 0

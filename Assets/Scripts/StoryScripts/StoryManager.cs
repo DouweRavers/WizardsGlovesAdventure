@@ -1,34 +1,6 @@
 using UnityEngine;
 using Cinemachine;
 
-public enum Level {
-	TOWN, GRASSLAND, DUNGEON, NONE
-}
-public enum SpellType {
-	ROCK, FIRE, LIGHT, DARK
-}
-
-public struct StoryData {
-	public Level level;
-	public string checkpoint_name; // name of active checkpoint
-	public int[] deathEnemyIDs; // IDs of all the enemies -> used for removing dead ones on load
-	public int karma;
-	public bool isDogDeath;
-	public int[] spells;
-
-	public StoryData(int dummy = 0) {
-		level = Level.NONE;
-		checkpoint_name = "Dummy";
-		deathEnemyIDs = new int[0];
-		karma = 0;
-		isDogDeath = false;
-		spells = new int[] { 1, 1, 1, 1 };
-	}
-
-	public void AddSpell(int spellType) {
-		if (spells[spellType] < 3) spells[spellType]++;
-	}
-}
 
 public class StoryManager : MonoBehaviour {
 	public static StoryManager story;
@@ -37,7 +9,7 @@ public class StoryManager : MonoBehaviour {
 
 	// Set the first checkpoint that will be loaded.
 	public StoryCheckpoint startCheckpoint;
-	StoryCheckpoint activeCheckpoint;
+	StoryCheckpoint activeCheckpoint = null;
 	bool movementToggle = true;
 
 	void Awake() {
@@ -46,8 +18,6 @@ public class StoryManager : MonoBehaviour {
 	}
 
 	void Start() {
-		ChangeCheckpoint(startCheckpoint);
-		CameraManager.cameraManager.SetCheckpointCamera(startCheckpoint);
 		assignEnemyIds(); // configures enemyids, it counts from the hierarchy down and includes inactive ones.
 		LoadStory();
 	}
@@ -87,15 +57,22 @@ public class StoryManager : MonoBehaviour {
 		GameManager.game.storyData.checkpoint_name = activeCheckpoint.name;
 	}
 
-	public void LoadStory() {
-		if (GameManager.game.storyData.checkpoint_name.Equals("Dummy")) return;
-		string lastCheckpointName = GameManager.game.storyData.checkpoint_name;
-		foreach (StoryCheckpoint checkpoint in GetComponentsInChildren<StoryCheckpoint>()) {
-			if (checkpoint.name.Equals(lastCheckpointName)) {
-				activeCheckpoint = checkpoint;
-				activeCheckpoint.TeleportPlayerToCheckpoint();
+	void LoadStory() {
+		if (level == GameManager.game.storyData.level) {
+			string lastCheckpointName = GameManager.game.storyData.checkpoint_name;
+			foreach (StoryCheckpoint checkpoint in GetComponentsInChildren<StoryCheckpoint>()) {
+				if (checkpoint.name.Equals(lastCheckpointName)) {
+					activeCheckpoint = checkpoint;
+				}
 			}
 		}
+		if (activeCheckpoint == null) {
+			activeCheckpoint = startCheckpoint;
+			GameManager.game.storyData.level = level;
+		}
+		CameraManager.cameraManager.SetCheckpointCamera(activeCheckpoint);
+		ChangeCheckpoint(activeCheckpoint);
+		activeCheckpoint.TeleportPlayerToCheckpoint();
 		foreach (EnemyInteractable enemy in GetComponentsInChildren<EnemyInteractable>()) {
 			foreach (int id in GameManager.game.storyData.deathEnemyIDs) {
 				if (enemy.enemyID == id) {
@@ -109,7 +86,7 @@ public class StoryManager : MonoBehaviour {
 	void assignEnemyIds() {
 		EnemyInteractable[] enemyInteractables = GetComponentsInChildren<EnemyInteractable>(true);
 		for (int i = 0; i < enemyInteractables.Length; i++) {
-			enemyInteractables[i].enemyID = i;
+			enemyInteractables[i].enemyID = 100 * (int)level + i;
 		}
 	}
 }
