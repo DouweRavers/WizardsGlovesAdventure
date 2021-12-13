@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour {
 	Transform loadingScreenTransform;
 	private AsyncOperation loader;
 
+
 	GameObject[] gameObjects; // a list of object that can live through scene changes
 
 	void Awake() {
@@ -35,8 +36,7 @@ public class GameManager : MonoBehaviour {
 	public void LoadFightScene(int enemyID, EnemyType enemyType, bool tutorialEnabled) {
 		StoryManager.story.SaveStory();
 		enemyFightData = new EnemyFightData(enemyID, enemyType, tutorialEnabled);
-		if (tutorialEnabled) SceneManager.LoadSceneAsync(5);
-		else SceneManager.LoadSceneAsync(4);
+		SceneManager.LoadSceneAsync(4);
 	}
 
 	public void LoadFightSceneAgain() {
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour {
 				break;
 		}
 	}
-
+	/*
 	public void LoadIntroToFightScene(string type) {
 		if (type.Equals("Earth")) {
 			playerFightData.element = elementType.Earth;
@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour {
 		}
 		SceneManager.LoadScene(1); //modify according to build settings!!
 	}
-
+	*/
 	public void LoadLevel(Level level) {
 		if (StoryManager.story != null) StoryManager.story.SaveStory();
 		loadingScreenTransform = Instantiate(LoadingScreenPrefab).transform;

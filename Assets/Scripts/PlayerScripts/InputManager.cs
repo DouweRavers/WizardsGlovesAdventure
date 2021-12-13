@@ -204,7 +204,7 @@ public class InputManager : MonoBehaviour {
 	}
 
 	public bool IsSpellGesturePerformed(GestureType gesture) {
-		if (IsCombinationPressedDown((Finger)gesture)) return true; // dirty debugging trick
+		//if (IsCombinationPressedDown((Finger)gesture)) return true; // dirty debugging trick
 		if (Time.realtimeSinceStartup - gestureTimer < 1) return false;
 		switch (gesture) {
 			case GestureType.FIRE:
@@ -272,8 +272,8 @@ public class InputManager : MonoBehaviour {
 	}
 
 	void Update() {
-		ParseData();
-		UpdateAverageLists();
+		//ParseData();
+		//UpdateAverageLists();
 		// IsRigthSwingGesturePerformed();
 		// IsLeftSwingGesturePerformed();
 		// IsForwardGesturePerformed();

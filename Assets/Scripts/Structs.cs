@@ -23,6 +23,11 @@ public enum elementType {
 	Fire, Earth, Dark, Light
 }
 
+public enum attackType
+{
+	NONE, LOW, MEDIUM, HIGH
+}
+
 public enum GestureType {
 	FIRE, EARTH, LIGHT, DARK, LOW, MEDIUM, HIGH
 }
@@ -69,5 +74,6 @@ public struct EnemyFightData {
 
 public struct PlayerFightData {
 	public elementType element;
-	public bool[] unlockedAttacks;
+	public attackType attack;
+	public bool[] unlockedAttacks; //fire, earth, light, dark
 }

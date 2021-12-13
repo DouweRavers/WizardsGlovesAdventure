@@ -50,11 +50,11 @@ public class EnemyAI : MonoBehaviour {
 		hit = true;
 		randDefend = UnityEngine.Random.Range(0, defense);
 		if (randDefend == 0) {
-			if (boost != true) {
-				GetComponentInChildren<Animator>().SetTrigger("Defend");
-			} else {
-				GetComponentInChildren<Animator>().SetTrigger("DefendBoost");
-			}
+			//if (boost != true) {
+			GetComponentInChildren<Animator>().SetTrigger("Defend");
+			//} else {
+				//GetComponentInChildren<Animator>().SetTrigger("DefendBoost");
+			//}
 		} else {
 			healthPoints -= points;
 			healthBar.value = healthPoints;
@@ -63,18 +63,18 @@ public class EnemyAI : MonoBehaviour {
 				return;
 			}
 
+			GetComponentInChildren<Animator>().SetTrigger("Hit");
+			FindObjectOfType<SoundManager>().Play("EnemyHit");
 			if (boost == true) {
-				Debug.Log("boosthit");
-
-				GetComponentInChildren<Animator>().SetTrigger("HitBoost");
-				FindObjectOfType<SoundManager>().Play("EnemyHit");
+				//GetComponentInChildren<Animator>().SetTrigger("HitBoost");
+				//FindObjectOfType<SoundManager>().Play("EnemyHit");
 
 				enemyNormal();
-			} else {
-				GetComponentInChildren<Animator>().SetTrigger("Hit");
-				FindObjectOfType<SoundManager>().Play("EnemyHit");
 			}
-			Debug.Log("Health: " + health);
+			//else {
+				//GetComponentInChildren<Animator>().SetTrigger("Hit");
+				//FindObjectOfType<SoundManager>().Play("EnemyHit");
+			//}
 
 			if (20 <= health && health <= 50 && boostCount <= 0) {
 				enemyBoost(20, 2);
@@ -98,11 +98,12 @@ public class EnemyAI : MonoBehaviour {
 			if (healthPoints <= 0) yield return null; // end attack because death
 			yield return new WaitForSeconds(timeBeforeNextAttack / 5f);
 		}
-		if (boost != true) {
-			GetComponentInChildren<Animator>().SetTrigger("Attack");
-		} else {
-			GetComponentInChildren<Animator>().SetTrigger("AttackBoost");
-		}
+		EnemyAttack();
+		//if (boost != true) {
+		GetComponentInChildren<Animator>().SetTrigger("Attack");
+		//} else {
+			//GetComponentInChildren<Animator>().SetTrigger("AttackBoost");
+		//}
 		Attack();
 	}
 	/*
