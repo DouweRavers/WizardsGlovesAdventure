@@ -246,6 +246,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character_Sensei_White
       objectReference: {fileID: 0}
+    - target: {fileID: 1775572836453688, guid: 31c5c12bb5ddd814388a27a7c3e71aa6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4371997290663660, guid: 31c5c12bb5ddd814388a27a7c3e71aa6, type: 3}
       propertyPath: m_RootOrder
       value: 0
