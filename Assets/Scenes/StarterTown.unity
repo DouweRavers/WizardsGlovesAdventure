@@ -3102,7 +3102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2382995908340803232, guid: c0dc035ccf6dc8b4eabcb9734d210adc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.11
+      value: 3.457
       objectReference: {fileID: 0}
     - target: {fileID: 2382995908340803232, guid: c0dc035ccf6dc8b4eabcb9734d210adc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7104,7 +7104,7 @@ MonoBehaviour:
   SelectIndicator: {fileID: 1852907544}
   UI: {fileID: 4379966983968218851, guid: a26f44e82305cde419cc64aa7e2fbfc6, type: 3}
   mumble: {fileID: 1946405333}
-  title: Knight
+  title: King GUI
   OnDisabled:
     m_PersistentCalls:
       m_Calls: []
@@ -7141,6 +7141,7 @@ MonoBehaviour:
   - GrasslandsTowerSoldiers
   - HugeDemon
   - Item_LookUp
+  - KingGui
   - KnightInTown
   - Laura
   - LavaPool
@@ -7152,20 +7153,68 @@ MonoBehaviour:
   - Witch
   - WomanTown
   assignedIndex: 19
-  assignedID: 85508
-  assignedDialogue: KnightInTown
+  assignedID: 71185
+  assignedDialogue: KingGui
   interactionCount: 0
   alias: 
   overrideStartNode: -1
   defaultNPCSprite: {fileID: 0}
   defaultPlayerSprite: {fileID: 0}
   targetManager: {fileID: 0}
-  preload: 0
+  preload: 1
   notuptodate: 0
   startp: 0
   loadtag: 
   langs: []
-  S_playerDiags: []
+  S_playerDiags:
+  - commentCount: 1
+    s_comment:
+    - text: I am King Gui. Bow for me, peasant!
+      extraData: ExtraData
+      inputSetIndex: 0
+      outputNodeIndex: 1
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 0
+    pTag: 
+    sprite: {fileID: 21300000, guid: f979a4e6780507249b010b43c2b1dc75, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: Or..... just stand there I guess.
+      extraData: ExtraData
+      inputSetIndex: 1
+      outputNodeIndex: 2
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 1
+    pTag: 
+    sprite: {fileID: 21300000, guid: f979a4e6780507249b010b43c2b1dc75, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
+  - commentCount: 1
+    s_comment:
+    - text: As long as you keep on respecting me.
+      extraData: ExtraData
+      inputSetIndex: 2
+      outputNodeIndex: -1
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 2
+    pTag: 
+    sprite: {fileID: 21300000, guid: f979a4e6780507249b010b43c2b1dc75, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
   S_actionNodes: []
 --- !u!1001 &197999223
 PrefabInstance:
@@ -38078,7 +38127,7 @@ Transform:
   - {fileID: 482962094}
   - {fileID: 1760421958}
   m_Father: {fileID: 1790612276}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1213659976
 MonoBehaviour:
@@ -38133,6 +38182,7 @@ MonoBehaviour:
   - GrasslandsTowerSoldiers
   - HugeDemon
   - Item_LookUp
+  - KingGui
   - KnightInTown
   - Laura
   - LavaPool
@@ -38143,7 +38193,7 @@ MonoBehaviour:
   - TriggeredDude
   - Witch
   - WomanTown
-  assignedIndex: 28
+  assignedIndex: 29
   assignedID: 70089
   assignedDialogue: WomanTown
   interactionCount: 0
@@ -38161,11 +38211,9 @@ MonoBehaviour:
   - commentCount: 1
     s_comment:
     - text: Be careful stranger! I hear there is a dangerous goblin somewhere nearby.
-        I really hate those foul creatures, I hope they just stay away in the outskirts
-        of town.
       extraData: ExtraData
       inputSetIndex: 0
-      outputNodeIndex: 1
+      outputNodeIndex: 2
       outActionIndex: -1
       sprites: {fileID: 0}
       audios: {fileID: 0}
@@ -38192,6 +38240,23 @@ MonoBehaviour:
     vars: []
     varKeys: []
     isPlayer: 1
+  - commentCount: 1
+    s_comment:
+    - text: I really hate those foul creatures, I hope they just stay away in the
+        outskirts of town.
+      extraData: ExtraData
+      inputSetIndex: 2
+      outputNodeIndex: 1
+      outActionIndex: -1
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    ID: 2
+    pTag: 
+    sprite: {fileID: 21300000, guid: fc30b196ad17e554ea914e727ee38eec, type: 3}
+    vars: []
+    varKeys: []
+    isPlayer: 0
   S_actionNodes: []
 --- !u!4 &1214598858 stripped
 Transform:
@@ -51966,7 +52031,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 149.512, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.743, y: 4.5}
+  m_AnchoredPosition: {x: 1.743, y: 4.816}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1634260810
@@ -55986,8 +56051,8 @@ Transform:
   m_Children:
   - {fileID: 760125355}
   - {fileID: 928003013}
-  - {fileID: 1213659975}
   - {fileID: 2034868662}
+  - {fileID: 1213659975}
   - {fileID: 433495465}
   m_Father: {fileID: 848380063}
   m_RootOrder: 2
@@ -64129,7 +64194,7 @@ Transform:
   - {fileID: 1284802587}
   - {fileID: 172364443}
   m_Father: {fileID: 1790612276}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2034868663
 MonoBehaviour:
