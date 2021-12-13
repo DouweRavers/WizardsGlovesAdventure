@@ -10,7 +10,7 @@ public enum SpellType {
 }
 
 public enum EnemyType {
-	GOBLIN, KOBOLD, TROLL, NONE
+	GOBLIN, KOBOLD, TROLL, DEMON, DRAGON, NONE
 }
 
 public enum Finger {

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InputManager : MonoBehaviour {
-	public SerialController serialController1;
+	public SerialController serialControllerL, serialControllerR;
 	bool[] fingerData = new bool[] {
 		false, false, false, false, false,
 		false, false, false, false, false
@@ -155,7 +155,7 @@ public class InputManager : MonoBehaviour {
 			avg /= magnetoDataPoints.Count;
 			if (avg > 60) {
 				gestureTimer = Time.realtimeSinceStartup;
-				serialController1.SendSerialMessage("1");
+				serialControllerL.SendSerialMessage("1");
 				return true;
 			}
 		}
@@ -178,7 +178,7 @@ public class InputManager : MonoBehaviour {
 			avg /= magnetoDataPoints.Count;
 			if (avg < -60) {
 				gestureTimer = Time.realtimeSinceStartup;
-				serialController1.SendSerialMessage("1");
+				serialControllerL.SendSerialMessage("1");
 				return true;
 			}
 		}
@@ -196,7 +196,7 @@ public class InputManager : MonoBehaviour {
 		if (avg < 30) {
 			if (accelometerData.x < -1.5f) {
 				gestureTimer = Time.realtimeSinceStartup;
-				serialController1.SendSerialMessage("1");
+				serialControllerL.SendSerialMessage("1");
 				return true;
 			}
 		}
@@ -208,54 +208,47 @@ public class InputManager : MonoBehaviour {
 		if (Time.realtimeSinceStartup - gestureTimer < 1) return false;
 		switch (gesture) {
 			case GestureType.FIRE:
-				IsCombinationPressedDown(
+				return IsCombinationPressedDown(
 					Finger.POINT_LEFT, Finger.POINT_RIGHT,
 					Finger.MIDDLE_LEFT, Finger.MIDDLE_RIGHT
 					);
-				break;
 			case GestureType.EARTH:
-				IsCombinationPressedDown(
+				return IsCombinationPressedDown(
 					Finger.PINK_LEFT, Finger.PINK_RIGHT,
 					Finger.RING_LEFT, Finger.RING_RIGHT,
 					Finger.MIDDLE_LEFT, Finger.MIDDLE_RIGHT,
 					Finger.POINT_LEFT, Finger.POINT_RIGHT,
 					Finger.THUMB_LEFT, Finger.THUMB_RIGHT
 					);
-				break;
 			case GestureType.LIGHT:
-				IsCombinationPressedDown(
+				return IsCombinationPressedDown(
 					Finger.PINK_LEFT, Finger.PINK_RIGHT,
 					Finger.THUMB_LEFT, Finger.THUMB_RIGHT
 					);
-				break;
 			case GestureType.DARK:
-				IsCombinationPressedDown(
+				return IsCombinationPressedDown(
 					Finger.PINK_LEFT, Finger.PINK_RIGHT,
 					Finger.RING_LEFT, Finger.RING_RIGHT,
 					Finger.MIDDLE_LEFT, Finger.MIDDLE_RIGHT,
 					Finger.POINT_LEFT, Finger.POINT_RIGHT
 					);
-				break;
 			case GestureType.LOW:
-				IsCombinationPressedDown(
+				return IsCombinationPressedDown(
 					Finger.POINT_LEFT, Finger.POINT_RIGHT,
 					Finger.THUMB_LEFT, Finger.THUMB_RIGHT
 					);
-				break;
 			case GestureType.MEDIUM:
-				IsCombinationPressedDown(
+				return IsCombinationPressedDown(
 					Finger.RING_LEFT, Finger.RING_RIGHT,
 					Finger.MIDDLE_LEFT, Finger.MIDDLE_RIGHT,
 					Finger.THUMB_LEFT, Finger.THUMB_RIGHT
 					);
-				break;
 			case GestureType.HIGH:
-				IsCombinationPressedDown(
+				return IsCombinationPressedDown(
 					Finger.PINK_LEFT, Finger.PINK_RIGHT,
 					Finger.POINT_LEFT, Finger.POINT_RIGHT,
 					Finger.THUMB_LEFT, Finger.THUMB_RIGHT
 					);
-				break;
 		}
 		return false;
 	}
@@ -284,18 +277,20 @@ public class InputManager : MonoBehaviour {
 		// IsRigthSwingGesturePerformed();
 		// IsLeftSwingGesturePerformed();
 		// IsForwardGesturePerformed();
+
 	}
 
 	void ParseData() {
 		bool leftHand = false;
-		string rawData = serialController1.ReadSerialMessage();
-		if (rawData == null || rawData.Length == 0) return;
-		if (rawData.StartsWith("Lhand:")) leftHand = true;
-		if (!leftHand && !rawData.StartsWith("Rhand:")) return;
-		rawData = rawData.Replace("Lhand:", "");
-		rawData = rawData.Replace("Rhand:", "");
-		rawData = rawData.Trim('{', '}');
-		string[] stringData = rawData.Split(';');
+		string rawDataL = serialControllerL.ReadSerialMessage();
+		string rawDataR = serialControllerR.ReadSerialMessage();
+		if (rawDataL == null || rawDataL.Length == 0) return;
+		if (rawDataL.StartsWith("Lhand:")) leftHand = true;
+		if (!leftHand && !rawDataL.StartsWith("Rhand:")) return;
+		rawDataL = rawDataL.Replace("Lhand:", "");
+		rawDataL = rawDataL.Replace("Rhand:", "");
+		rawDataL = rawDataL.Trim('{', '}');
+		string[] stringData = rawDataL.Split(';');
 		float[] data = new float[stringData.Length];
 		for (int i = 0; i < stringData.Length; i++) {
 			data[i] = System.Single.Parse(stringData[i], System.Globalization.CultureInfo.InvariantCulture);
