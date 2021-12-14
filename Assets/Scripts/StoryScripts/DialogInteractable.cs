@@ -1,4 +1,4 @@
-using UnityEngine;
+ using UnityEngine;
 using System.Collections;
 using VIDE_Data;
 using UnityEngine.Events;
@@ -105,7 +105,7 @@ public class DialogInteractable : Interactable {
 
 	IEnumerator Timer(string text) {
 		isTiming = true;
-		yield return new WaitForSeconds(2.5f);
+		yield return new WaitForSeconds(5.0f);
 		timerOver = true;
 		isTiming = false;
 	}

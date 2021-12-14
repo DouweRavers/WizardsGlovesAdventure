@@ -284,7 +284,6 @@ public class InputManager : MonoBehaviour {
 	void Update() {
 		ParseData();
 		UpdateAverageLists();
-
 	}
 
 	void ParseData() {
