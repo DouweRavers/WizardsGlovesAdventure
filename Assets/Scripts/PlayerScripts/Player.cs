@@ -12,10 +12,7 @@ public class Player : MonoBehaviour {
 	}
 
 	void Start() {
-		leftController.portName = GameManager.game.COML;
-		rightController.portName = GameManager.game.COMR;
+		leftController.portName = GameManager.game.COM1;
+		rightController.portName = GameManager.game.COM2;
 	}
-
-
-
 }

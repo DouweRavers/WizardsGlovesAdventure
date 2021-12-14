@@ -6,6 +6,7 @@ public class DebugGloveController : MonoBehaviour {
 	public Transform[] fingers;
 	public Transform hand;
 	public InputManager inputManager;
+	public bool left = true;
 	Material selectedMaterial, unselectedMaterial;
 
 
@@ -38,29 +39,40 @@ public class DebugGloveController : MonoBehaviour {
 	}
 
 	void Update() {
-		if (inputManager.leftThumb) fingers[0].GetComponent<MeshRenderer>().sharedMaterial = selectedMaterial;
+		if (inputManager.IsRigthSwingGesturePerformed(left)) print("right");
+		if (inputManager.IsLeftSwingGesturePerformed(left)) print("left");
+		if (inputManager.IsForwardGesturePerformed(left)) print("forward");
+		if (inputManager.IsSpellGesturePerformed(GestureType.FIRE)) print("fire");
+		if (inputManager.IsSpellGesturePerformed(GestureType.EARTH)) print("earth");
+		if (inputManager.IsSpellGesturePerformed(GestureType.LIGHT)) print("light");
+		if (inputManager.IsSpellGesturePerformed(GestureType.DARK)) print("dark");
+		if (inputManager.IsSpellGesturePerformed(GestureType.LOW)) print("low");
+		if (inputManager.IsSpellGesturePerformed(GestureType.MEDIUM)) print("medium");
+		if (inputManager.IsSpellGesturePerformed(GestureType.HIGH)) print("high");
+
+
+
+		if (left ? inputManager.leftThumb : inputManager.rightThumb) fingers[0].GetComponent<MeshRenderer>().sharedMaterial = selectedMaterial;
 		else fingers[0].GetComponent<MeshRenderer>().sharedMaterial = unselectedMaterial;
 
-		if (inputManager.leftPoint) fingers[1].GetComponent<MeshRenderer>().sharedMaterial = selectedMaterial;
+		if (left ? inputManager.leftPoint : inputManager.rightRing) fingers[1].GetComponent<MeshRenderer>().sharedMaterial = selectedMaterial;
 		else fingers[1].GetComponent<MeshRenderer>().sharedMaterial = unselectedMaterial;
 
-		if (inputManager.leftMiddle) fingers[2].GetComponent<MeshRenderer>().sharedMaterial = selectedMaterial;
+		if (left ? inputManager.leftMiddle : inputManager.rightMiddle) fingers[2].GetComponent<MeshRenderer>().sharedMaterial = selectedMaterial;
 		else fingers[2].GetComponent<MeshRenderer>().sharedMaterial = unselectedMaterial;
 
-		if (inputManager.leftRing) fingers[3].GetComponent<MeshRenderer>().sharedMaterial = selectedMaterial;
+		if (left ? inputManager.leftRing : inputManager.rightPoint) fingers[3].GetComponent<MeshRenderer>().sharedMaterial = selectedMaterial;
 		else fingers[3].GetComponent<MeshRenderer>().sharedMaterial = unselectedMaterial;
 
-		if (inputManager.leftPink) fingers[4].GetComponent<MeshRenderer>().sharedMaterial = selectedMaterial;
+		if (left ? inputManager.leftPink : inputManager.rightPink) fingers[4].GetComponent<MeshRenderer>().sharedMaterial = selectedMaterial;
 		else fingers[4].GetComponent<MeshRenderer>().sharedMaterial = unselectedMaterial;
 
 		gyroDataPoints.RemoveAt(0);
-		gyroDataPoints.Add(inputManager.gyroscopeData);
+		gyroDataPoints.Add(left ? inputManager.gyroscopeDataL : inputManager.gyroscopeDataR);
 		magnetoDataPoints.RemoveAt(0);
-		magnetoDataPoints.Add(inputManager.magnetometerData);
+		magnetoDataPoints.Add(left ? inputManager.magnetometerDataL : inputManager.magnetometerDataR);
 		acceloDataPoints.RemoveAt(0);
-		acceloDataPoints.Add(inputManager.accelometerData);
-
-		Debug.DrawLine(transform.position, inputManager.accelometerData, Color.blue, 0.1f);
+		acceloDataPoints.Add(left ? inputManager.accelometerDataL : inputManager.accelometerDataR);
 	}
 
 	void OnGUI() {
@@ -176,6 +188,29 @@ public class DebugGloveController : MonoBehaviour {
 		}
 		avgMagnitude /= 10; avgX /= 10; avgY /= 10; avgZ /= 10;
 		GUILayout.Label("avg 10ms:\nX=" + avgX.ToString("#.##") + "\nY=" + avgY.ToString("#.##") + "\nZ=" + avgZ.ToString("#.##") + "\nL=" + avgMagnitude.ToString("#.##"));
+		GUILayout.EndHorizontal();
+		GUILayout.BeginHorizontal();
+		GUILayout.Label("L pinkt: ");
+		GUILayout.Label(inputManager.leftPink ? "+" : "-", GUILayout.Width(15));
+		GUILayout.Label("L ring: ");
+		GUILayout.Label(inputManager.leftRing ? "+" : "-", GUILayout.Width(15));
+		GUILayout.Label("L middle: ");
+		GUILayout.Label(inputManager.leftMiddle ? "+" : "-", GUILayout.Width(15));
+		GUILayout.Label("L point: ");
+		GUILayout.Label(inputManager.leftPoint ? "+" : "-", GUILayout.Width(15));
+		GUILayout.Label("L thumb: ");
+		GUILayout.Label(inputManager.leftThumb ? "+" : "-", GUILayout.Width(15));
+		GUILayout.Label("R pinkt: ");
+		GUILayout.Label(inputManager.rightPink ? "+" : "-", GUILayout.Width(15));
+		GUILayout.Label("R ring: ");
+		GUILayout.Label(inputManager.rightRing ? "+" : "-", GUILayout.Width(15));
+		GUILayout.Label("R middle: ");
+		GUILayout.Label(inputManager.rightMiddle ? "+" : "-", GUILayout.Width(15));
+		GUILayout.Label("R point: ");
+		GUILayout.Label(inputManager.rightPoint ? "+" : "-", GUILayout.Width(15));
+		GUILayout.Label("R thumb: ");
+		GUILayout.Label(inputManager.rightThumb ? "+" : "-", GUILayout.Width(15));
+
 		GUILayout.EndHorizontal();
 	}
 }

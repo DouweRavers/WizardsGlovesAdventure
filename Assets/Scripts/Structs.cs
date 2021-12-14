@@ -41,7 +41,7 @@ public struct StoryData {
 		deathEnemyIDs = new int[0];
 		karma = 0;
 		isDogDeath = false;
-		spells = new int[] { 1, 1, 1, 1 };
+		spells = new int[] { 1, 1, 1, 1 }; // fire, earth, light, dark
 	}
 
 	public void AddSpell(int spellType) {

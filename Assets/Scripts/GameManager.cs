@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour {
 	public EnemyFightData enemyFightData;
 	public PlayerFightData playerFightData;
 	public GameObject LoadingScreenPrefab;
-	public string COML = "COM1", COMR = "COM2";
+	public string COM1 = "COM1", COM2 = "COM2";
 	Transform loadingScreenTransform;
 	private AsyncOperation loader;
 

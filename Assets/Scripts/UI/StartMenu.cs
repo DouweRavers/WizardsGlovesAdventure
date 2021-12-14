@@ -31,11 +31,11 @@ public class StartMenu : MonoBehaviour {
 	}
 	public void OnComLeft(int value) {
 		klick.Play();
-		GameManager.game.COML = "COM" + value;
+		GameManager.game.COM1 = "COM" + value;
 	}
 	public void OnComRight(int value) {
 		klick.Play();
-		GameManager.game.COMR = "COM" + value;
+		GameManager.game.COM2 = "COM" + value;
 	}
 	IEnumerator PlayCoroutine() {
 		yield return new WaitForSeconds((float)videoPlayer.length);
