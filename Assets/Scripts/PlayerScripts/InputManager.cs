@@ -279,6 +279,8 @@ public class InputManager : MonoBehaviour {
 			magnetoDataPointsR.Add(Vector3.zero);
 			acceloDataPointsR.Add(Vector3.zero);
 		}
+		serialControllerAlpha.portName = GameManager.game.COM1;
+		serialControllerBeta.portName = GameManager.game.COM2;
 	}
 
 	void Update() {

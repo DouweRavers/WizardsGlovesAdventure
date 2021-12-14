@@ -20,6 +20,9 @@ float xg, yg, zg, xa, ya, za, xm, ym, zm;
 // Touch sensor values
 boolean thumb_finger = false, index_finger = false, middle_finger = false, ring_finger = false, pinky_finger = false;
 
+// Vibration motor values
+int j = 0, flag = 0;
+
 // Data processing arrays
 int iterator_dif = 0, dif_size = 5;
 float thumb_raw_data[3] = {0, 0, 0}, thumb_LP_data[3] = {0, 0, 0},
@@ -48,7 +51,8 @@ void loop()
   unsigned long current_time = micros();
   receiveMovementData();
   receiveTouchData();
-  SendData();
+  sendData();
+  receiveVibrationTrigger();
   delayMicroseconds(10000 - (micros() - current_time)); // Delay until 10ms is achieved
 }
 
@@ -134,7 +138,7 @@ void processDifferentialTouchData(boolean &state, float LP_value, float dif_data
     state = false;
 }
 
-void SendData()
+void sendData()
 {
   String payload = LeftHand ? "Lhand:" : "Rhand:";
   payload = payload + "{";
@@ -148,4 +152,26 @@ void SendData()
   payload = payload + xa + ";" + ya + ";" + za;
   payload = payload + "}";
   Serial.println(payload);
+}
+
+void receiveVibrationTrigger()
+{
+  int incomingByte = 0;
+  if (Serial.available() > 0)
+  {
+    incomingByte = Serial.read() - '0';
+    if (incomingByte == 1)
+      flag = 1;
+    j = 0;
+  }
+  if (flag == 1)
+  {
+    digitalWrite(D3, HIGH);
+    j++;
+  }
+  if (j >= 50)
+  {
+    digitalWrite(D3, LOW);
+    flag = 0;
+  }
 }

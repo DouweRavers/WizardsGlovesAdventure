@@ -73,6 +73,8 @@ public class GameManager : MonoBehaviour {
 		SceneManager.LoadScene(1); //modify according to build settings!!
 	}
 	*/
+
+
 	public void LoadLevel(Level level) {
 		if (StoryManager.story != null) StoryManager.story.SaveStory();
 		loadingScreenTransform = Instantiate(LoadingScreenPrefab).transform;

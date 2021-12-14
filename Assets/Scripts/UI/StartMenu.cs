@@ -12,7 +12,7 @@ public class StartMenu : MonoBehaviour {
 	public GameObject settings;
 
 	void Start() {
-		videoPlayer.gameObject.SetActive(false);
+		if (videoPlayer != null) videoPlayer.gameObject.SetActive(false);
 	}
 	public void OnPlay() {
 		klick.Play();
@@ -37,6 +37,12 @@ public class StartMenu : MonoBehaviour {
 		klick.Play();
 		GameManager.game.COM2 = "COM" + value;
 	}
+
+	public void GoToCurrentLevel() {
+		if (GameManager.game.storyData.level == Level.NONE) return;
+		GameManager.game.LoadLevel(GameManager.game.storyData.level);
+	}
+
 	IEnumerator PlayCoroutine() {
 		yield return new WaitForSeconds((float)videoPlayer.length);
 		GameManager.game.LoadLevel(Level.TOWN);
