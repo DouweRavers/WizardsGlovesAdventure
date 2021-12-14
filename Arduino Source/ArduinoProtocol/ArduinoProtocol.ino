@@ -1,6 +1,20 @@
 #include <Arduino_LSM9DS1.h>
 #define LeftHand true
 
+#if LeftHand
+#define thumbPort A0
+#define indexPort A2
+#define middlePort A4
+#define ringPort A5
+#define pinkPort A7
+#else
+#define thumbPort A7
+#define indexPort A6
+#define middlePort A2
+#define ringPort A1
+#define pinkPort A0
+#endif
+
 // Filter coeff. (LOWPASS)
 const float a2L = 1.16826067, a3L = -0.42411821, b1L = 0.06396438,
             b2L = 0.12792877, b3L = 0.06396438, b1 = 1.61912007490729,
@@ -8,11 +22,11 @@ const float a2L = 1.16826067, a3L = -0.42411821, b1L = 0.06396438,
             a2 = 1.33159324959517, a3 = -0.4900840036;
 
 // Thresholds
-const float upper_threshold_thumb = 40, lower_threshold_thumb = -40,
-            upper_threshold_index = 40, lower_threshold_index = -40,
-            upper_threshold_middle = 30, lower_threshold_middle = -30,
-            upper_threshold_ring = 25, lower_threshold_ring = -25,
-            upper_threshold_pinky = 50, lower_threshold_pinky = -50;
+float upper_threshold_thumb, lower_threshold_thumb,
+            upper_threshold_index, lower_threshold_index,
+            upper_threshold_middle, lower_threshold_middle,
+            upper_threshold_ring, lower_threshold_ring,
+            upper_threshold_pinky, lower_threshold_pinky;
 
 // Movement sensor values
 float xg, yg, zg, xa, ya, za, xm, ym, zm;
@@ -44,6 +58,7 @@ void setup()
 {
   startConnection();
   initializeMovementSensors();
+  setThresholds();
 }
 
 void loop()
@@ -87,22 +102,40 @@ void receiveMovementData()
   }
 }
 
+void setThresholds()
+{
+  if(LeftHand){
+    upper_threshold_thumb = 40, lower_threshold_thumb = -40,
+    upper_threshold_index = 40, lower_threshold_index = -40,
+    upper_threshold_middle = 30, lower_threshold_middle = -30,
+    upper_threshold_ring = 25, lower_threshold_ring = -25,
+    upper_threshold_pinky = 50, lower_threshold_pinky = -50;
+  }
+  else{
+    upper_threshold_thumb = 40, lower_threshold_thumb = -40,
+    upper_threshold_index = 40, lower_threshold_index = -40,
+    upper_threshold_middle = 30, lower_threshold_middle = -30,
+    upper_threshold_ring = 25, lower_threshold_ring = -25,
+    upper_threshold_pinky = 50, lower_threshold_pinky = -50;
+  }
+}
+
 void receiveTouchData()
 {
   // THUMB
-  receiveAndFilterTouchSensor(thumb_raw_data, thumb_LP_data, A0);
+  receiveAndFilterTouchSensor(thumb_raw_data, thumb_LP_data, thumbPort);
   processDifferentialTouchData(thumb_finger, thumb_LP_data[0], thumb_dif_data, thumb_dif_avg_data, upper_threshold_thumb, lower_threshold_thumb);
   // // INDEX
-  receiveAndFilterTouchSensor(index_raw_data, index_LP_data, A2);
+  receiveAndFilterTouchSensor(index_raw_data, index_LP_data, indexPort);
   processDifferentialTouchData(index_finger, index_LP_data[0], index_dif_data, index_dif_avg_data, upper_threshold_index, lower_threshold_index);
   // // MIDDLE
-  receiveAndFilterTouchSensor(middle_raw_data, middle_LP_data, A4);
+  receiveAndFilterTouchSensor(middle_raw_data, middle_LP_data, middlePort);
   processDifferentialTouchData(middle_finger, middle_LP_data[0], middle_dif_data, middle_dif_avg_data, upper_threshold_middle, lower_threshold_middle);
   // // RING
-  receiveAndFilterTouchSensor(ring_raw_data, ring_LP_data, A5);
+  receiveAndFilterTouchSensor(ring_raw_data, ring_LP_data, ringPort);
   processDifferentialTouchData(ring_finger, ring_LP_data[0], ring_dif_data, ring_dif_avg_data, upper_threshold_ring, lower_threshold_ring);
   // // PINKY
-  receiveAndFilterTouchSensor(pinky_raw_data, pinky_LP_data, A7);
+  receiveAndFilterTouchSensor(pinky_raw_data, pinky_LP_data, pinkPort);
   processDifferentialTouchData(pinky_finger, pinky_LP_data[0], pinky_dif_data, pinky_dif_avg_data, upper_threshold_pinky, lower_threshold_pinky);
   // After all arrays are updated set index to next element
   iterator_dif++;
