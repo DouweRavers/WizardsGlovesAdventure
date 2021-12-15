@@ -14,13 +14,13 @@ public class HandVisual : MonoBehaviour {
 		if (left ? inputManager.leftThumb : inputManager.rightThumb) thumb.GetComponent<RawImage>().color = Color.red;
 		else thumb.GetComponent<RawImage>().color = Color.white;
 
-		if (left ? inputManager.leftPoint : inputManager.rightRing) index.GetComponent<RawImage>().color = Color.red;
+		if (left ? inputManager.leftPoint : inputManager.rightPoint) index.GetComponent<RawImage>().color = Color.red;
 		else index.GetComponent<RawImage>().color = Color.white;
 
 		if (left ? inputManager.leftMiddle : inputManager.rightMiddle) middle.GetComponent<RawImage>().color = Color.red;
 		else middle.GetComponent<RawImage>().color = Color.white;
 
-		if (left ? inputManager.leftRing : inputManager.rightPoint) ring.GetComponent<RawImage>().color = Color.red;
+		if (left ? inputManager.leftRing : inputManager.rightRing) ring.GetComponent<RawImage>().color = Color.red;
 		else ring.GetComponent<RawImage>().color = Color.white;
 
 		if (left ? inputManager.leftPink : inputManager.rightPink) pinky.GetComponent<RawImage>().color = Color.red;
