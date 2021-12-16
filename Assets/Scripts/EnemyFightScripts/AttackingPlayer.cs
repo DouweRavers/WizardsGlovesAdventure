@@ -58,9 +58,6 @@ public class AttackingPlayer : MonoBehaviour {
 	void Awake() {
 		player = this;
 
-		//DEBUG
-		GameManager.game.playerFightData.unlockedAttacks = new int[] { 2, 1, 3, 3};
-
 
 		element.text = "Your element: " + GameManager.game.playerFightData.element.ToString();
 		GameManager.game.playerFightData.attack = attackType.NONE;
@@ -168,23 +165,27 @@ public class AttackingPlayer : MonoBehaviour {
 			StartCoroutine(HideImage(time, gestureLight));
 		} else if (input.IsSpellGesturePerformed(GestureType.FIRE)) {
 			Debug.Log("fire");
-			GameManager.game.playerFightData.element = elementType.Fire;
-			GameManager.game.playerFightData.attack = attackType.NONE;
-			element.text = "Your element: Fire";
-			txtFeedback.text = "Switched to Fire element";
-			enableAttackVids(elementType.Fire, false);
-			curElement = elementType.Fire;
+			if (checkUnlockedElement(elementType.Fire))
+            {
+				GameManager.game.playerFightData.element = elementType.Fire;
+				GameManager.game.playerFightData.attack = attackType.NONE;
+				element.text = "Your element: Fire";
+				txtFeedback.text = "Switched to Fire element";
+				enableAttackVids(elementType.Fire, false);
+				curElement = elementType.Fire;
 
-			x = y = z = 0;
+				x = y = z = 0;
 
-			gestureFire.SetActive(true);
-			float time = 0;
-			foreach (VideoPlayer video in gestureFire.GetComponents<VideoPlayer>()) {
-				video.Play();
-				time = (float)video.length;
+				gestureFire.SetActive(true);
+				float time = 0;
+				foreach (VideoPlayer video in gestureFire.GetComponents<VideoPlayer>())
+				{
+					video.Play();
+					time = (float)video.length;
+				}
+
+				StartCoroutine(HideImage(time, gestureFire));
 			}
-
-			StartCoroutine(HideImage(time, gestureFire));
 		} else if (input.IsSpellGesturePerformed(GestureType.EARTH)) {
 			Debug.Log("Earth");
 			GameManager.game.playerFightData.element = elementType.Earth;
@@ -726,6 +727,38 @@ public class AttackingPlayer : MonoBehaviour {
 		}
 		return false;
 	}
+	bool checkUnlockedElement(elementType element)
+    {
+		int[] unlockedAttacks = GameManager.game.playerFightData.unlockedAttacks;
+		switch (element)
+        {
+			case elementType.Dark:
+				if (unlockedAttacks[0] > 0)
+                {
+					return true;
+                }
+				break;
+			case elementType.Light:
+				if (unlockedAttacks[1] > 0)
+				{
+					return true;
+				}
+				break;
+			case elementType.Fire:
+				if (unlockedAttacks[2] > 0)
+				{
+					return true;
+				}
+				break;
+			case elementType.Earth:
+				if (unlockedAttacks[3] > 0)
+				{
+					return true;
+				}
+				break;
+		}
+		return false;
+    }
 
 	bool checkMana(int manaLevel)
     {

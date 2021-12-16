@@ -19,7 +19,7 @@ public class Intro : MonoBehaviour
     public int numBlinks;
     public float Pause;
 
-    bool inputIntroElementLocked = true;
+    bool[] inputIntroElementLocked = new bool[] { true, true, true, true };
     bool inputIntroNewAttacksLocked = true;
 
     public GameObject gestureFire, gestureLight, gestureDark, gestureEarth;
@@ -37,6 +37,7 @@ public class Intro : MonoBehaviour
 
         //DEBUG
         GameManager.game.enemyFightData.tutorialBeginnerEnabled = true;
+        GameManager.game.playerFightData.unlockedAttacks = new int[] { 2, 3, 0, 0 };
 
 
         StartCoroutine(Blink());
@@ -46,25 +47,25 @@ public class Intro : MonoBehaviour
     void Update()
     {
         // LIGHT R+E+U+I 
-        if (input.IsSpellGesturePerformed(GestureType.DARK) && !inputIntroElementLocked)
+        if (input.IsSpellGesturePerformed(GestureType.DARK) && !inputIntroElementLocked[0])
         {
             GameManager.game.playerFightData.element = elementType.Dark;
             disableIntroElements();
             transitionFight();
             //transitionIntroNewAttacks();
-        } else if (input.IsSpellGesturePerformed(GestureType.LIGHT) && !inputIntroElementLocked)
+        } else if (input.IsSpellGesturePerformed(GestureType.LIGHT) && !inputIntroElementLocked[1])
         {
             GameManager.game.playerFightData.element = elementType.Light;
             disableIntroElements();
             transitionFight();
             //transitionIntroNewAttacks();
-        } else if (input.IsSpellGesturePerformed(GestureType.FIRE) && !inputIntroElementLocked)
+        } else if (input.IsSpellGesturePerformed(GestureType.FIRE) && !inputIntroElementLocked[2])
         {
             GameManager.game.playerFightData.element = elementType.Fire;
             disableIntroElements();
             transitionFight();
             //transitionIntroNewAttacks();
-        } else if (input.IsSpellGesturePerformed(GestureType.EARTH) && !inputIntroElementLocked)
+        } else if (input.IsSpellGesturePerformed(GestureType.EARTH) && !inputIntroElementLocked[3])
         {
             GameManager.game.playerFightData.element = elementType.Earth;
             disableIntroElements();
@@ -114,6 +115,8 @@ public class Intro : MonoBehaviour
         Debug.Log("yes");
         txtIntro2.text = "Choose your element:";
 
+        displayElements(GameManager.game.playerFightData.unlockedAttacks);
+        /*
         txtIntro2.enabled = true;
         txtDark.enabled = true;
         txtLight.enabled = true;
@@ -145,6 +148,52 @@ public class Intro : MonoBehaviour
             videoLight.Play();
         }
         inputIntroElementLocked = false;
+        */
+    }
+
+    void displayElements(int[] unlockedElements) 
+    {
+        txtIntro2.enabled = true;
+        if (unlockedElements[0] > 0)
+        {
+            gestureDark.SetActive(true);
+            foreach (VideoPlayer video in gestureDark.GetComponents<VideoPlayer>())
+            {
+                video.Play();
+            }
+            txtDark.enabled = true;
+            inputIntroElementLocked[0] = false;
+        }
+        if (unlockedElements[1] > 0)
+        {
+            gestureLight.SetActive(true);
+            foreach (VideoPlayer video in gestureLight.GetComponents<VideoPlayer>())
+            {
+                video.Play();
+            }
+            txtLight.enabled = true;
+            inputIntroElementLocked[1] = false;
+        }
+        if (unlockedElements[2] > 0)
+        {
+            gestureFire.SetActive(true);
+            foreach (VideoPlayer video in gestureFire.GetComponents<VideoPlayer>())
+            {
+                video.Play();
+            }
+            txtFire.enabled = true;
+            inputIntroElementLocked[2] = false;
+        }
+        if (unlockedElements[3] > 0)
+        {
+            gestureEarth.SetActive(true);
+            foreach (VideoPlayer video in gestureEarth.GetComponents<VideoPlayer>())
+            {
+                video.Play();
+            }
+            txtEarth.enabled = true;
+            inputIntroElementLocked[3] = false;
+        }
     }
 
     void transitionIntroNewAttacks()
