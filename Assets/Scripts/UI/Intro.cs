@@ -13,14 +13,14 @@ public class Intro : MonoBehaviour
 
     public Image imgIntro;
     public Image imgWarning;
-    public Text txtIntro;
+    public Text txtIntro, txtIntro2;
     public Text txtFire, txtDark, txtLight, txtEarth;
 
     public int numBlinks;
     public float Pause;
 
-    bool inputAttackLocked = true;
-    bool inputFightLocked = true;
+    bool inputIntroElementLocked = true;
+    bool inputIntroNewAttacksLocked = true;
 
     public GameObject gestureFire, gestureLight, gestureDark, gestureEarth;
 
@@ -33,22 +33,11 @@ public class Intro : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        imgIntro.enabled = false;
-        imgWarning.enabled = false;
-        txtIntro.enabled = false;
-        
-        GameManager.game.enemyFightData.tutorialEnabled = true;
-        if (!GameManager.game.enemyFightData.tutorialEnabled)
-        {
-            for (int i = 0; i < gameObjectsActivate.Length; i++)
-            {
-                gameObjectsActivate[i].SetActive(true);
-            }
-            for (int i = 0; i < gameObjectsDeactivate.Length; i++)
-            {
-                gameObjectsDeactivate[i].SetActive(false);
-            }
-        }
+        txtIntro2.enabled = false;
+
+        //DEBUG
+        GameManager.game.enemyFightData.tutorialBeginnerEnabled = true;
+
 
         StartCoroutine(Blink());
     }
@@ -57,44 +46,38 @@ public class Intro : MonoBehaviour
     void Update()
     {
         // LIGHT R+E+U+I 
-        if (input.IsSpellGesturePerformed(GestureType.DARK) && !inputAttackLocked)
+        if (input.IsSpellGesturePerformed(GestureType.DARK) && !inputIntroElementLocked)
         {
             GameManager.game.playerFightData.element = elementType.Dark;
-            introToFight();
-        } else if (input.IsSpellGesturePerformed(GestureType.LIGHT) && !inputAttackLocked)
+            disableIntroElements();
+            transitionFight();
+            //transitionIntroNewAttacks();
+        } else if (input.IsSpellGesturePerformed(GestureType.LIGHT) && !inputIntroElementLocked)
         {
             GameManager.game.playerFightData.element = elementType.Light;
-            introToFight();
-        } else if (input.IsSpellGesturePerformed(GestureType.FIRE) && !inputAttackLocked)
+            disableIntroElements();
+            transitionFight();
+            //transitionIntroNewAttacks();
+        } else if (input.IsSpellGesturePerformed(GestureType.FIRE) && !inputIntroElementLocked)
         {
             GameManager.game.playerFightData.element = elementType.Fire;
-            introToFight();
-        } else if (input.IsSpellGesturePerformed(GestureType.EARTH) && !inputAttackLocked)
+            disableIntroElements();
+            transitionFight();
+            //transitionIntroNewAttacks();
+        } else if (input.IsSpellGesturePerformed(GestureType.EARTH) && !inputIntroElementLocked)
         {
             GameManager.game.playerFightData.element = elementType.Earth;
-            introToFight();
+            disableIntroElements();
+            transitionFight();
+            //transitionIntroNewAttacks();
         }
 
-        if (input.IsCombinationPressedDown(Finger.PINK_LEFT) && inputFightLocked/*input.IsForwardGesturePerformed()*/)
+        if (input.IsCombinationPressedDown(Finger.PINK_LEFT) && !inputIntroNewAttacksLocked/*input.IsForwardGesturePerformed()*/)
         {
-            activateFight();
-            changeCamera();
-            deactivateIntro();
+            transitionFight();
         }
     }
 
-    void introToFight()
-    {
-        //disableUIElements();
-        //txtIntro.text = "You unlocked a new attack, try it out!";
-        //txtIntro.transform.position = new Vector2(600, 150);
-        //yield return new WaitForSeconds(3);
-        disableUIElements();
-        txtIntro.text = "Unlocked a new attack. Try it out!";
-        txtIntro.transform.position = new Vector2(475, 350);
-
-    }
-   
     IEnumerator Blink()
     {
         txtIntro.text = "You encountered: " + GameManager.game.enemyFightData.enemyType.ToString().ToLower();
@@ -113,9 +96,25 @@ public class Intro : MonoBehaviour
         }
         imgWarning.enabled = true;
 
-        txtIntro.text = "Choose your element:";
-        txtIntro.transform.position = new Vector2(600, 350);
+        yield return new WaitForSeconds(2);
 
+        txtIntro.enabled = false;
+
+        if(GameManager.game.enemyFightData.tutorialBeginnerEnabled)
+        {
+            transitionIntroElements();
+        } else
+        {
+            transitionIntroNewAttacks();
+        }
+    }
+
+    void transitionIntroElements()
+    {
+        Debug.Log("yes");
+        txtIntro2.text = "Choose your element:";
+
+        txtIntro2.enabled = true;
         txtDark.enabled = true;
         txtLight.enabled = true;
         txtFire.enabled = true;
@@ -145,8 +144,28 @@ public class Intro : MonoBehaviour
         {
             videoLight.Play();
         }
-        inputAttackLocked = false;
+        inputIntroElementLocked = false;
     }
+
+    void transitionIntroNewAttacks()
+    {
+        //disableUIElements();
+        //txtIntro.text = "You unlocked a new attack, try it out!";
+        //txtIntro.transform.position = new Vector2(600, 150);
+        //yield return new WaitForSeconds(3);
+        disableIntroElements();
+        txtIntro2.text = "Unlocked new attacks. Try it out!";
+        txtIntro2.enabled = true;
+        inputIntroNewAttacksLocked = false;
+    }
+
+    void transitionFight()
+    {
+        activateFight();
+        changeCamera();
+        deactivateIntro();
+    }
+
 
     public IEnumerator HideImage(GameObject gesture)
     {
@@ -154,19 +173,8 @@ public class Intro : MonoBehaviour
         gesture.SetActive(false);
     }
 
-    void disableUI()
+    void disableIntroElements()
     {
-        imgIntro.enabled = false;
-        imgWarning.enabled = false;
-        txtIntro.enabled = false;
-    } 
-    void disableUIElements()
-    {
-        /*
-        imgIntro.enabled = false;
-        imgWarning.enabled = false;
-        txtIntro.enabled = false;
-        */
         txtDark.enabled = false;
         txtLight.enabled = false;
         txtFire.enabled = false;
@@ -179,7 +187,6 @@ public class Intro : MonoBehaviour
 
     void activateFight()
     {
-        Debug.Log("Length: " + gameObjectsActivate.Length);
         for (int i = 0; i < gameObjectsActivate.Length; i++)
         {
             Debug.Log(i);

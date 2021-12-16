@@ -28,11 +28,6 @@ public class FightManager : MonoBehaviour {
 	}
 
 	public void HitEnemy(float damageAttack, int amount_used, bool isImmune) {
-		//damageAttack = damageAttack - 1 * amount_used * 5;//((damageAttack)/(damageAttack + damageDecrease));
-
-		Debug.Log(damageAttack);
-		Debug.Log(amount_used);
-
 		if (!isImmune) {
 			enemies.GetComponentInChildren<EnemyAI>(false).Hit(damageAttack);
 
