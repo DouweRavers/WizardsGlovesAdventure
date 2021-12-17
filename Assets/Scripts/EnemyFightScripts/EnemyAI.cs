@@ -46,7 +46,8 @@ public class EnemyAI : MonoBehaviour {
 		//txtWarning.enabled = false;
 		//imgBackground.enabled = false;
 		//imgWarning.enabled = false;
-		// EnableUITutorial(false);
+		//EnableUITutorial(false);
+
 
 		//int randHealthBoost = UnityEngine.Random.Range(20, 50);
 	}

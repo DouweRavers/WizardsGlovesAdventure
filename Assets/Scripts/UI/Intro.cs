@@ -36,8 +36,8 @@ public class Intro : MonoBehaviour
         txtIntro2.enabled = false;
 
         //DEBUG
-        GameManager.game.enemyFightData.tutorialBeginnerEnabled = true;
-        GameManager.game.playerFightData.unlockedAttacks = new int[] { 2, 3, 0, 0 };
+        GameManager.game.enemyFightData.tutorialBeginnerEnabled = false;
+        GameManager.game.playerFightData.unlockedAttacks = new int[] { 1, 2, 0, 0 };
 
 
         StartCoroutine(Blink());
@@ -106,7 +106,7 @@ public class Intro : MonoBehaviour
             transitionIntroElements();
         } else
         {
-            transitionIntroNewAttacks();
+            transitionFight();
         }
     }
 

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DebugGloveController : MonoBehaviour {
-	public Transform[] fingers;
-	public Transform hand;
+	// public Transform[] fingers;
+	// public Transform hand;
 	public InputManager inputManager;
 	public bool left = true;
 	Material selectedMaterial, unselectedMaterial;
@@ -15,10 +15,10 @@ public class DebugGloveController : MonoBehaviour {
 	List<Vector3> gyroDataPoints, magnetoDataPoints, acceloDataPoints;
 
 	void Start() {
-		selectedMaterial = Instantiate(fingers[0].GetComponent<MeshRenderer>().material);
-		unselectedMaterial = Instantiate(selectedMaterial);
-		selectedMaterial.color = Color.green;
-		unselectedMaterial.color = Color.red;
+		// selectedMaterial = Instantiate(fingers[0].GetComponent<MeshRenderer>().material);
+		// unselectedMaterial = Instantiate(selectedMaterial);
+		// selectedMaterial.color = Color.green;
+		// unselectedMaterial.color = Color.red;
 		gyroGraph = new Texture2D(256, 128);
 		gyroDataPoints = new List<Vector3>();
 		for (int i = 0; i < gyroGraph.width; i++) {
@@ -41,7 +41,7 @@ public class DebugGloveController : MonoBehaviour {
 	void Update() {
 		if (inputManager.IsRigthSwingGesturePerformed(left)) print("right");
 		if (inputManager.IsLeftSwingGesturePerformed(left)) print("left");
-		if (inputManager.IsForwardGesturePerformed(left)) print("forward");
+		// if (inputManager.IsForwardGesturePerformed(left)) print("forward");
 		if (inputManager.IsSpellGesturePerformed(GestureType.FIRE)) print("fire");
 		if (inputManager.IsSpellGesturePerformed(GestureType.EARTH)) print("earth");
 		if (inputManager.IsSpellGesturePerformed(GestureType.LIGHT)) print("light");
@@ -49,23 +49,24 @@ public class DebugGloveController : MonoBehaviour {
 		if (inputManager.IsSpellGesturePerformed(GestureType.LOW)) print("low");
 		if (inputManager.IsSpellGesturePerformed(GestureType.MEDIUM)) print("medium");
 		if (inputManager.IsSpellGesturePerformed(GestureType.HIGH)) print("high");
+		if (inputManager.IsAttackGesturePerformed()) print("attack");
 
 
 
-		if (left ? inputManager.leftThumb : inputManager.rightThumb) fingers[0].GetComponent<MeshRenderer>().sharedMaterial = selectedMaterial;
-		else fingers[0].GetComponent<MeshRenderer>().sharedMaterial = unselectedMaterial;
+		// if (left ? inputManager.leftThumb : inputManager.rightThumb) fingers[0].GetComponent<MeshRenderer>().sharedMaterial = selectedMaterial;
+		// else fingers[0].GetComponent<MeshRenderer>().sharedMaterial = unselectedMaterial;
 
-		if (left ? inputManager.leftPoint : inputManager.rightRing) fingers[1].GetComponent<MeshRenderer>().sharedMaterial = selectedMaterial;
-		else fingers[1].GetComponent<MeshRenderer>().sharedMaterial = unselectedMaterial;
+		// if (left ? inputManager.leftPoint : inputManager.rightRing) fingers[1].GetComponent<MeshRenderer>().sharedMaterial = selectedMaterial;
+		// else fingers[1].GetComponent<MeshRenderer>().sharedMaterial = unselectedMaterial;
 
-		if (left ? inputManager.leftMiddle : inputManager.rightMiddle) fingers[2].GetComponent<MeshRenderer>().sharedMaterial = selectedMaterial;
-		else fingers[2].GetComponent<MeshRenderer>().sharedMaterial = unselectedMaterial;
+		// if (left ? inputManager.leftMiddle : inputManager.rightMiddle) fingers[2].GetComponent<MeshRenderer>().sharedMaterial = selectedMaterial;
+		// else fingers[2].GetComponent<MeshRenderer>().sharedMaterial = unselectedMaterial;
 
-		if (left ? inputManager.leftRing : inputManager.rightPoint) fingers[3].GetComponent<MeshRenderer>().sharedMaterial = selectedMaterial;
-		else fingers[3].GetComponent<MeshRenderer>().sharedMaterial = unselectedMaterial;
+		// if (left ? inputManager.leftRing : inputManager.rightPoint) fingers[3].GetComponent<MeshRenderer>().sharedMaterial = selectedMaterial;
+		// else fingers[3].GetComponent<MeshRenderer>().sharedMaterial = unselectedMaterial;
 
-		if (left ? inputManager.leftPink : inputManager.rightPink) fingers[4].GetComponent<MeshRenderer>().sharedMaterial = selectedMaterial;
-		else fingers[4].GetComponent<MeshRenderer>().sharedMaterial = unselectedMaterial;
+		// if (left ? inputManager.leftPink : inputManager.rightPink) fingers[4].GetComponent<MeshRenderer>().sharedMaterial = selectedMaterial;
+		// else fingers[4].GetComponent<MeshRenderer>().sharedMaterial = unselectedMaterial;
 
 		gyroDataPoints.RemoveAt(0);
 		gyroDataPoints.Add(left ? inputManager.gyroscopeDataL : inputManager.gyroscopeDataR);

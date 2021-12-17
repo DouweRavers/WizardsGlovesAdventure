@@ -213,6 +213,24 @@ public class InputManager : MonoBehaviour {
 		return false;
 	}
 
+	public bool IsAttackGesturePerformed() {
+		if (Input.GetKeyDown(KeyCode.Space)) return true;
+		if (Time.realtimeSinceStartup - gestureTimer < 2f) return false;
+		float avgL = 0f, avgR = 0f;
+		for (int i = 0; i < sampleSize; i++) {
+			avgL += acceloDataPointsL[i].magnitude;
+			avgR += acceloDataPointsR[i].magnitude;
+		}
+		avgL /= sampleSize;
+		avgR /= sampleSize;
+		if ((avgL < -1.5f || avgL > 1.5f) || (avgR < -1.5f || avgR > 1.5f)) {
+			gestureTimer = Time.realtimeSinceStartup;
+			serialControllerAlpha.SendSerialMessage("1");
+			serialControllerBeta.SendSerialMessage("1");
+			return true;
+		}
+		return false;
+	}
 	public bool IsSpellGesturePerformed(GestureType gesture) {
 		if (Time.realtimeSinceStartup - gestureTimer < 2f) return false;
 		switch (gesture) {
@@ -263,6 +281,8 @@ public class InputManager : MonoBehaviour {
 		}
 		return false;
 	}
+
+
 
 	void Start() {
 		gyroDataPointsL = new List<Vector3>();
