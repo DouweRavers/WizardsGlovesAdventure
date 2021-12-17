@@ -58,6 +58,7 @@ public class AttackingPlayer : MonoBehaviour {
 	void Awake() {
 		player = this;
 
+		curElement = GameManager.game.playerFightData.element;
 
 		element.text = "Your element: " + GameManager.game.playerFightData.element.ToString();
 		GameManager.game.playerFightData.attack = attackType.NONE;
@@ -96,7 +97,7 @@ public class AttackingPlayer : MonoBehaviour {
 				txtFeedback.text = "Switched to medium damage attack";
 				displayAttackPerformVids();
 			}
-		//HIGH DAMAGE ATTACK
+		//HIGH DAMAGE ATTACK Q+R+C+P+U+N
 		} else if (input.IsSpellGesturePerformed(GestureType.HIGH)) { //Finger.POINT_LEFT, Finger.POINT_RIGHT, Finger.PINK_LEFT, Finger.PINK_RIGHT, Finger.THUMB_LEFT, Finger.THUMB_RIGHT
 			Debug.Log("High");
 			if (checkUnlocked(3))
@@ -400,6 +401,7 @@ public class AttackingPlayer : MonoBehaviour {
 			}
 			if (isAttackPerformActive)
             {
+				Debug.Log("treu");
 				enableAttackVids(curElement, true);
             }
 			//hideActivateAttack();
