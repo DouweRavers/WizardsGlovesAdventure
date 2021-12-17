@@ -348,7 +348,6 @@ public class AttackingPlayer : MonoBehaviour {
 					break;
 				case attackType.NONE:
 					txtFeedback.text = "No attack selected";
-					FindObjectOfType<SoundManager>().Play("Alert");
 					break;
 			}
 		}
