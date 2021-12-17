@@ -112,11 +112,11 @@ void setThresholds()
     upper_threshold_pinky = 50, lower_threshold_pinky = -50;
   }
   else{
-    upper_threshold_thumb = 40, lower_threshold_thumb = -40,
-    upper_threshold_index = 40, lower_threshold_index = -40,
-    upper_threshold_middle = 30, lower_threshold_middle = -30,
-    upper_threshold_ring = 25, lower_threshold_ring = -25,
-    upper_threshold_pinky = 50, lower_threshold_pinky = -50;
+    upper_threshold_thumb = 40, lower_threshold_thumb = -45,
+    upper_threshold_index = 30, lower_threshold_index = -40,
+    upper_threshold_middle = 25, lower_threshold_middle = -30,
+    upper_threshold_ring = 25, lower_threshold_ring = -40,
+    upper_threshold_pinky = 15, lower_threshold_pinky = -20;
   }
 }
 
