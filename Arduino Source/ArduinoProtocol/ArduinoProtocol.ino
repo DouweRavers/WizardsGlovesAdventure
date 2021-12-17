@@ -125,19 +125,19 @@ void receiveTouchData()
   // THUMB
   receiveAndFilterTouchSensor(thumb_raw_data, thumb_LP_data, thumbPort);
   processDifferentialTouchData(thumb_finger, thumb_LP_data[0], thumb_dif_data, thumb_dif_avg_data, upper_threshold_thumb, lower_threshold_thumb);
-  // // INDEX
+   // INDEX
   receiveAndFilterTouchSensor(index_raw_data, index_LP_data, indexPort);
   processDifferentialTouchData(index_finger, index_LP_data[0], index_dif_data, index_dif_avg_data, upper_threshold_index, lower_threshold_index);
-  // // MIDDLE
+  // MIDDLE
   receiveAndFilterTouchSensor(middle_raw_data, middle_LP_data, middlePort);
   processDifferentialTouchData(middle_finger, middle_LP_data[0], middle_dif_data, middle_dif_avg_data, upper_threshold_middle, lower_threshold_middle);
-  // // RING
+ // RING
   receiveAndFilterTouchSensor(ring_raw_data, ring_LP_data, ringPort);
   processDifferentialTouchData(ring_finger, ring_LP_data[0], ring_dif_data, ring_dif_avg_data, upper_threshold_ring, lower_threshold_ring);
-  // // PINKY
+   // PINKY
   receiveAndFilterTouchSensor(pinky_raw_data, pinky_LP_data, pinkPort);
   processDifferentialTouchData(pinky_finger, pinky_LP_data[0], pinky_dif_data, pinky_dif_avg_data, upper_threshold_pinky, lower_threshold_pinky);
-  // After all arrays are updated set index to next element
+//   After all arrays are updated set index to next element
   iterator_dif++;
   if (iterator_dif == dif_size)
     iterator_dif = 0;

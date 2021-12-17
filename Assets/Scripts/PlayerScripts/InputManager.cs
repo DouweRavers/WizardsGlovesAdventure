@@ -279,8 +279,8 @@ public class InputManager : MonoBehaviour {
 			magnetoDataPointsR.Add(Vector3.zero);
 			acceloDataPointsR.Add(Vector3.zero);
 		}
-		serialControllerAlpha.portName = GameManager.game.COM1;
-		serialControllerBeta.portName = GameManager.game.COM2;
+		if (GameManager.game != null) serialControllerAlpha.portName = GameManager.game.COM1;
+		if (GameManager.game != null) serialControllerBeta.portName = GameManager.game.COM2;
 	}
 
 	void Update() {
@@ -302,9 +302,10 @@ public class InputManager : MonoBehaviour {
 				stringDataR = rawData.Replace("Rhand:", "").Trim('{', '}').Split(';');
 			}
 		}
-
+		bool discardLeft = false, discardRight = false;
 		float[] data = new float[28];
 		if (stringDataL.Length == 0) {
+			discardLeft = true;
 			for (int i = 0; i < 14; i++) {
 				data[i] = 0f;
 			}
@@ -314,6 +315,7 @@ public class InputManager : MonoBehaviour {
 			}
 		}
 		if (stringDataR.Length == 0) {
+			discardRight = true;
 			for (int i = 14; i < 28; i++) {
 				data[i] = 0f;
 			}
@@ -322,11 +324,21 @@ public class InputManager : MonoBehaviour {
 				data[i] = System.Single.Parse(stringDataR[i - 14], System.Globalization.CultureInfo.InvariantCulture);
 			}
 		}
+		if (!discardLeft) {
+			fingerData[0] = data[0] > 0.5f;
+			fingerData[1] = data[1] > 0.5f;
+			fingerData[2] = data[2] > 0.5f;
+			fingerData[3] = data[3] > 0.5f;
+			fingerData[4] = data[4] > 0.5f;
+		}
+		if (!discardRight) {
+			fingerData[5] = data[14] > 0.5f;
+			fingerData[6] = data[15] > 0.5f;
+			fingerData[7] = data[16] > 0.5f;
+			fingerData[8] = data[17] > 0.5f;
+			fingerData[9] = data[18] > 0.5f;
+		}
 
-		fingerData = new bool[] {
-			data[0]> 0.5f,data[1]> 0.5f,data[2]> 0.5f,data[3]> 0.5f, data[4]> 0.5f,
-			data[14]> 0.5f,data[15]> 0.5f,data[16]> 0.5f,data[17]> 0.5f, data[18]> 0.5f,
-		};
 		magnetometerDataL = new Vector3(data[5], data[6], data[7]);
 		gyroscopeDataL = new Vector3(data[8], data[9], data[10]);
 		accelometerDataL = new Vector3(data[11], data[12], data[13]);
