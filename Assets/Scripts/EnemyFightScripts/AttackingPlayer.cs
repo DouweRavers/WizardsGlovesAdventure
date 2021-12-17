@@ -33,7 +33,7 @@ public class AttackingPlayer : MonoBehaviour {
 	public ParticleSystem fireAttackLow, fireAttackMedium, fireAttackHigh, lightAttackLow, lightAttackMedium, lightAttackHigh, darkAttackLow, darkAttackMedium, darkAttackHigh, earthAttackLow, earthAttackMedium, earthAttackHigh;
 	public ParticleSystem heal;
 	public Transform enemy;
-	public GameObject[] gestureAttacks; 
+	public GameObject[] gestureAttacks;
 	public GameObject gestureFire, gestureDark, gestureLight, gestureEarth;
 	public GameObject gestureAttackPerform;
 	elementType curElement;
@@ -57,20 +57,19 @@ public class AttackingPlayer : MonoBehaviour {
 
 	void Awake() {
 		player = this;
-
+	}
+	void Start() {
 		curElement = GameManager.game.playerFightData.element;
 
 		element.text = "Your element: " + GameManager.game.playerFightData.element.ToString();
 		GameManager.game.playerFightData.attack = attackType.NONE;
 		EnableUITutorial(false);
 
-		if (GameManager.game.enemyFightData.tutorialBeginnerEnabled)
-        {
+		if (GameManager.game.enemyFightData.tutorialBeginnerEnabled) {
 			enableAttackVids(GameManager.game.playerFightData.element, false);
-        } else
-        {
+		} else {
 			displayElements(GameManager.game.playerFightData.unlockedAttacks);
-        }
+		}
 
 		txtFeedback.text = "Start the fight";
 	}
@@ -81,18 +80,16 @@ public class AttackingPlayer : MonoBehaviour {
 		if (input.IsSpellGesturePerformed(GestureType.LOW)) {
 			i++;
 			Debug.Log("low: " + i);
-			if (checkUnlocked(1)) 
-            {
+			if (checkUnlocked(0)) {
 				GameManager.game.playerFightData.attack = attackType.LOW;
 				txtFeedback.text = "Switched to low damage attack";
 				displayAttackPerformVids();
 			}
 
-		//MEDIUM DAMAGE ATTACK W+E+C+O+I+N
+			//MEDIUM DAMAGE ATTACK C
 		} else if (input.IsSpellGesturePerformed(GestureType.MEDIUM)) {
 			Debug.Log("Medium");
-			if (checkUnlocked(2))
-            {
+			if (checkUnlocked(1)) {
 				GameManager.game.playerFightData.attack = attackType.MEDIUM;
 				txtFeedback.text = "Switched to medium damage attack";
 				displayAttackPerformVids();
@@ -100,14 +97,13 @@ public class AttackingPlayer : MonoBehaviour {
 		//HIGH DAMAGE ATTACK Q+R+C+P+U+N
 		} else if (input.IsSpellGesturePerformed(GestureType.HIGH)) { //Finger.POINT_LEFT, Finger.POINT_RIGHT, Finger.PINK_LEFT, Finger.PINK_RIGHT, Finger.THUMB_LEFT, Finger.THUMB_RIGHT
 			Debug.Log("High");
-			if (checkUnlocked(3))
-            {
+			if (checkUnlocked(2)) {
 				GameManager.game.playerFightData.attack = attackType.HIGH;
 				txtFeedback.text = "Switched to High damage attack";
 				displayAttackPerformVids();
 			}
 
-		//HEALING
+			//HEALING
 		} else if (input.IsSpellGesturePerformed(GestureType.DARK)) {
 			if (healthPoints < 100) {
 				manaPoints -= manaLow;
@@ -125,49 +121,56 @@ public class AttackingPlayer : MonoBehaviour {
 				}
 			}
 
-		//SWITCH ELEMENT
-		} else if (input.IsSpellGesturePerformed(GestureType.DARK)) { //
-			Debug.Log("Dark");
-			GameManager.game.playerFightData.element = elementType.Dark;
-			GameManager.game.playerFightData.attack = attackType.NONE;
-			element.text = "Your element: Dark";
-			txtFeedback.text = "Switched to Dark element";
-			enableAttackVids(elementType.Dark, false);
-			curElement = elementType.Dark;
+		//SWITCH ELEMENT N
+		} else if (input.IsSpellGesturePerformed(GestureType.DARK)) {
+			if (checkUnlockedElement(elementType.Dark))
+			{
+				Debug.Log("Dark");
+				GameManager.game.playerFightData.element = elementType.Dark;
+				GameManager.game.playerFightData.attack = attackType.NONE;
+				element.text = "Your element: Dark";
+				txtFeedback.text = "Switched to Dark element";
+				enableAttackVids(elementType.Dark, false);
+				curElement = elementType.Dark;
 
-			x = y = z = 0;
+				x = y = z = 0;
 
-			gestureDark.SetActive(true);
-			float time = 0;
-			foreach (VideoPlayer video in gestureDark.GetComponents<VideoPlayer>()) {
-				video.Play();
-				time = (float)video.length;
+				gestureDark.SetActive(true);
+				float time = 0;
+				foreach (VideoPlayer video in gestureDark.GetComponents<VideoPlayer>())
+				{
+					video.Play();
+					time = (float)video.length;
+				}
+
+				StartCoroutine(HideImage(time, gestureDark));
 			}
-
-			StartCoroutine(HideImage(time, gestureDark));
 		} else if (input.IsSpellGesturePerformed(GestureType.LIGHT)) { //Q+C+N+P
 			Debug.Log("Light");
-			GameManager.game.playerFightData.element = elementType.Light;
-			GameManager.game.playerFightData.attack = attackType.NONE;
-			element.text = "Your element: Light";
-			txtFeedback.text = "Switched to Light element";
-			enableAttackVids(elementType.Light, false);
-			curElement = elementType.Light;
+			if (checkUnlockedElement(elementType.Light))
+			{
+				GameManager.game.playerFightData.element = elementType.Light;
+				GameManager.game.playerFightData.attack = attackType.NONE;
+				element.text = "Your element: Light";
+				txtFeedback.text = "Switched to Light element";
+				enableAttackVids(elementType.Light, false);
+				curElement = elementType.Light;
 
-			x = y = z = 0;
+				x = y = z = 0;
 
-			gestureLight.SetActive(true);
-			float time = 0;
-			foreach (VideoPlayer video in gestureLight.GetComponents<VideoPlayer>()) {
-				video.Play();
-				time = (float)video.length;
+				gestureLight.SetActive(true);
+				float time = 0;
+				foreach (VideoPlayer video in gestureLight.GetComponents<VideoPlayer>())
+				{
+					video.Play();
+					time = (float)video.length;
+				}
+
+				StartCoroutine(HideImage(time, gestureLight));
 			}
-
-			StartCoroutine(HideImage(time, gestureLight));
 		} else if (input.IsSpellGesturePerformed(GestureType.FIRE)) {
-			Debug.Log("fire");
-			if (checkUnlockedElement(elementType.Fire))
-            {
+			Debug.Log("Fire");
+			if (checkUnlockedElement(elementType.Fire)) {
 				GameManager.game.playerFightData.element = elementType.Fire;
 				GameManager.game.playerFightData.attack = attackType.NONE;
 				element.text = "Your element: Fire";
@@ -179,8 +182,7 @@ public class AttackingPlayer : MonoBehaviour {
 
 				gestureFire.SetActive(true);
 				float time = 0;
-				foreach (VideoPlayer video in gestureFire.GetComponents<VideoPlayer>())
-				{
+				foreach (VideoPlayer video in gestureFire.GetComponents<VideoPlayer>()) {
 					video.Play();
 					time = (float)video.length;
 				}
@@ -189,37 +191,37 @@ public class AttackingPlayer : MonoBehaviour {
 			}
 		} else if (input.IsSpellGesturePerformed(GestureType.EARTH)) {
 			Debug.Log("Earth");
-			GameManager.game.playerFightData.element = elementType.Earth;
-			GameManager.game.playerFightData.attack = attackType.NONE;
-			element.text = "Your element: Earth";
-			txtFeedback.text = "Switched to Earth element";
-			enableAttackVids(elementType.Earth, false);
-			curElement = elementType.Earth;
+			if (checkUnlockedElement(elementType.Fire))
+			{
+				GameManager.game.playerFightData.element = elementType.Earth;
+				GameManager.game.playerFightData.attack = attackType.NONE;
+				element.text = "Your element: Earth";
+				txtFeedback.text = "Switched to Earth element";
+				enableAttackVids(elementType.Earth, false);
+				curElement = elementType.Earth;
 
-			x = y = z = 0;
+				x = y = z = 0;
 
-			gestureEarth.SetActive(true);
-			float time = 0;
-			foreach (VideoPlayer video in gestureEarth.GetComponents<VideoPlayer>()) {
-				video.Play();
-				time = (float)video.length;
+				gestureEarth.SetActive(true);
+				float time = 0;
+				foreach (VideoPlayer video in gestureEarth.GetComponents<VideoPlayer>())
+				{
+					video.Play();
+					time = (float)video.length;
+				}
+
+				StartCoroutine(HideImage(time, gestureEarth));
 			}
-
-			StartCoroutine(HideImage(time, gestureEarth));
 		}
 		//DEBUG: Q
-		if (input.IsCombinationPressedDown(Finger.PINK_LEFT)/*input.IsForwardGesturePerformed()*/)
-        {
-			switch (GameManager.game.playerFightData.attack)
-            {
+		if (input.IsCombinationPressedDown(Finger.PINK_LEFT)/*input.IsForwardGesturePerformed()*/) {
+			switch (GameManager.game.playerFightData.attack) {
 				case attackType.HIGH:
 					z++;
 					x = y = 0;
 
-					if (GameManager.game.playerFightData.element == elementType.Fire && checkMana(manaHigh))
-					{
-						if (z > 3)
-						{
+					if (GameManager.game.playerFightData.element == elementType.Fire && checkMana(manaHigh)) {
+						if (z > 3) {
 							fireImmune = true;
 							StartCoroutine(EnemyImmuneTutorial());
 						}
@@ -227,10 +229,8 @@ public class AttackingPlayer : MonoBehaviour {
 						fireAttackHigh.Play();
 						FindObjectOfType<SoundManager>().Play("PlayerAttackFireHigh");
 						FightManager.fight.HitEnemy(damageHigh, z, fireImmune);
-					} else if (GameManager.game.playerFightData.element == elementType.Earth && checkMana(manaHigh))
-					{
-						if (z > 3)
-						{
+					} else if (GameManager.game.playerFightData.element == elementType.Earth && checkMana(manaHigh)) {
+						if (z > 3) {
 							earthImmune = true;
 							StartCoroutine(EnemyImmuneTutorial());
 						}
@@ -238,10 +238,8 @@ public class AttackingPlayer : MonoBehaviour {
 						earthAttackHigh.Play();
 						FindObjectOfType<SoundManager>().Play("PlayerAttackEarth");
 						FightManager.fight.HitEnemy(damageHigh, z, earthImmune);
-					} else if (GameManager.game.playerFightData.element == elementType.Dark && checkMana(manaHigh))
-                    {
-						if (z > 3)
-						{
+					} else if (GameManager.game.playerFightData.element == elementType.Dark && checkMana(manaHigh)) {
+						if (z > 3) {
 							darkImmune = true;
 							StartCoroutine(EnemyImmuneTutorial());
 						}
@@ -250,10 +248,8 @@ public class AttackingPlayer : MonoBehaviour {
 						FindObjectOfType<SoundManager>().Play("PlayerAttackDarkHigh");
 						FightManager.fight.HitEnemy(damageHigh, z, darkImmune);
 					}
-					if (GameManager.game.playerFightData.element == elementType.Light && checkMana(manaHigh))
-                    {
-						if (z > 3)
-						{
+					if (GameManager.game.playerFightData.element == elementType.Light && checkMana(manaHigh)) {
+						if (z > 3) {
 							lightImmune = true;
 							StartCoroutine(EnemyImmuneTutorial());
 						}
@@ -267,10 +263,8 @@ public class AttackingPlayer : MonoBehaviour {
 					y++;
 					x = z = 0;
 
-					if (GameManager.game.playerFightData.element == elementType.Fire && checkMana(manaMedium))
-					{
-						if (y > 3)
-						{
+					if (GameManager.game.playerFightData.element == elementType.Fire && checkMana(manaMedium)) {
+						if (y > 3) {
 							fireImmune = true;
 							StartCoroutine(EnemyImmuneTutorial());
 						}
@@ -278,11 +272,8 @@ public class AttackingPlayer : MonoBehaviour {
 						fireAttackMedium.Play();
 						FindObjectOfType<SoundManager>().Play("PlayerAttackFireMedium");
 						FightManager.fight.HitEnemy(damageMedium, y, fireImmune);
-					}
-					else if (GameManager.game.playerFightData.element == elementType.Earth && checkMana(manaMedium))
-					{
-						if (y > 3)
-						{
+					} else if (GameManager.game.playerFightData.element == elementType.Earth && checkMana(manaMedium)) {
+						if (y > 3) {
 							earthImmune = true;
 							StartCoroutine(EnemyImmuneTutorial());
 						}
@@ -290,11 +281,8 @@ public class AttackingPlayer : MonoBehaviour {
 						earthAttackMedium.Play();
 						FindObjectOfType<SoundManager>().Play("PlayerAttackEarth");
 						FightManager.fight.HitEnemy(damageMedium, y, earthImmune);
-					}
-					else if (GameManager.game.playerFightData.element == elementType.Dark && checkMana(manaMedium))
-					{
-						if (y > 3)
-						{
+					} else if (GameManager.game.playerFightData.element == elementType.Dark && checkMana(manaMedium)) {
+						if (y > 3) {
 							darkImmune = true;
 							StartCoroutine(EnemyImmuneTutorial());
 						}
@@ -303,10 +291,8 @@ public class AttackingPlayer : MonoBehaviour {
 						FindObjectOfType<SoundManager>().Play("PlayerAttackDarkMedium");
 						FightManager.fight.HitEnemy(damageMedium, y, darkImmune);
 					}
-					if (GameManager.game.playerFightData.element == elementType.Light && checkMana(manaMedium))
-					{
-						if (y > 3)
-						{
+					if (GameManager.game.playerFightData.element == elementType.Light && checkMana(manaMedium)) {
+						if (y > 3) {
 							lightImmune = true;
 							StartCoroutine(EnemyImmuneTutorial());
 						}
@@ -320,10 +306,8 @@ public class AttackingPlayer : MonoBehaviour {
 					x++;
 					y = z = 0;
 
-					if (GameManager.game.playerFightData.element == elementType.Fire && checkMana(manaLow))
-					{
-						if (x > 3)
-						{
+					if (GameManager.game.playerFightData.element == elementType.Fire && checkMana(manaLow)) {
+						if (x > 3) {
 							fireImmune = true;
 							StartCoroutine(EnemyImmuneTutorial());
 						}
@@ -331,11 +315,8 @@ public class AttackingPlayer : MonoBehaviour {
 						fireAttackLow.Play();
 						FindObjectOfType<SoundManager>().Play("PlayerAttackFireLow");
 						FightManager.fight.HitEnemy(damageLow, x, fireImmune);
-					}
-					else if (GameManager.game.playerFightData.element == elementType.Earth && checkMana(manaLow))
-					{
-						if (x > 3)
-						{
+					} else if (GameManager.game.playerFightData.element == elementType.Earth && checkMana(manaLow)) {
+						if (x > 3) {
 							earthImmune = true;
 							StartCoroutine(EnemyImmuneTutorial());
 						}
@@ -343,11 +324,8 @@ public class AttackingPlayer : MonoBehaviour {
 						earthAttackLow.Play();
 						FindObjectOfType<SoundManager>().Play("PlayerAttackEarth");
 						FightManager.fight.HitEnemy(damageLow, x, earthImmune);
-					}
-					else if (GameManager.game.playerFightData.element == elementType.Dark && checkMana(manaLow))
-					{
-						if (x > 3)
-						{
+					} else if (GameManager.game.playerFightData.element == elementType.Dark && checkMana(manaLow)) {
+						if (x > 3) {
 							darkImmune = true;
 							StartCoroutine(EnemyImmuneTutorial());
 						}
@@ -356,10 +334,8 @@ public class AttackingPlayer : MonoBehaviour {
 						FindObjectOfType<SoundManager>().Play("PlayerAttackDarkLow");
 						FightManager.fight.HitEnemy(damageLow, x, darkImmune);
 					}
-					if (GameManager.game.playerFightData.element == elementType.Light && checkMana(manaLow))
-					{
-						if (x > 3)
-						{
+					if (GameManager.game.playerFightData.element == elementType.Light && checkMana(manaLow)) {
+						if (x > 3) {
 							lightImmune = true;
 							StartCoroutine(EnemyImmuneTutorial());
 						}
@@ -373,37 +349,32 @@ public class AttackingPlayer : MonoBehaviour {
 					txtFeedback.text = "No attack selected";
 					FindObjectOfType<SoundManager>().Play("Alert");
 					break;
-            }
-        }
+			}
+		}
 		//P
-		if (input.IsCombinationPressedDown(Finger.PINK_RIGHT)/*input.IsForwardGesturePerformed()*/)
-		{
+		if (input.IsCombinationPressedDown(Finger.PINK_RIGHT)/*input.IsForwardGesturePerformed()*/) {
 			bool isAttackActive = false;
 			bool isAttackPerformActive = false;
 
-			for (int j = 0; j < gestureAttacks.Length; j++)
-			{
+			for (int j = 0; j < gestureAttacks.Length; j++) {
 				Debug.Log(gestureAttacks[i].activeSelf);
-				if (gestureAttacks[i].activeSelf)
-				{
+				if (gestureAttacks[i].activeSelf) {
 					isAttackActive = true;
 				}
 			}
-			if (gestureAttackPerform.activeSelf)
-            {
+			if (gestureAttackPerform.activeSelf) {
 				isAttackPerformActive = true;
-            }
+			}
 
 
-			if (isAttackActive)
-            {
+			if (isAttackActive) {
 				displayElements(GameManager.game.playerFightData.unlockedAttacks);
 			}
 			if (isAttackPerformActive)
             {
 				Debug.Log("treu");
 				enableAttackVids(curElement, true);
-            }
+			}
 			//hideActivateAttack();
 		}
 
@@ -412,43 +383,35 @@ public class AttackingPlayer : MonoBehaviour {
 			StartCoroutine(manaAlert());
 		}
 
-		if (healthPoints <= 25 && !alertHP)
-        {
+		if (healthPoints <= 25 && !alertHP) {
 			alertHP = true;
 			StartCoroutine(healthAlert());
 		}
 	}
 
-	void displayAttackPerformVids()
-    {
+	void displayAttackPerformVids() {
 		hideAttacks();
 
 		gestureAttackPerform.SetActive(true);
-		foreach (VideoPlayer video in gestureAttackPerform.GetComponents<VideoPlayer>())
-		{
+		foreach (VideoPlayer video in gestureAttackPerform.GetComponents<VideoPlayer>()) {
 			video.Play();
 		}
 
 		AttackOrElement[0].text = "Perform attack!";
-		for (int i = 1; i < AttackOrElement.Length; i++)
-        {
+		for (int i = 1; i < AttackOrElement.Length; i++) {
 			AttackOrElement[i].text = "";
-        }
+		}
 	}
 
-	void enableAttackVids(elementType element, bool fromAttackPerform)
-    {
+	void enableAttackVids(elementType element, bool fromAttackPerform) {
 		//hideAttacks();
-		if (fromAttackPerform)
-        {
+		if (fromAttackPerform) {
 			hideAttackPerform();
-        } else
-        {
+		} else {
 			hideElements();
 		}
 
-		switch (element)
-        {
+		switch (element) {
 			case elementType.Dark:
 				displayAttacks(0);
 				break;
@@ -462,16 +425,14 @@ public class AttackingPlayer : MonoBehaviour {
 				displayAttacks(3);
 				break;
 		}
-		
-    }
-	void displayAttacks(int element)
-    {
+
+	}
+	void displayAttacks(int element) {
 		AttackOrElement[0].text = "Attacks:";
 		enableAttackOrElementUI(true);
 
 		int level = GameManager.game.playerFightData.unlockedAttacks[element];
-		switch (level)
-        {
+		switch (level) {
 			case 0:
 				AttackOrElement[1].text = "";
 				AttackOrElement[2].text = "";
@@ -479,8 +440,7 @@ public class AttackingPlayer : MonoBehaviour {
 				break;
 			case 1:
 				gestureAttacks[0].SetActive(true);
-				foreach (VideoPlayer video in gestureAttacks[0].GetComponents<VideoPlayer>())
-				{
+				foreach (VideoPlayer video in gestureAttacks[0].GetComponents<VideoPlayer>()) {
 					video.Play();
 				}
 				AttackOrElement[1].text = "Low";
@@ -489,13 +449,11 @@ public class AttackingPlayer : MonoBehaviour {
 				break;
 			case 2:
 				gestureAttacks[0].SetActive(true);
-				foreach (VideoPlayer video in gestureAttacks[0].GetComponents<VideoPlayer>())
-				{
+				foreach (VideoPlayer video in gestureAttacks[0].GetComponents<VideoPlayer>()) {
 					video.Play();
 				}
 				gestureAttacks[1].SetActive(true);
-				foreach (VideoPlayer video in gestureAttacks[1].GetComponents<VideoPlayer>())
-				{
+				foreach (VideoPlayer video in gestureAttacks[1].GetComponents<VideoPlayer>()) {
 					video.Play();
 				}
 				AttackOrElement[1].text = "Low";
@@ -504,18 +462,15 @@ public class AttackingPlayer : MonoBehaviour {
 				break;
 			case 3:
 				gestureAttacks[0].SetActive(true);
-				foreach (VideoPlayer video in gestureAttacks[0].GetComponents<VideoPlayer>())
-				{
+				foreach (VideoPlayer video in gestureAttacks[0].GetComponents<VideoPlayer>()) {
 					video.Play();
 				}
 				gestureAttacks[1].SetActive(true);
-				foreach (VideoPlayer video in gestureAttacks[1].GetComponents<VideoPlayer>())
-				{
+				foreach (VideoPlayer video in gestureAttacks[1].GetComponents<VideoPlayer>()) {
 					video.Play();
 				}
 				gestureAttacks[2].SetActive(true);
-				foreach (VideoPlayer video in gestureAttacks[2].GetComponents<VideoPlayer>())
-				{
+				foreach (VideoPlayer video in gestureAttacks[2].GetComponents<VideoPlayer>()) {
 					video.Play();
 				}
 				AttackOrElement[1].text = "Low";
@@ -526,60 +481,47 @@ public class AttackingPlayer : MonoBehaviour {
 		AttackOrElement[4].text = "";
 	}
 
-	void displayElements(int[] unlockedElements)
-    {
+	void displayElements(int[] unlockedElements) {
 		hideAttacks();
 
 		AttackOrElement[0].text = "Elements:";
-		if (unlockedElements[0] > 0)
-		{
+		if (unlockedElements[0] > 0) {
 			gestureDark.SetActive(true);
-			foreach (VideoPlayer video in gestureDark.GetComponents<VideoPlayer>())
-			{
+			foreach (VideoPlayer video in gestureDark.GetComponents<VideoPlayer>()) {
 				video.Play();
 			}
 			AttackOrElement[1].text = "Dark";
-		} else
-        {
+		} else {
 			AttackOrElement[1].text = "";
 		}
-		if (unlockedElements[1] > 0)
-		{
+		if (unlockedElements[1] > 0) {
 			gestureLight.SetActive(true);
-			foreach (VideoPlayer video in gestureLight.GetComponents<VideoPlayer>())
-			{
+			foreach (VideoPlayer video in gestureLight.GetComponents<VideoPlayer>()) {
 				video.Play();
 			}
 			AttackOrElement[2].text = "Light";
-		} else
-        {
+		} else {
 			AttackOrElement[1].text = "";
 		}
-		if(unlockedElements[2] > 0)
-        {
+		if (unlockedElements[2] > 0) {
 			gestureFire.SetActive(true);
-			foreach (VideoPlayer video in gestureFire.GetComponents<VideoPlayer>())
-			{
+			foreach (VideoPlayer video in gestureFire.GetComponents<VideoPlayer>()) {
 				video.Play();
 			}
 			AttackOrElement[3].text = "Fire";
-		} else
-        {
+		} else {
 			AttackOrElement[3].text = "";
 		}
-		if (unlockedElements[3] > 0)
-		{
+		if (unlockedElements[3] > 0) {
 			gestureEarth.SetActive(true);
-			foreach (VideoPlayer video in gestureEarth.GetComponents<VideoPlayer>())
-			{
+			foreach (VideoPlayer video in gestureEarth.GetComponents<VideoPlayer>()) {
 				video.Play();
 			}
 			AttackOrElement[4].text = "Earth";
-		} else
-        {
+		} else {
 			AttackOrElement[4].text = "";
 		}
-    }
+	}
 	/*
 	void hideElements()
 	{
@@ -602,35 +544,28 @@ public class AttackingPlayer : MonoBehaviour {
 		gesture.SetActive(false);
 	}
 	*/
-	void hideElements()
-    {
+	void hideElements() {
 		StartCoroutine(HideImage(gestureDark));
 		StartCoroutine(HideImage(gestureLight));
 		StartCoroutine(HideImage(gestureFire));
 		StartCoroutine(HideImage(gestureEarth));
 	}
-	void hideAttacks()
-    {
-		for (int i = 0; i < gestureAttacks.Length; i++)
-        {
+	void hideAttacks() {
+		for (int i = 0; i < gestureAttacks.Length; i++) {
 			StartCoroutine(HideImage(gestureAttacks[i]));
 		}
-    }
-	void hideAttackPerform()
-    {
+	}
+	void hideAttackPerform() {
 		StartCoroutine(HideImage(gestureAttackPerform));
-    }
+	}
 
-	public IEnumerator HideImage(GameObject gesture)
-	{
+	public IEnumerator HideImage(GameObject gesture) {
 		yield return new WaitForSeconds(0);
 		gesture.SetActive(false);
 	}
-	
-	IEnumerator EnemyImmuneTutorial()
-    {
-		if (GameManager.game.enemyFightData.tutorialBeginnerEnabled && !tutorialImmunePlayed)
-        {
+
+	IEnumerator EnemyImmuneTutorial() {
+		if (GameManager.game.enemyFightData.tutorialBeginnerEnabled && !tutorialImmunePlayed) {
 			EnemyAI.AI.deactivateEnemy();
 			Debug.Log(EnemyAI.AI.isActive);
 
@@ -643,13 +578,11 @@ public class AttackingPlayer : MonoBehaviour {
 			EnemyAI.AI.activateEnemy();
 			bool tutorialImmunePlayed = true;
 		}
-    }
-	void EnableUITutorial(bool isEnabled)
-    {
+	}
+	void EnableUITutorial(bool isEnabled) {
 		imgTutorial.enabled = isEnabled;
 		imgTutorialWarning.enabled = isEnabled;
-		for (int i = 0; i < Tutorial.Length; i++)
-		{
+		for (int i = 0; i < Tutorial.Length; i++) {
 			Tutorial[i].enabled = isEnabled;
 		}
 		Tutorial[0].text = "Enemy immune!";
@@ -659,14 +592,12 @@ public class AttackingPlayer : MonoBehaviour {
 		Tutorial[4].text = "Use another element";
 	}
 
-	public IEnumerator healthAlert()
-	{
+	public IEnumerator healthAlert() {
 		yield return new WaitForSeconds(3);
 		FindObjectOfType<SoundManager>().Play("Alert");
 		txtFeedback.text = "don't forget about your health!";
 	}
-	public IEnumerator manaAlert()
-    {
+	public IEnumerator manaAlert() {
 		yield return new WaitForSeconds(3);
 		FindObjectOfType<SoundManager>().Play("Alert");
 		txtFeedback.text = "don't forget about your mana!";
@@ -694,79 +625,64 @@ public class AttackingPlayer : MonoBehaviour {
 		GameManager.game.LoadFightSceneAgain();
 	}
 
-	bool checkUnlocked(int attackLevel)
-    {
-		switch (GameManager.game.playerFightData.element)
-		{
+	bool checkUnlocked(int attackLevel) {
+		switch (GameManager.game.playerFightData.element) {
 			case elementType.Dark:
-				if (GameManager.game.GetSpell(3) != attackLevel)
-				{
+				if (GameManager.game.playerFightData.unlockedAttacks[0] <= attackLevel) {
 					txtFeedback.text = "You haven't unlocked this attack yet";
 					return false;
-				}
-				else { return true; }
+				} else { return true; }
 			case elementType.Light:
-				if (GameManager.game.GetSpell(2) != attackLevel)
-				{
+				Debug.Log(GameManager.game.playerFightData.unlockedAttacks[1]); //2
+				Debug.Log(attackLevel); //0
+				if (GameManager.game.playerFightData.unlockedAttacks[1] <= attackLevel) {
 					txtFeedback.text = "You haven't unlocked this attack yet";
+					Debug.Log("yeah");
 					return false;
-				}
-				else { return true; }
+				} else { return true; }
 			case elementType.Fire:
-				if (GameManager.game.GetSpell(0) != attackLevel)
-				{
+				if (GameManager.game.playerFightData.unlockedAttacks[2] <= attackLevel) {
 					txtFeedback.text = "You haven't unlocked this attack yet";
 					return false;
-				}
-				else { return true; }
+				} else { return true; }
 			case elementType.Earth:
-				if (GameManager.game.GetSpell(1) != attackLevel)
-				{
+				if (GameManager.game.playerFightData.unlockedAttacks[3] <= attackLevel) {
 					txtFeedback.text = "You haven't unlocked this attack yet";
 					return false;
-				}
-				else { return true; }
+				} else { return true; }
 		}
 		return false;
 	}
-	bool checkUnlockedElement(elementType element)
-    {
+	bool checkUnlockedElement(elementType element) {
 		int[] unlockedAttacks = GameManager.game.playerFightData.unlockedAttacks;
-		switch (element)
-        {
+		switch (element) {
 			case elementType.Dark:
-				if (unlockedAttacks[0] > 0)
-                {
+				if (unlockedAttacks[0] > 0) {
 					return true;
-                }
+				}
 				break;
 			case elementType.Light:
-				if (unlockedAttacks[1] > 0)
-				{
+				if (unlockedAttacks[1] > 0) {
 					return true;
 				}
 				break;
 			case elementType.Fire:
-				if (unlockedAttacks[2] > 0)
-				{
+				if (unlockedAttacks[2] > 0) {
 					return true;
 				}
 				break;
 			case elementType.Earth:
-				if (unlockedAttacks[3] > 0)
-				{
+				if (unlockedAttacks[3] > 0) {
 					return true;
 				}
 				break;
 		}
 		return false;
-    }
+	}
 
-	bool checkMana(int manaLevel)
-    {
+	bool checkMana(int manaLevel) {
 		manaPoints -= manaLevel;
-		if (manaPoints <= 0)
-		{
+		if (manaPoints <= 0) {
 			FindObjectOfType<SoundManager>().Play("Alert");
 			txtFeedback.text = "You don't have enough mana!";
 
@@ -777,13 +693,11 @@ public class AttackingPlayer : MonoBehaviour {
 		return true;
 	}
 
-	void enableAttackOrElementUI(bool enable)
-    {
-		for (int i = 0; i < AttackOrElement.Length; i++)
-        {
+	void enableAttackOrElementUI(bool enable) {
+		for (int i = 0; i < AttackOrElement.Length; i++) {
 			AttackOrElement[i].enabled = true;
-        }
-    }
+		}
+	}
 }
 
 //HEALING E, HIGH R, MEDIUM C, LOW U

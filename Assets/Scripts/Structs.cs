@@ -20,7 +20,7 @@ public enum Finger {
 };
 
 public enum elementType {
-	Fire, Earth, Dark, Light
+	None, Fire, Earth, Dark, Light
 }
 
 public enum attackType

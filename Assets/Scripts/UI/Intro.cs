@@ -37,7 +37,7 @@ public class Intro : MonoBehaviour
 
         //DEBUG
         GameManager.game.enemyFightData.tutorialBeginnerEnabled = false;
-        GameManager.game.playerFightData.unlockedAttacks = new int[] { 2, 3, 0, 0 };
+        GameManager.game.playerFightData.unlockedAttacks = new int[] { 1, 2, 0, 0 };
 
 
         StartCoroutine(Blink());
