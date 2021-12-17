@@ -79,7 +79,7 @@ public class AttackingPlayer : MonoBehaviour {
 		int i = 0;
 		if (input.IsSpellGesturePerformed(GestureType.LOW)) {
 			i++;
-			Debug.Log("low: " + i);
+			Debug.Log("low");
 			if (checkUnlocked(0)) {
 				GameManager.game.playerFightData.attack = attackType.LOW;
 				txtFeedback.text = "Switched to low damage attack";
@@ -88,16 +88,16 @@ public class AttackingPlayer : MonoBehaviour {
 
 			//MEDIUM DAMAGE ATTACK C
 		} else if (input.IsSpellGesturePerformed(GestureType.MEDIUM)) {
-			Debug.Log("Medium");
 			if (checkUnlocked(1)) {
+				Debug.Log("Medium");
 				GameManager.game.playerFightData.attack = attackType.MEDIUM;
 				txtFeedback.text = "Switched to medium damage attack";
 				displayAttackPerformVids();
 			}
 		//HIGH DAMAGE ATTACK Q+R+C+P+U+N
 		} else if (input.IsSpellGesturePerformed(GestureType.HIGH)) { //Finger.POINT_LEFT, Finger.POINT_RIGHT, Finger.PINK_LEFT, Finger.PINK_RIGHT, Finger.THUMB_LEFT, Finger.THUMB_RIGHT
-			Debug.Log("High");
 			if (checkUnlocked(2)) {
+				Debug.Log("High");
 				GameManager.game.playerFightData.attack = attackType.HIGH;
 				txtFeedback.text = "Switched to High damage attack";
 				displayAttackPerformVids();
@@ -146,9 +146,9 @@ public class AttackingPlayer : MonoBehaviour {
 				StartCoroutine(HideImage(time, gestureDark));
 			}
 		} else if (input.IsSpellGesturePerformed(GestureType.LIGHT)) { //Q+C+N+P
-			Debug.Log("Light");
 			if (checkUnlockedElement(elementType.Light))
 			{
+				Debug.Log("Light");
 				GameManager.game.playerFightData.element = elementType.Light;
 				GameManager.game.playerFightData.attack = attackType.NONE;
 				element.text = "Your element: Light";
@@ -171,6 +171,7 @@ public class AttackingPlayer : MonoBehaviour {
 		} else if (input.IsSpellGesturePerformed(GestureType.FIRE)) {
 			Debug.Log("Fire");
 			if (checkUnlockedElement(elementType.Fire)) {
+				Debug.Log("Fire");
 				GameManager.game.playerFightData.element = elementType.Fire;
 				GameManager.game.playerFightData.attack = attackType.NONE;
 				element.text = "Your element: Fire";
@@ -190,9 +191,9 @@ public class AttackingPlayer : MonoBehaviour {
 				StartCoroutine(HideImage(time, gestureFire));
 			}
 		} else if (input.IsSpellGesturePerformed(GestureType.EARTH)) {
-			Debug.Log("Earth");
 			if (checkUnlockedElement(elementType.Fire))
 			{
+				Debug.Log("Earth");
 				GameManager.game.playerFightData.element = elementType.Earth;
 				GameManager.game.playerFightData.attack = attackType.NONE;
 				element.text = "Your element: Earth";
@@ -372,7 +373,6 @@ public class AttackingPlayer : MonoBehaviour {
 			}
 			if (isAttackPerformActive)
             {
-				Debug.Log("treu");
 				enableAttackVids(curElement, true);
 			}
 			//hideActivateAttack();
