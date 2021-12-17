@@ -3139,7 +3139,7 @@ PrefabInstance:
     - target: {fileID: 2382995908340803233, guid: c0dc035ccf6dc8b4eabcb9734d210adc, type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: ae66ba92015f00445a14b0e02c1c194a, type: 3}
+      objectReference: {fileID: 32900000, guid: ccd1db5b2f49ebb47b38155e778db589, type: 3}
     - target: {fileID: 2382995908340803233, guid: c0dc035ccf6dc8b4eabcb9734d210adc, type: 3}
       propertyPath: m_RenderMode
       value: 2
@@ -3151,7 +3151,7 @@ PrefabInstance:
     - target: {fileID: 2382995908340803234, guid: c0dc035ccf6dc8b4eabcb9734d210adc, type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: ae66ba92015f00445a14b0e02c1c194a, type: 3}
+      objectReference: {fileID: 32900000, guid: ce634fde41ca28e4fa5ff221c24a92d9, type: 3}
     - target: {fileID: 2382995908340803234, guid: c0dc035ccf6dc8b4eabcb9734d210adc, type: 3}
       propertyPath: m_RenderMode
       value: 2
@@ -25803,7 +25803,7 @@ MonoBehaviour:
   m_PivotOffset: {x: 0, y: 0, z: 0}
   m_AmplitudeGain: 1
   m_FrequencyGain: 1
-  mNoiseOffsets: {x: 0, y: 0, z: 0}
+  mNoiseOffsets: {x: -581.31836, y: -952.0228, z: -410.54428}
 --- !u!114 &837125609
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -51167,7 +51167,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2382995908340803232, guid: c0dc035ccf6dc8b4eabcb9734d210adc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.23
+      value: 5.05
       objectReference: {fileID: 0}
     - target: {fileID: 2382995908340803232, guid: c0dc035ccf6dc8b4eabcb9734d210adc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -51175,7 +51175,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2382995908340803232, guid: c0dc035ccf6dc8b4eabcb9734d210adc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.79
+      value: -13.04
       objectReference: {fileID: 0}
     - target: {fileID: 2382995908340803232, guid: c0dc035ccf6dc8b4eabcb9734d210adc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -51817,14 +51817,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1630874802}
-  m_LocalRotation: {x: -0.08276432, y: 0.23160733, z: 0.019745085, w: 0.96908116}
-  m_LocalPosition: {x: -4.816682, y: -0.6494497, z: -2.4897232}
+  m_LocalRotation: {x: 0.0763241, y: -0.18143047, z: -0.01410084, w: -0.98033607}
+  m_LocalPosition: {x: -5.9283285, y: 0.03466618, z: -5.1018143}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 837125607}
   m_Father: {fileID: 285363697}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -9.762, y: 27.412, z: -0.094}
 --- !u!114 &1630874804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67861,7 +67861,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2382995908340803232, guid: c0dc035ccf6dc8b4eabcb9734d210adc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.63
+      value: -2.73
       objectReference: {fileID: 0}
     - target: {fileID: 2382995908340803232, guid: c0dc035ccf6dc8b4eabcb9734d210adc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -67869,7 +67869,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2382995908340803232, guid: c0dc035ccf6dc8b4eabcb9734d210adc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.53
+      value: -11.19
       objectReference: {fileID: 0}
     - target: {fileID: 2382995908340803232, guid: c0dc035ccf6dc8b4eabcb9734d210adc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -67902,7 +67902,7 @@ PrefabInstance:
     - target: {fileID: 2382995908340803233, guid: c0dc035ccf6dc8b4eabcb9734d210adc, type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: 03d741c5f62d9c1448f77dcdd25c7834, type: 3}
+      objectReference: {fileID: 32900000, guid: ccd1db5b2f49ebb47b38155e778db589, type: 3}
     - target: {fileID: 2382995908340803233, guid: c0dc035ccf6dc8b4eabcb9734d210adc, type: 3}
       propertyPath: m_RenderMode
       value: 2
@@ -67914,7 +67914,7 @@ PrefabInstance:
     - target: {fileID: 2382995908340803234, guid: c0dc035ccf6dc8b4eabcb9734d210adc, type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: ae66ba92015f00445a14b0e02c1c194a, type: 3}
+      objectReference: {fileID: 32900000, guid: ce634fde41ca28e4fa5ff221c24a92d9, type: 3}
     - target: {fileID: 2382995908340803234, guid: c0dc035ccf6dc8b4eabcb9734d210adc, type: 3}
       propertyPath: m_RenderMode
       value: 2
