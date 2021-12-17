@@ -41,7 +41,7 @@ public class DebugGloveController : MonoBehaviour {
 	void Update() {
 		if (inputManager.IsRigthSwingGesturePerformed(left)) print("right");
 		if (inputManager.IsLeftSwingGesturePerformed(left)) print("left");
-		// if (inputManager.IsForwardGesturePerformed(left)) print("forward");
+		if (inputManager.IsForwardGesturePerformed()) print("forward");
 		if (inputManager.IsSpellGesturePerformed(GestureType.FIRE)) print("fire");
 		if (inputManager.IsSpellGesturePerformed(GestureType.EARTH)) print("earth");
 		if (inputManager.IsSpellGesturePerformed(GestureType.LIGHT)) print("light");
@@ -49,7 +49,7 @@ public class DebugGloveController : MonoBehaviour {
 		if (inputManager.IsSpellGesturePerformed(GestureType.LOW)) print("low");
 		if (inputManager.IsSpellGesturePerformed(GestureType.MEDIUM)) print("medium");
 		if (inputManager.IsSpellGesturePerformed(GestureType.HIGH)) print("high");
-		if (inputManager.IsAttackGesturePerformed()) print("attack");
+		// if (inputManager.IsAttackGesturePerformed()) print("attack");
 
 
 

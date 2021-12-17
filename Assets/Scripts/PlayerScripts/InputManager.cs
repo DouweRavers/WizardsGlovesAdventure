@@ -189,21 +189,26 @@ public class InputManager : MonoBehaviour {
 		return false;
 	}
 
-	public bool IsForwardGesturePerformed(bool left = true) {
+	public bool IsForwardGesturePerformed() {
 		if (Input.GetKeyDown(KeyCode.Return)) return true;
 		if (Time.realtimeSinceStartup - gestureTimer < 2f) return false;
-		float avg = 0f;
+		float avgL = 0f, avgR = 0f;
 		for (int i = 0; i < sampleSize; i++) {
-			avg += left ? acceloDataPointsL[i].x : acceloDataPointsR[i].x;
+			avgL += gyroDataPointsL[i].z;
+			avgR += gyroDataPointsR[i].z;
 		}
-		avg /= sampleSize;
-		if (avg < (left ? -0.5f : 0.5f)) {
-			avg = 0f;
+		avgL /= sampleSize;
+		avgR /= sampleSize;
+		if (avgL > 120 || avgR > 120) {
+			avgL = 0f;
+			avgR = 0f;
 			for (int i = 0; i < sampleSize; i++) {
-				avg += left ? gyroDataPointsL[i].z : gyroDataPointsR[i].z;
+				avgL += gyroDataPointsL[i].y;
+				avgR += gyroDataPointsR[i].y;
 			}
-			avg /= sampleSize;
-			if (left ? avg > 35 : avg < -35) {
+			avgL /= sampleSize;
+			avgR /= sampleSize;
+			if (avgL < -50 || avgR < -50) {
 				gestureTimer = Time.realtimeSinceStartup;
 				serialControllerAlpha.SendSerialMessage("1");
 				serialControllerBeta.SendSerialMessage("1");

@@ -94,7 +94,7 @@ public class AttackingPlayer : MonoBehaviour {
 				txtFeedback.text = "Switched to medium damage attack";
 				displayAttackPerformVids();
 			}
-		//HIGH DAMAGE ATTACK Q+R+C+P+U+N
+			//HIGH DAMAGE ATTACK Q+R+C+P+U+N
 		} else if (input.IsSpellGesturePerformed(GestureType.HIGH)) { //Finger.POINT_LEFT, Finger.POINT_RIGHT, Finger.PINK_LEFT, Finger.PINK_RIGHT, Finger.THUMB_LEFT, Finger.THUMB_RIGHT
 			if (checkUnlocked(2)) {
 				Debug.Log("High");
@@ -104,27 +104,28 @@ public class AttackingPlayer : MonoBehaviour {
 			}
 
 			//HEALING
-		} else if (input.IsSpellGesturePerformed(GestureType.DARK)) {
-			if (healthPoints < 100) {
-				manaPoints -= manaLow;
-				if (manaPoints <= 0) {
-					noMoreMana = true;
-					manaPoints += manaLow;
-				}
-				if (!noMoreMana) {
-					heal.Play();
-					if (healthPoints + healing > 100) {
-						healthPoints = 100;
-					} else {
-						healthPoints += healing;
-					}
-				}
-			}
+		}
+		// else if (input.IsSpellGesturePerformed(GestureType.DARK)) {
+		// 	if (healthPoints < 100) {
+		// 		manaPoints -= manaLow;
+		// 		if (manaPoints <= 0) {
+		// 			noMoreMana = true;
+		// 			manaPoints += manaLow;
+		// 		}
+		// 		if (!noMoreMana) {
+		// 			heal.Play();
+		// 			if (healthPoints + healing > 100) {
+		// 				healthPoints = 100;
+		// 			} else {
+		// 				healthPoints += healing;
+		// 			}
+		// 		}
+		// 	}
 
-		//SWITCH ELEMENT N
-		} else if (input.IsSpellGesturePerformed(GestureType.DARK)) {
-			if (checkUnlockedElement(elementType.Dark))
-			{
+		// 	//SWITCH ELEMENT N
+		// } 
+		else if (input.IsSpellGesturePerformed(GestureType.DARK)) {
+			if (checkUnlockedElement(elementType.Dark)) {
 				Debug.Log("Dark");
 				GameManager.game.playerFightData.element = elementType.Dark;
 				GameManager.game.playerFightData.attack = attackType.NONE;
@@ -137,8 +138,7 @@ public class AttackingPlayer : MonoBehaviour {
 
 				gestureDark.SetActive(true);
 				float time = 0;
-				foreach (VideoPlayer video in gestureDark.GetComponents<VideoPlayer>())
-				{
+				foreach (VideoPlayer video in gestureDark.GetComponents<VideoPlayer>()) {
 					video.Play();
 					time = (float)video.length;
 				}
@@ -146,8 +146,7 @@ public class AttackingPlayer : MonoBehaviour {
 				StartCoroutine(HideImage(time, gestureDark));
 			}
 		} else if (input.IsSpellGesturePerformed(GestureType.LIGHT)) { //Q+C+N+P
-			if (checkUnlockedElement(elementType.Light))
-			{
+			if (checkUnlockedElement(elementType.Light)) {
 				Debug.Log("Light");
 				GameManager.game.playerFightData.element = elementType.Light;
 				GameManager.game.playerFightData.attack = attackType.NONE;
@@ -160,8 +159,7 @@ public class AttackingPlayer : MonoBehaviour {
 
 				gestureLight.SetActive(true);
 				float time = 0;
-				foreach (VideoPlayer video in gestureLight.GetComponents<VideoPlayer>())
-				{
+				foreach (VideoPlayer video in gestureLight.GetComponents<VideoPlayer>()) {
 					video.Play();
 					time = (float)video.length;
 				}
@@ -191,8 +189,7 @@ public class AttackingPlayer : MonoBehaviour {
 				StartCoroutine(HideImage(time, gestureFire));
 			}
 		} else if (input.IsSpellGesturePerformed(GestureType.EARTH)) {
-			if (checkUnlockedElement(elementType.Fire))
-			{
+			if (checkUnlockedElement(elementType.Fire)) {
 				Debug.Log("Earth");
 				GameManager.game.playerFightData.element = elementType.Earth;
 				GameManager.game.playerFightData.attack = attackType.NONE;
@@ -205,8 +202,7 @@ public class AttackingPlayer : MonoBehaviour {
 
 				gestureEarth.SetActive(true);
 				float time = 0;
-				foreach (VideoPlayer video in gestureEarth.GetComponents<VideoPlayer>())
-				{
+				foreach (VideoPlayer video in gestureEarth.GetComponents<VideoPlayer>()) {
 					video.Play();
 					time = (float)video.length;
 				}
@@ -215,7 +211,7 @@ public class AttackingPlayer : MonoBehaviour {
 			}
 		}
 		//DEBUG: Q
-		if (input.IsCombinationPressedDown(Finger.PINK_LEFT)/*input.IsForwardGesturePerformed()*/) {
+		if (input.IsAttackGesturePerformed()) {
 			switch (GameManager.game.playerFightData.attack) {
 				case attackType.HIGH:
 					z++;
@@ -352,7 +348,7 @@ public class AttackingPlayer : MonoBehaviour {
 			}
 		}
 		//P
-		if (input.IsCombinationPressedDown(Finger.PINK_RIGHT)/*input.IsForwardGesturePerformed()*/) {
+		if (input.IsLeftSwingGesturePerformed()) {
 			bool isAttackActive = false;
 			bool isAttackPerformActive = false;
 
@@ -370,8 +366,7 @@ public class AttackingPlayer : MonoBehaviour {
 			if (isAttackActive) {
 				displayElements(GameManager.game.playerFightData.unlockedAttacks);
 			}
-			if (isAttackPerformActive)
-            {
+			if (isAttackPerformActive) {
 				enableAttackVids(curElement, true);
 			}
 			//hideActivateAttack();
@@ -627,25 +622,25 @@ public class AttackingPlayer : MonoBehaviour {
 	bool checkUnlocked(int attackLevel) {
 		switch (GameManager.game.playerFightData.element) {
 			case elementType.Dark:
-				if (GameManager.game.playerFightData.unlockedAttacks[0] <= attackLevel) {
+				if (GameManager.game.playerFightData.unlockedAttacks[0] < attackLevel) {
 					txtFeedback.text = "You haven't unlocked this attack yet";
 					return false;
 				} else { return true; }
 			case elementType.Light:
 				Debug.Log(GameManager.game.playerFightData.unlockedAttacks[1]); //2
 				Debug.Log(attackLevel); //0
-				if (GameManager.game.playerFightData.unlockedAttacks[1] <= attackLevel) {
+				if (GameManager.game.playerFightData.unlockedAttacks[1] < attackLevel) {
 					txtFeedback.text = "You haven't unlocked this attack yet";
 					Debug.Log("yeah");
 					return false;
 				} else { return true; }
 			case elementType.Fire:
-				if (GameManager.game.playerFightData.unlockedAttacks[2] <= attackLevel) {
+				if (GameManager.game.playerFightData.unlockedAttacks[2] < attackLevel) {
 					txtFeedback.text = "You haven't unlocked this attack yet";
 					return false;
 				} else { return true; }
 			case elementType.Earth:
-				if (GameManager.game.playerFightData.unlockedAttacks[3] <= attackLevel) {
+				if (GameManager.game.playerFightData.unlockedAttacks[3] < attackLevel) {
 					txtFeedback.text = "You haven't unlocked this attack yet";
 					return false;
 				} else { return true; }
