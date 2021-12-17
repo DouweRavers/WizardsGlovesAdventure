@@ -35,7 +35,7 @@ public class AttackingPlayer : MonoBehaviour {
 	public Transform enemy;
 	public GameObject[] gestureAttacks;
 	public GameObject gestureFire, gestureDark, gestureLight, gestureEarth;
-	public GameObject gestureAttackPerform;
+	public GameObject gestureAttackPerform, gestureGoBack;
 	elementType curElement;
 
 	public Text element;
@@ -68,7 +68,7 @@ public class AttackingPlayer : MonoBehaviour {
 		if (GameManager.game.enemyFightData.tutorialBeginnerEnabled) {
 			enableAttackVids(GameManager.game.playerFightData.element, false);
 		} else {
-			displayElements(GameManager.game.playerFightData.unlockedAttacks);
+			displayElements(GameManager.game.storyData.spells);
 		}
 
 		txtFeedback.text = "Start the fight";
@@ -364,7 +364,7 @@ public class AttackingPlayer : MonoBehaviour {
 
 
 			if (isAttackActive) {
-				displayElements(GameManager.game.playerFightData.unlockedAttacks);
+				displayElements(GameManager.game.storyData.spells);
 			}
 			if (isAttackPerformActive) {
 				enableAttackVids(curElement, true);
@@ -407,16 +407,16 @@ public class AttackingPlayer : MonoBehaviour {
 
 		switch (element) {
 			case elementType.Dark:
-				displayAttacks(0);
+				displayAttacks(3);
 				break;
 			case elementType.Light:
-				displayAttacks(1);
-				break;
-			case elementType.Fire:
 				displayAttacks(2);
 				break;
+			case elementType.Fire:
+				displayAttacks(0);
+				break;
 			case elementType.Earth:
-				displayAttacks(3);
+				displayAttacks(1);
 				break;
 		}
 
@@ -425,14 +425,9 @@ public class AttackingPlayer : MonoBehaviour {
 		AttackOrElement[0].text = "Attacks:";
 		enableAttackOrElementUI(true);
 
-		int level = GameManager.game.playerFightData.unlockedAttacks[element];
+		int level = GameManager.game.storyData.spells[element];
 		switch (level) {
 			case 0:
-				AttackOrElement[1].text = "";
-				AttackOrElement[2].text = "";
-				AttackOrElement[3].text = "";
-				break;
-			case 1:
 				gestureAttacks[0].SetActive(true);
 				foreach (VideoPlayer video in gestureAttacks[0].GetComponents<VideoPlayer>()) {
 					video.Play();
@@ -441,7 +436,7 @@ public class AttackingPlayer : MonoBehaviour {
 				AttackOrElement[2].text = "";
 				AttackOrElement[3].text = "";
 				break;
-			case 2:
+			case 1:
 				gestureAttacks[0].SetActive(true);
 				foreach (VideoPlayer video in gestureAttacks[0].GetComponents<VideoPlayer>()) {
 					video.Play();
@@ -454,7 +449,7 @@ public class AttackingPlayer : MonoBehaviour {
 				AttackOrElement[2].text = "Medium";
 				AttackOrElement[3].text = "";
 				break;
-			case 3:
+			case 2:
 				gestureAttacks[0].SetActive(true);
 				foreach (VideoPlayer video in gestureAttacks[0].GetComponents<VideoPlayer>()) {
 					video.Play();
@@ -473,13 +468,21 @@ public class AttackingPlayer : MonoBehaviour {
 				break;
 		}
 		AttackOrElement[4].text = "";
+
+		gestureGoBack.SetActive(true);
+		foreach (VideoPlayer video in gestureGoBack.GetComponents<VideoPlayer>()) {
+			video.Play();
+		}
 	}
 
 	void displayElements(int[] unlockedElements) {
+		Debug.Log("++++++++++++++++++++");
 		hideAttacks();
+		hideGoBack();
 
 		AttackOrElement[0].text = "Elements:";
-		if (unlockedElements[0] > 0) {
+		if (unlockedElements[3] >= 0) {
+			Debug.Log("++++++++++++++++++++++Dark");
 			gestureDark.SetActive(true);
 			foreach (VideoPlayer video in gestureDark.GetComponents<VideoPlayer>()) {
 				video.Play();
@@ -488,7 +491,8 @@ public class AttackingPlayer : MonoBehaviour {
 		} else {
 			AttackOrElement[1].text = "";
 		}
-		if (unlockedElements[1] > 0) {
+		if (unlockedElements[2] >= 0) {
+			Debug.Log("++++++++++++++++++++++Light");
 			gestureLight.SetActive(true);
 			foreach (VideoPlayer video in gestureLight.GetComponents<VideoPlayer>()) {
 				video.Play();
@@ -497,7 +501,8 @@ public class AttackingPlayer : MonoBehaviour {
 		} else {
 			AttackOrElement[1].text = "";
 		}
-		if (unlockedElements[2] > 0) {
+		if (unlockedElements[0] >= 0) {
+			Debug.Log("++++++++++++++++++++++Fire");
 			gestureFire.SetActive(true);
 			foreach (VideoPlayer video in gestureFire.GetComponents<VideoPlayer>()) {
 				video.Play();
@@ -506,7 +511,8 @@ public class AttackingPlayer : MonoBehaviour {
 		} else {
 			AttackOrElement[3].text = "";
 		}
-		if (unlockedElements[3] > 0) {
+		if (unlockedElements[1] >= 0) {
+			Debug.Log("++++++++++++++++++++++Earth");
 			gestureEarth.SetActive(true);
 			foreach (VideoPlayer video in gestureEarth.GetComponents<VideoPlayer>()) {
 				video.Play();
@@ -538,6 +544,10 @@ public class AttackingPlayer : MonoBehaviour {
 		gesture.SetActive(false);
 	}
 	*/
+
+	void hideGoBack() {
+		StartCoroutine(HideImage(gestureGoBack));
+	}
 	void hideElements() {
 		StartCoroutine(HideImage(gestureDark));
 		StartCoroutine(HideImage(gestureLight));
@@ -566,7 +576,7 @@ public class AttackingPlayer : MonoBehaviour {
 			FindObjectOfType<SoundManager>().Play("Alert");
 			EnableUITutorial(true);
 
-			yield return new WaitForSeconds(7);
+			yield return new WaitForSeconds(4);
 
 			EnableUITutorial(false);
 			EnemyAI.AI.activateEnemy();
@@ -622,25 +632,23 @@ public class AttackingPlayer : MonoBehaviour {
 	bool checkUnlocked(int attackLevel) {
 		switch (GameManager.game.playerFightData.element) {
 			case elementType.Dark:
-				if (GameManager.game.playerFightData.unlockedAttacks[0] < attackLevel) {
+				if (GameManager.game.storyData.spells[3] < attackLevel) {
 					txtFeedback.text = "You haven't unlocked this attack yet";
 					return false;
 				} else { return true; }
 			case elementType.Light:
-				Debug.Log(GameManager.game.playerFightData.unlockedAttacks[1]); //2
-				Debug.Log(attackLevel); //0
-				if (GameManager.game.playerFightData.unlockedAttacks[1] < attackLevel) {
+				if (GameManager.game.storyData.spells[2] < attackLevel) {
 					txtFeedback.text = "You haven't unlocked this attack yet";
 					Debug.Log("yeah");
 					return false;
 				} else { return true; }
 			case elementType.Fire:
-				if (GameManager.game.playerFightData.unlockedAttacks[2] < attackLevel) {
+				if (GameManager.game.storyData.spells[0] < attackLevel) {
 					txtFeedback.text = "You haven't unlocked this attack yet";
 					return false;
 				} else { return true; }
 			case elementType.Earth:
-				if (GameManager.game.playerFightData.unlockedAttacks[3] < attackLevel) {
+				if (GameManager.game.storyData.spells[1] < attackLevel) {
 					txtFeedback.text = "You haven't unlocked this attack yet";
 					return false;
 				} else { return true; }
@@ -648,25 +656,25 @@ public class AttackingPlayer : MonoBehaviour {
 		return false;
 	}
 	bool checkUnlockedElement(elementType element) {
-		int[] unlockedAttacks = GameManager.game.playerFightData.unlockedAttacks;
+		int[] unlockedAttacks = GameManager.game.storyData.spells;
 		switch (element) {
 			case elementType.Dark:
-				if (unlockedAttacks[0] > 0) {
+				if (unlockedAttacks[3] >= 0) {
 					return true;
 				}
 				break;
 			case elementType.Light:
-				if (unlockedAttacks[1] > 0) {
+				if (unlockedAttacks[2] >= 0) {
 					return true;
 				}
 				break;
 			case elementType.Fire:
-				if (unlockedAttacks[2] > 0) {
+				if (unlockedAttacks[0] >= 0) {
 					return true;
 				}
 				break;
 			case elementType.Earth:
-				if (unlockedAttacks[3] > 0) {
+				if (unlockedAttacks[1] >= 0) {
 					return true;
 				}
 				break;

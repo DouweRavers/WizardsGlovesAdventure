@@ -21,9 +21,9 @@ public class StoryUI : MonoBehaviour {
 			vignette.intensity.overrideState = true;
 			vignette.intensity.value = 0.5f - (0.25f + (GameManager.game.storyData.karma) / 92f);
 		}
-		fire.text = GameManager.game.storyData.spells[0].ToString();
-		earth.text = GameManager.game.storyData.spells[1].ToString();
-		light.text = GameManager.game.storyData.spells[2].ToString();
-		dark.text = GameManager.game.storyData.spells[3].ToString();
+		fire.text = (GameManager.game.storyData.spells[0] + 1).ToString();
+		earth.text = (GameManager.game.storyData.spells[1] + 1).ToString();
+		light.text = (GameManager.game.storyData.spells[2] + 1).ToString();
+		dark.text = (GameManager.game.storyData.spells[3] + 1).ToString();
 	}
 }

@@ -33,9 +33,9 @@ public class Intro : MonoBehaviour {
 	void Start() {
 		txtIntro2.enabled = false;
 
-		//DEBUG
-		GameManager.game.enemyFightData.tutorialBeginnerEnabled = false;
-		GameManager.game.playerFightData.unlockedAttacks = new int[] { 1, 2, 2, 1 };
+		// //DEBUG
+		// GameManager.game.enemyFightData.tutorialBeginnerEnabled = false;
+		// GameManager.game.playerFightData.unlockedAttacks = new int[] { 1, 2, 2, 1 };
 
 
 		StartCoroutine(Blink());
@@ -101,7 +101,7 @@ public class Intro : MonoBehaviour {
 		Debug.Log("yes");
 		txtIntro2.text = "Choose your element:";
 
-		displayElements(GameManager.game.playerFightData.unlockedAttacks);
+		displayElements(GameManager.game.storyData.spells);
 		/*
         txtIntro2.enabled = true;
         txtDark.enabled = true;
@@ -139,7 +139,7 @@ public class Intro : MonoBehaviour {
 
 	void displayElements(int[] unlockedElements) {
 		txtIntro2.enabled = true;
-		if (unlockedElements[0] > 0) {
+		if (unlockedElements[3] >= 0) {
 			gestureDark.SetActive(true);
 			foreach (VideoPlayer video in gestureDark.GetComponents<VideoPlayer>()) {
 				video.Play();
@@ -147,7 +147,7 @@ public class Intro : MonoBehaviour {
 			txtDark.enabled = true;
 			inputIntroElementLocked[0] = false;
 		}
-		if (unlockedElements[1] > 0) {
+		if (unlockedElements[2] >= 0) {
 			gestureLight.SetActive(true);
 			foreach (VideoPlayer video in gestureLight.GetComponents<VideoPlayer>()) {
 				video.Play();
@@ -155,7 +155,7 @@ public class Intro : MonoBehaviour {
 			txtLight.enabled = true;
 			inputIntroElementLocked[1] = false;
 		}
-		if (unlockedElements[2] > 0) {
+		if (unlockedElements[0] >= 0) {
 			gestureFire.SetActive(true);
 			foreach (VideoPlayer video in gestureFire.GetComponents<VideoPlayer>()) {
 				video.Play();
@@ -163,7 +163,7 @@ public class Intro : MonoBehaviour {
 			txtFire.enabled = true;
 			inputIntroElementLocked[2] = false;
 		}
-		if (unlockedElements[3] > 0) {
+		if (unlockedElements[1] >= 0) {
 			gestureEarth.SetActive(true);
 			foreach (VideoPlayer video in gestureEarth.GetComponents<VideoPlayer>()) {
 				video.Play();

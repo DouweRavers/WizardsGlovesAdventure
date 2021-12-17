@@ -13,7 +13,7 @@ public class EnemyAI : MonoBehaviour {
 	public Text[] Tutorial;
 
 	float timeBeforeNextAttack;
-	float healthPoints = 100;
+	float healthPoints = 50;
 	public float health { get { return healthPoints; } }
 	public int damage;
 	public int defense;
@@ -40,7 +40,7 @@ public class EnemyAI : MonoBehaviour {
 		if (GameManager.game.enemyFightData.tutorialBeginnerEnabled) {
 			isActive = false;
 		} else {
-			isActive = true;
+			activateEnemy();
 		}
 
 		//txtWarning.enabled = false;
@@ -111,7 +111,7 @@ public class EnemyAI : MonoBehaviour {
 
 	IEnumerator AttackCoroutine() {
 
-		timeBeforeNextAttack = UnityEngine.Random.Range(2.0f, 5.0f);
+		timeBeforeNextAttack = UnityEngine.Random.Range(10.0f, 20.0f);
 
 		for (int i = 0; i < 5; i++) {
 			if (hit) { // reset the attack timer when hit
@@ -138,7 +138,7 @@ public class EnemyAI : MonoBehaviour {
 
 		EnableUITutorial(true);
 
-		yield return new WaitForSeconds(7);
+		yield return new WaitForSeconds(5);
 
 		EnableUITutorial(false);
 
@@ -158,7 +158,7 @@ public class EnemyAI : MonoBehaviour {
 		damage = newDamage;
 		defense = newDefense;
 
-		float timeBeforeNextAttack = UnityEngine.Random.Range(1.0f, 3.0f);
+		float timeBeforeNextAttack = UnityEngine.Random.Range(10.0f, 15.0f);
 
 		boost = true;
 		boostCount++;
@@ -223,8 +223,8 @@ public class EnemyAI : MonoBehaviour {
 		}
 		Tutorial[0].text = "Enemy Boost!";
 		Tutorial[1].text = "Once the enemy feels threatened, his defense mechanism activates:";
-		Tutorial[2].text = "stronger, more frequent attacks";
-		Tutorial[3].text = "more difficult to hit";
+		Tutorial[2].text = "- stronger, more frequent attacks";
+		Tutorial[3].text = "- more difficult to hit";
 		Tutorial[4].text = "ends when you're able to hit him!";
 	}
 }
