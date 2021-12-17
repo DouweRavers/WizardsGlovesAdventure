@@ -37,18 +37,16 @@ public class EnemyAI : MonoBehaviour {
 		AI = this;
 		healthBar.maxValue = healthPoints;
 
-		if (GameManager.game.enemyFightData.tutorialBeginnerEnabled)
-        {
+		if (GameManager.game.enemyFightData.tutorialBeginnerEnabled) {
 			isActive = false;
-        } else
-        {
+		} else {
 			isActive = true;
-        }
+		}
 
 		//txtWarning.enabled = false;
 		//imgBackground.enabled = false;
 		//imgWarning.enabled = false;
-		EnableUITutorial(false);
+		// EnableUITutorial(false);
 
 		//int randHealthBoost = UnityEngine.Random.Range(20, 50);
 	}
@@ -65,7 +63,7 @@ public class EnemyAI : MonoBehaviour {
 			//if (boost != true) {
 			GetComponentInChildren<Animator>().SetTrigger("Defend");
 			//} else {
-				//GetComponentInChildren<Animator>().SetTrigger("DefendBoost");
+			//GetComponentInChildren<Animator>().SetTrigger("DefendBoost");
 			//}
 		} else {
 			healthPoints -= points;
@@ -74,14 +72,12 @@ public class EnemyAI : MonoBehaviour {
 				Die();
 				return;
 			}
-			if(GameManager.game.enemyFightData.tutorialBeginnerEnabled)
-            {
-				if (firstHit)
-                {
+			if (GameManager.game.enemyFightData.tutorialBeginnerEnabled) {
+				if (firstHit) {
 					firstHit = false;
 					activateEnemy();
 				}
-            }
+			}
 
 			GetComponentInChildren<Animator>().SetTrigger("Hit");
 			FindObjectOfType<SoundManager>().Play("EnemyHit");
@@ -92,16 +88,14 @@ public class EnemyAI : MonoBehaviour {
 				EnemyNormal();
 			}
 			//else {
-				//GetComponentInChildren<Animator>().SetTrigger("Hit");
-				//FindObjectOfType<SoundManager>().Play("EnemyHit");
+			//GetComponentInChildren<Animator>().SetTrigger("Hit");
+			//FindObjectOfType<SoundManager>().Play("EnemyHit");
 			//}
 
 			if (20 <= health && health <= 50 && boostCount <= 0) {
-				if (GameManager.game.enemyFightData.tutorialBeginnerEnabled)
-                {
+				if (GameManager.game.enemyFightData.tutorialBeginnerEnabled) {
 					StartCoroutine(EnemyBoostTutorial());
-                } else
-                {
+				} else {
 					EnemyBoost(20, 2);
 				}
 			}
@@ -130,13 +124,12 @@ public class EnemyAI : MonoBehaviour {
 		//if (boost != true) {
 		GetComponentInChildren<Animator>().SetTrigger("Attack");
 		//} else {
-			//GetComponentInChildren<Animator>().SetTrigger("AttackBoost");
+		//GetComponentInChildren<Animator>().SetTrigger("AttackBoost");
 		//}
 		Attack();
 	}
 
-	IEnumerator EnemyBoostTutorial()
-    {
+	IEnumerator EnemyBoostTutorial() {
 		isActive = false;
 
 		FindObjectOfType<SoundManager>().Play("Alert");
@@ -151,16 +144,14 @@ public class EnemyAI : MonoBehaviour {
 		activateEnemy();
 	}
 
-	public void activateEnemy()
-    {
+	public void activateEnemy() {
 		Debug.Log("yeah");
 		isActive = true;
 		Attack();
 	}
-	public void deactivateEnemy()
-    {
+	public void deactivateEnemy() {
 		isActive = false;
-    }
+	}
 
 	public void EnemyBoost(int newDamage, int newDefense) {
 		damage = newDamage;
@@ -204,10 +195,9 @@ public class EnemyAI : MonoBehaviour {
 			//FindObjectOfType<SoundManager>().Play("EnemyAttackBoosted");
 		}
 		*/
-		if (isActive)
-        {
+		if (isActive) {
 			AttackingPlayer.player.Hit(damage);
-		} 
+		}
 	}
 
 	public void setRandDefend(int newRandDefend) {
@@ -224,12 +214,10 @@ public class EnemyAI : MonoBehaviour {
 		GameManager.game.LoadLevel(GameManager.game.storyData.level);
 	}
 
-	void EnableUITutorial(bool isEnabled)
-    {
+	void EnableUITutorial(bool isEnabled) {
 		imgTutorial.enabled = isEnabled;
 		imgTutorialWarning.enabled = isEnabled;
-		for (int i = 0; i < Tutorial.Length; i++)
-		{
+		for (int i = 0; i < Tutorial.Length; i++) {
 			Tutorial[i].enabled = isEnabled;
 		}
 		Tutorial[0].text = "Enemy Boost!";
