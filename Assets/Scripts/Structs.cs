@@ -46,7 +46,7 @@ public struct StoryData {
 		deathEnemyIDs = new int[0];
 		karma = 0;
 		isDogDeath = false;
-		spells = new int[] { 1, 1, 1, 1 };
+		spells = new int[] { 1, 1, 1, 1 }; // fire, earth, light, dark
 	}
 
 	public void AddSpell(int spellType) {
@@ -64,16 +64,16 @@ public struct StoryData {
 public struct EnemyFightData {
 	public int enemyID;
 	public EnemyType enemyType;
-	public bool tutorialEnabled;
+	public bool tutorialBeginnerEnabled;
 	public EnemyFightData(int id = 0, EnemyType typeEn = EnemyType.NONE, bool tutorial = false) {
 		this.enemyID = id;
 		this.enemyType = typeEn;
-		this.tutorialEnabled = tutorial;
+		this.tutorialBeginnerEnabled = tutorial;
 	}
 }
 
 public struct PlayerFightData {
 	public elementType element;
 	public attackType attack;
-	public bool[] unlockedAttacks; //fire, earth, light, dark
+	public int[] unlockedAttacks; //fire, earth, light, dark
 }

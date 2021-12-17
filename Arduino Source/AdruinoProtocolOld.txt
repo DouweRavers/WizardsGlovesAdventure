@@ -1,0 +1,257 @@
+#include <Arduino_LSM9DS1.h>
+
+/////// LEFT HAND
+
+float pinkX, pinkX1, pinkY, pinkY1, pinkX2, pinkY2;
+float thumbX, thumbX1, thumbY, thumbY1, thumbX2, thumbY2;
+float pointX, pointX1, pointY, pointY1, pointX2, pointY2;
+float middleX, middleX1, middleY, middleY1, middleX2, middleY2;
+float ringX, ringX1, ringY, ringY1, ringX2, ringY2;
+float pinkth, thumbth, pointth, middleth, ringth;
+float xg, yg, zg, xa, ya, za, xm, ym, zm;
+int p, t, po, m, r;
+int j, flag;
+float a2, a3, b1, b2, b3;
+float a2L, a3L, b1L, b2L, b3L;
+
+float thumbAveragingArray[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+float testingArray[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+int iterator = 0;
+int testingIterator = 0;
+int sampleSize = 10;
+
+void setup()
+{
+  j = 0;
+  flag = 0;
+  // put your setup code here, to run once:
+  //Initiate Serial communication.
+  Serial.begin(9600);
+  if (!IMU.begin())
+  { // Init movement sensors
+    Serial.println("Failed to initialize IMU!");
+    while (1)
+      ;
+  }
+  //filter coeff. (LOWPASS)
+  a2L = 1.16826067;
+  a3L = -0.42411821;
+  b1L = 0.06396438;
+  b2L = 0.12792877;
+  b3L = 0.06396438;
+
+  /*
+  // trying new coeff. (HIGHPASS)
+  a2 = 0.012487;
+  a3 = 0;         
+  b1 = 0.993756;
+  b2 = -0.993756;
+  b3 = 0;
+  */
+
+  /*
+  // bandpass coeff.
+b0 = 1,89682751360054
+b1 = -3,79358014369872
+b2 = 1,89682751360054
+a2 = 1,98802075739765
+a3 = -0,9880956409
+
+ */
+  /*
+// THOMAS GENIE MOMENTJE   f= 0.002 - 4
+b1 = 1.79223873752917;
+b2 = -3.55621279953597;
+b3 = 1.79223873752917;
+a2 = 1.74624092807764;
+a3 = -0.7745056036;
+*/
+  /* 4 naar 8
+b1 = 1.67630755494523;
+b2 = -3.24728654118531;
+b3 = 1.67630755494523;
+a2 = 1.47236263489485;
+a3 = -0.5776912036;*/
+
+  b1 = 1.61912007490729;
+  b2 = -3.07974939580975;
+  b3 = 1.61912007490729;
+  a2 = 1.33159324959517;
+  a3 = -0.4900840036;
+
+  pinkY1 = 0;
+  pinkX1 = 0;
+
+  // thresholds
+  pinkth = 500;  //645;
+  thumbth = 500; //500;
+  pointth = 425;
+  middleth = 310; //450;
+  ringth = 160;   //180;
+}
+
+void loop()
+{
+  // put your main code here, to run repeatedly:
+  if (IMU.magneticFieldAvailable())
+  {
+    IMU.readMagneticField(xm, ym, zm);
+  }
+  if (IMU.gyroscopeAvailable())
+  {
+    IMU.readGyroscope(xg, yg, zg);
+  }
+  if (IMU.accelerationAvailable())
+  {
+    IMU.readAcceleration(xa, ya, za);
+  }
+  unsigned long tijd = micros();
+  String payload = "Lhand:";
+
+  pinkX = analogRead(A7);
+  float pinkYtemp = a2 * pinkY1 + a3 * pinkY2 + b1 * pinkX + b2 * pinkX1 + b3 * pinkX2;
+  pinkY = a2L * pinkY1 + a3L * pinkY2 + b1L * pinkYtemp + b2L * pinkX1 + b3L * pinkX2;
+
+  thumbX = analogRead(A0);
+  float thumbYtemp = a2 * thumbY1 + a3 * thumbY2 + b1 * thumbX + b2 * thumbX1 + b3 * thumbX2;
+  thumbY = a2L * thumbY1 + a3L * thumbY2 + b1L * thumbYtemp + b2L * thumbX1 + b3L * thumbX2;
+
+  pointX = analogRead(A2);
+  float pointYtemp = a2 * pointY1 + a3 * pointY2 + b1 * pointX + b2 * pointX1 + b3 * pointX2;
+  pointY = a2L * pointY1 + a3L * pointY2 + b1L * pointYtemp + b2L * pointX1 + b3L * pointX2;
+
+  middleX = analogRead(A4);
+  float middleYtemp = a2 * middleY1 + a3 * middleY2 + b1 * middleX + b2 * middleX1 + b3 * middleX2;
+  middleY = a2L * middleY1 + a3L * middleY2 + b1L * middleYtemp + b2L * middleX1 + b3L * middleX2;
+
+  ringX = analogRead(A5);
+  float ringYtemp = a2 * ringY1 + a3 * ringY2 + b1 * ringX + b2 * ringX1 + b3 * ringX2;
+  ringY = a2L * ringY1 + a3L * ringY2 + b1L * ringYtemp + b2L * ringX1 + b3L * ringX2;
+
+  //update
+  pinkX2 = pinkX1;
+  pinkY2 = pinkY1;
+  pinkY1 = pinkY;
+  pinkX1 = pinkX;
+
+  thumbX2 = thumbX1;
+  thumbY2 = thumbY1;
+  thumbY1 = thumbY;
+  thumbX1 = thumbX;
+
+  pointX2 = pointX1;
+  pointY2 = pointY1;
+  pointY1 = pointY;
+  pointX1 = pointX;
+
+  middleX2 = middleX1;
+  middleY2 = middleY1;
+  middleY1 = middleY;
+  middleX1 = middleX;
+
+  ringX2 = ringX1;
+  ringY2 = ringY1;
+  ringY1 = ringY;
+  ringX1 = ringX;
+
+  if (pinkY > pinkth)
+  {
+    p = 1;
+  }
+  else
+  {
+    p = 0;
+  };
+  if (thumbY > thumbth)
+  {
+    t = 1;
+  }
+  else
+  {
+    t = 0;
+  };
+  if (pointY > pointth)
+  {
+    po = 1;
+  }
+  else
+  {
+    po = 0;
+  };
+  if (middleY > middleth)
+  {
+    m = 1;
+  }
+  else
+  {
+    m = 0;
+  };
+  if (ringY > ringth)
+  {
+    r = 1;
+  }
+  else
+  {
+    r = 0;
+  };
+
+  payload = payload + "{" + t + ";" + po + ";" + m + ";" + r + ";" + p + ";" + xm + ";" + ym + ";" + zm + ";" + xg + ";" + yg + ";" + zg + ";" + xa + ";" + ya + ";" + za + "}";
+  //   Serial.println(payload);
+  //Serial.println(micros()-tijd);   // per finger about 35 us delay ->feasible? ------ String building >1us
+  float rico = 0;
+  if (iterator - 6 < 0)
+    rico = thumbY - thumbAveragingArray[sampleSize - 6];
+  else
+    rico = thumbY - thumbAveragingArray[iterator - 1];
+  Serial.println(rico);
+
+  testingArray[testingIterator] = rico;
+  testingIterator++;
+  if (testingIterator >= sampleSize)
+    testingIterator = 0;
+  float avgTest = 0;
+  for (int i = 0; i < sampleSize; i++)
+  {
+    avgTest += testingArray[i];
+  }
+  avgTest /= sampleSize;
+  thumbAveragingArray[iterator] = thumbY;
+  iterator++;
+  if (iterator >= sampleSize)
+    iterator = 0;
+  float avg = 0;
+  for (int i = 0; i < sampleSize; i++)
+  {
+    avg += thumbAveragingArray[i];
+  }
+  avg /= sampleSize;
+
+  //  Serial.println(avgTest);
+  // if (avgTest > 45)
+  // Serial.println("Up");
+  // if (avgTest < -45)
+  // Serial.println("Down");
+  //reading input from game
+  int incomingByte = 0;
+  if (Serial.available() > 0)
+  {
+    incomingByte = Serial.read() - '0';
+    if (incomingByte == 1)
+      flag = 1;
+    j = 0;
+  }
+  if (flag == 1)
+  {
+    digitalWrite(3, HIGH);
+    j++;
+  }
+  if (j >= 50)
+  {
+    digitalWrite(3, LOW);
+    flag = 0;
+  }
+  //delay(10);
+  float toDelay = micros() - tijd;
+  delayMicroseconds(10000 - toDelay);
+}
+
