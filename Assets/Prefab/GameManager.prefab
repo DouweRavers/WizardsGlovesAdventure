@@ -43,7 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d46c7ecb71a3b478419d6742056f72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTutorial: 1
   LoadingScreenPrefab: {fileID: 2586426424949640365, guid: f00fd6f2f3129e845afec0bb8d390856, type: 3}
-  COML: COM1
-  COMR: COM2
+  COM1: COM3
+  COM2: COM4

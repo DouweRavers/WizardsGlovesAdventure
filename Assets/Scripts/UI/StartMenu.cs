@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class StartMenu : MonoBehaviour {
 	public AudioSource klick;
 	public VideoPlayer videoPlayer;
+	public AudioSource music;
 	public GameObject settings;
 
 	void Start() {
@@ -18,6 +19,7 @@ public class StartMenu : MonoBehaviour {
 		klick.Play();
 		videoPlayer.gameObject.SetActive(true);
 		videoPlayer.Play();
+		music.Stop();
 		StartCoroutine(PlayCoroutine());
 	}
 
