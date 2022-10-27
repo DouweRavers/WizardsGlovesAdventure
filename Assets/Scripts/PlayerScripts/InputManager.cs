@@ -292,10 +292,10 @@ public class InputManager : MonoBehaviour
         }
         avgAccelValueL /= frames;
         avgAccelValueR /= frames;
-        if (avgAccelValueL.z > 0.5f)
-        {
-            if (avgAccelValueR.z > 0.5f && avgAccelValueR.y < 0.5f)
-            {
+        //if (avgAccelValueL.z > 0.5f)
+        //{
+            //if (avgAccelValueR.z > 0.5f && avgAccelValueR.y < 0.5f)
+           // {
                 if (gesture == GestureType.FIRE && IsCombinationPressedDown(
                     Finger.POINT_LEFT, Finger.POINT_RIGHT,
                     Finger.MIDDLE_LEFT, Finger.MIDDLE_RIGHT,
@@ -306,9 +306,9 @@ public class InputManager : MonoBehaviour
                     serialControllerBeta.SendSerialMessage("1");
                     return true;
                 }
-            }
-            if (avgAccelValueR.z < -0.5f)
-            {
+            //}
+           // if (avgAccelValueR.z < -0.5f)
+            //{
                 if (gesture == GestureType.DARK && IsCombinationPressedDown(
                     Finger.PINK_LEFT, Finger.PINK_RIGHT,
                     Finger.RING_LEFT, Finger.RING_RIGHT,
@@ -321,10 +321,10 @@ public class InputManager : MonoBehaviour
                     serialControllerBeta.SendSerialMessage("1");
                     return true;
                 }
-            }
-        }
-        if (avgAccelValueL.z < -0.5f && avgAccelValueR.z > 0.5f)
-        {
+            //}
+        //}
+        //if (avgAccelValueL.z < -0.5f && avgAccelValueR.z > 0.5f)
+        //{
             if (gesture == GestureType.DARK && IsCombinationPressedDown(
                     Finger.PINK_LEFT, Finger.PINK_RIGHT,
                     Finger.RING_LEFT, Finger.RING_RIGHT,
@@ -337,9 +337,9 @@ public class InputManager : MonoBehaviour
                 serialControllerBeta.SendSerialMessage("1");
                 return true;
             }
-        }
-        if (avgAccelValueL.z > 0.5f && avgAccelValueR.z > 0.5f)
-        {
+        //}
+        //if (avgAccelValueL.z > 0.5f && avgAccelValueR.z > 0.5f)
+        //{
             if (gesture == GestureType.LOW && IsCombinationPressedDown(
                 Finger.POINT_LEFT, Finger.POINT_RIGHT,
                 Finger.THUMB_LEFT, Finger.THUMB_RIGHT,
@@ -350,9 +350,9 @@ public class InputManager : MonoBehaviour
                 serialControllerBeta.SendSerialMessage("1");
                 return true;
             }
-        }
-        else if (avgAccelValueL.y + avgAccelValueL.z > 0.7f && avgAccelValueR.y + avgAccelValueR.z > 0.7f)
-        {
+        //}
+        //else if (avgAccelValueL.y + avgAccelValueL.z > 0.7f && avgAccelValueR.y + avgAccelValueR.z > 0.7f)
+        //{
             if (gesture == GestureType.EARTH && IsCombinationPressedDown(
                 Finger.PINK_LEFT, Finger.PINK_RIGHT,
                 Finger.RING_LEFT, Finger.RING_RIGHT,
@@ -399,7 +399,7 @@ public class InputManager : MonoBehaviour
                 return true;
             }
             
-        }
+        //}
             return false;
     }
 

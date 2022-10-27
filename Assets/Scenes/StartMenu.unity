@@ -23715,11 +23715,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8609866996938256863, guid: 256be9dd5ed47284cb28fd2b9320579c, type: 3}
       propertyPath: COM1
-      value: COM3
+      value: COM2
       objectReference: {fileID: 0}
     - target: {fileID: 8609866996938256863, guid: 256be9dd5ed47284cb28fd2b9320579c, type: 3}
       propertyPath: COM2
-      value: COM4
+      value: COM7
       objectReference: {fileID: 0}
     - target: {fileID: 8609866996938256863, guid: 256be9dd5ed47284cb28fd2b9320579c, type: 3}
       propertyPath: LoadingScreenPrefab

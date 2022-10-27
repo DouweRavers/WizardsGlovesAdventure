@@ -59960,6 +59960,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1286426547194435895, guid: 46991b67881b4984b8a5e31d56637cb9, type: 3}
+      propertyPath: portName
+      value: COM7
+      objectReference: {fileID: 0}
     - target: {fileID: 3255065858104662236, guid: 46991b67881b4984b8a5e31d56637cb9, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 0
@@ -68733,6 +68737,14 @@ PrefabInstance:
     - target: {fileID: 8609866996938256862, guid: 256be9dd5ed47284cb28fd2b9320579c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8609866996938256863, guid: 256be9dd5ed47284cb28fd2b9320579c, type: 3}
+      propertyPath: COM1
+      value: COM2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8609866996938256863, guid: 256be9dd5ed47284cb28fd2b9320579c, type: 3}
+      propertyPath: COM2
+      value: COM7
       objectReference: {fileID: 0}
     - target: {fileID: 8609866996938256863, guid: 256be9dd5ed47284cb28fd2b9320579c, type: 3}
       propertyPath: LoadingScreenPrefab

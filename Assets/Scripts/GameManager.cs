@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour {
 	public EnemyFightData enemyFightData;
 	public PlayerFightData playerFightData;
 	public GameObject LoadingScreenPrefab;
-	public string COM1 = "COM1", COM2 = "COM2";
+	public string COM1 = "COM2", COM2 = "COM7";
 	Transform loadingScreenTransform;
 	private AsyncOperation loader;
 
@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour {
 	public void LoadFightScene(int enemyID, EnemyType enemyType, bool tutorialEnabled) {
 		StoryManager.story.SaveStory();
 		enemyFightData = new EnemyFightData(enemyID, enemyType, tutorialEnabled);
+		playerFightData = new PlayerFightData();
 		SceneManager.LoadSceneAsync(4);
 	}
 
@@ -44,6 +45,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void LoadNextLevel() {
+		Debug.Log(storyData.level.ToString());
 		if (StoryManager.story != null) StoryManager.story.SaveStory();
 		switch (storyData.level) {
 			case Level.NONE:
@@ -54,6 +56,10 @@ public class GameManager : MonoBehaviour {
 				break;
 			case Level.GRASSLAND:
 				LoadLevel(Level.DUNGEON);
+				break;
+			case Level.DUNGEON:
+				if(storyData.karma < 0){LoadLevel(Level.BADENDING);}
+				else{LoadLevel(Level.GOODENDING);}
 				break;
 			default:
 				break;
@@ -76,6 +82,7 @@ public class GameManager : MonoBehaviour {
 
 
 	public void LoadLevel(Level level) {
+		Debug.Log(level.ToString());
 		if (StoryManager.story != null) StoryManager.story.SaveStory();
 		loadingScreenTransform = Instantiate(LoadingScreenPrefab).transform;
 		loadingScreenTransform.SetParent(transform);
@@ -88,6 +95,12 @@ public class GameManager : MonoBehaviour {
 				break;
 			case Level.DUNGEON:
 				loadingScreenTransform.GetComponent<LoadingScreen>().loader = SceneManager.LoadSceneAsync(3);
+				break;
+			case Level.GOODENDING:
+				loadingScreenTransform.GetComponent<LoadingScreen>().loader = SceneManager.LoadSceneAsync(7);
+				break;
+			case Level.BADENDING:
+				loadingScreenTransform.GetComponent<LoadingScreen>().loader = SceneManager.LoadSceneAsync(6);
 				break;
 			default:
 				break;

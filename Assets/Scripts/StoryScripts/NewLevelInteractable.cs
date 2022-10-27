@@ -27,4 +27,8 @@ public class NewLevelInteractable : Interactable {
 		}
 		isEnabled = true;
 	}
+
+	public void LoadLevelOverride(){
+		GameManager.game.LoadNextLevel();
+	}
 }

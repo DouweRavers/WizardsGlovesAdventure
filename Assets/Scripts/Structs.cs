@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum Level {
-	TOWN, GRASSLAND, DUNGEON, NONE
+	TOWN, GRASSLAND, DUNGEON, GOODENDING, BADENDING, NONE
 }
 public enum SpellType {
 	ROCK, FIRE, LIGHT, DARK
