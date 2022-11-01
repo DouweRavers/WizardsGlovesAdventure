@@ -1,4 +1,4 @@
-  #include <Arduino_LSM9DS1.h>
+#include <Arduino_LSM9DS1.h>
 #define LeftHand false
 
 #if LeftHand
@@ -66,7 +66,7 @@ void loop()
   unsigned long current_time = micros();
   receiveMovementData();
   receiveTouchData();
-//  sendData();
+  sendData();
   receiveVibrationTrigger();
   delayMicroseconds(10000 - (micros() - current_time)); // Delay until 10ms is achieved
 }
@@ -135,17 +135,17 @@ void setThresholds()
 void receiveTouchData()
 {
 //  // THUMB
-//  receiveAndFilterTouchSensor(thumb_raw_data, thumb_LP_data, thumbPort);
-//  processDifferentialTouchData(thumb_finger, thumb_LP_data[0], thumb_dif_data, thumb_dif_avg_data, upper_threshold_thumb, lower_threshold_thumb);
+  receiveAndFilterTouchSensor(thumb_raw_data, thumb_LP_data, thumbPort);
+  processDifferentialTouchData(thumb_finger, thumb_LP_data[0], thumb_dif_data, thumb_dif_avg_data, upper_threshold_thumb, lower_threshold_thumb);
 //  // INDEX
-//  receiveAndFilterTouchSensor(index_raw_data, index_LP_data, indexPort);
-//  processDifferentialTouchData(index_finger, index_LP_data[0], index_dif_data, index_dif_avg_data, upper_threshold_index, lower_threshold_index);
+  receiveAndFilterTouchSensor(index_raw_data, index_LP_data, indexPort);
+  processDifferentialTouchData(index_finger, index_LP_data[0], index_dif_data, index_dif_avg_data, upper_threshold_index, lower_threshold_index);
 //  // MIDDLE
-//  receiveAndFilterTouchSensor(middle_raw_data, middle_LP_data, middlePort);
-//  processDifferentialTouchData(middle_finger, middle_LP_data[0], middle_dif_data, middle_dif_avg_data, upper_threshold_middle, lower_threshold_middle);
+  receiveAndFilterTouchSensor(middle_raw_data, middle_LP_data, middlePort);
+  processDifferentialTouchData(middle_finger, middle_LP_data[0], middle_dif_data, middle_dif_avg_data, upper_threshold_middle, lower_threshold_middle);
 //  // RING
-//  receiveAndFilterTouchSensor(ring_raw_data, ring_LP_data, ringPort);
-//  processDifferentialTouchData(ring_finger, ring_LP_data[0], ring_dif_data, ring_dif_avg_data, upper_threshold_ring, lower_threshold_ring);
+  receiveAndFilterTouchSensor(ring_raw_data, ring_LP_data, ringPort);
+  processDifferentialTouchData(ring_finger, ring_LP_data[0], ring_dif_data, ring_dif_avg_data, upper_threshold_ring, lower_threshold_ring);
   // PINKY
   receiveAndFilterTouchSensor(pinky_raw_data, pinky_LP_data, pinkPort);
   processDifferentialTouchData(pinky_finger, pinky_LP_data[0], pinky_dif_data, pinky_dif_avg_data, upper_threshold_pinky, lower_threshold_pinky);
@@ -177,7 +177,7 @@ void processDifferentialTouchData(boolean &state, float LP_value, float dif_data
     avg += avg_data[i];
   }
   avg /= dif_size;
-  Serial.println(avg);
+  //Serial.println(avg);
   if (avg > upper_threshold)
     state = true;
   else if (avg < lower_threshold)

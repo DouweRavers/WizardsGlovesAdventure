@@ -43,43 +43,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 268dc70b105993846a123be43345df63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileIndex: 10
+  fileIndex: 6
   skinIndex: 0
   loadTag: 
   startID: 0
   curFocusID: 0
-  currentID: 3125
+  currentID: 45262
   autosave: 1
   previewPanning: 0
-  currentDiag: 10
+  currentDiag: 6
   locEdit: 0
   pNodeID: 18
   aNodeID: 2
   S_playerDiags:
   - commentCount: 1
     s_comment:
-    - text: Good day to you, kind sir.
+    - text: You find a small demon looking really hurt, lying on the floor
       extraData: ExtraData
       inputSetIndex: 0
-      outputNodeIndex: 2
+      outputNodeIndex: 1
       outActionIndex: -1
       showmore: 0
       outRect:
         serializedVersion: 2
         x: 301
-        y: 65
+        y: 63
         width: 30
-        height: 24
+        height: 33
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 0
     rect:
       serializedVersion: 2
-      x: -420
-      y: -230
+      x: 100
+      y: 350
       width: 348
-      height: 133
+      height: 139
     pTag: 
     expand: 0
     sprite: {fileID: 0}
@@ -88,37 +88,37 @@ MonoBehaviour:
     isPlayer: 0
   - commentCount: 1
     s_comment:
-    - text: Comment...
+    - text: Urgh, please help me.
       extraData: ExtraData
       inputSetIndex: 1
-      outputNodeIndex: -1
+      outputNodeIndex: 2
       outActionIndex: -1
       showmore: 0
       outRect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 0
-        height: 0
+        x: 301
+        y: 63
+        width: 30
+        height: 23
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 1
     rect:
       serializedVersion: 2
-      x: -420
-      y: 360
+      x: 510
+      y: 340
       width: 348
-      height: 133
+      height: 225
     pTag: 
-    expand: 0
-    sprite: {fileID: 0}
+    expand: 1
+    sprite: {fileID: 21300000, guid: 281a9b8439c88c145939eedb1c317238, type: 3}
     vars: []
     varKeys: []
     isPlayer: 0
   - commentCount: 1
     s_comment:
-    - text: Well you sound happy.
+    - text: Share some of that o' so sweet darkness with me
       extraData: ExtraData
       inputSetIndex: 2
       outputNodeIndex: 3
@@ -127,29 +127,28 @@ MonoBehaviour:
       outRect:
         serializedVersion: 2
         x: 301
-        y: 65
+        y: 63
         width: 30
-        height: 24
+        height: 33
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 2
     rect:
       serializedVersion: 2
-      x: -20
-      y: -220
+      x: 910
+      y: 320
       width: 348
-      height: 133
+      height: 235
     pTag: 
-    expand: 0
-    sprite: {fileID: 0}
+    expand: 1
+    sprite: {fileID: 21300000, guid: 281a9b8439c88c145939eedb1c317238, type: 3}
     vars: []
     varKeys: []
-    isPlayer: 1
-  - commentCount: 1
+    isPlayer: 0
+  - commentCount: 3
     s_comment:
-    - text: I am! Little barky here finally returned to me after being lost for more
-        than a week.
+    - text: Heal the Demon
       extraData: ExtraData
       inputSetIndex: 3
       outputNodeIndex: 4
@@ -158,58 +157,88 @@ MonoBehaviour:
       outRect:
         serializedVersion: 2
         x: 301
-        y: 65
+        y: 63
         width: 30
-        height: 47
+        height: 23
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: Defeat the Demon
+      extraData: ExtraData
+      inputSetIndex: 3
+      outputNodeIndex: 5
+      outActionIndex: -1
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 300
+        y: 87
+        width: 30
+        height: 23
+      sprites: {fileID: 0}
+      audios: {fileID: 0}
+      visible: 1
+    - text: Walk away
+      extraData: ExtraData
+      inputSetIndex: 3
+      outputNodeIndex: -1
+      outActionIndex: 0
+      showmore: 0
+      outRect:
+        serializedVersion: 2
+        x: 300
+        y: 111
+        width: 30
+        height: 23
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 3
     rect:
       serializedVersion: 2
-      x: -20
-      y: -80
+      x: 1290
+      y: 320
       width: 348
-      height: 156
+      height: 177
     pTag: 
     expand: 0
     sprite: {fileID: 0}
     vars: []
     varKeys: []
-    isPlayer: 0
+    isPlayer: 1
   - commentCount: 1
     s_comment:
-    - text: I was fearing the worst. Luckily I was wrong.
+    - text: Oh my, thank you sweet dark lord.
       extraData: ExtraData
       inputSetIndex: 4
-      outputNodeIndex: 5
-      outActionIndex: -1
+      outputNodeIndex: -1
+      outActionIndex: 3
       showmore: 0
       outRect:
         serializedVersion: 2
         x: 301
-        y: 65
+        y: 63
         width: 30
-        height: 33
+        height: 23
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
-    ID: 4
+    ID: 5
     rect:
       serializedVersion: 2
-      x: -20
-      y: 80
+      x: 1670
+      y: 120
       width: 348
-      height: 141.6
+      height: 225
     pTag: 
-    expand: 0
-    sprite: {fileID: 0}
+    expand: 1
+    sprite: {fileID: 21300000, guid: 281a9b8439c88c145939eedb1c317238, type: 3}
     vars: []
     varKeys: []
     isPlayer: 0
   - commentCount: 1
     s_comment:
-    - text: I wonder what happened to him.
+    - text: Arghk...
       extraData: ExtraData
       inputSetIndex: 5
       outputNodeIndex: 6
@@ -218,235 +247,1025 @@ MonoBehaviour:
       outRect:
         serializedVersion: 2
         x: 301
-        y: 65
+        y: 63
         width: 30
-        height: 24
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 5
-    rect:
-      serializedVersion: 2
-      x: 370
-      y: -220
-      width: 348
-      height: 133
-    pTag: 
-    expand: 0
-    sprite: {fileID: 0}
-    vars: []
-    varKeys: []
-    isPlayer: 1
-  - commentCount: 1
-    s_comment:
-    - text: '** Barks excitingly **'
-      extraData: ExtraData
-      inputSetIndex: 6
-      outputNodeIndex: 7
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 301
-        y: 65
-        width: 30
-        height: 24
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
-    ID: 6
-    rect:
-      serializedVersion: 2
-      x: 370
-      y: -70
-      width: 348
-      height: 133
-    pTag: 
-    expand: 0
-    sprite: {fileID: 0}
-    vars: []
-    varKeys: []
-    isPlayer: 0
-  - commentCount: 1
-    s_comment:
-    - text: 'Wauw, he really seams to like you. '
-      extraData: ExtraData
-      inputSetIndex: 7
-      outputNodeIndex: 8
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 301
-        y: 65
-        width: 30
-        height: 33
+        height: 23
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 7
     rect:
       serializedVersion: 2
-      x: 370
-      y: 80
+      x: 1720
+      y: 380
       width: 348
-      height: 141.6
+      height: 225
     pTag: 
-    expand: 0
-    sprite: {fileID: 0}
+    expand: 1
+    sprite: {fileID: 21300000, guid: 281a9b8439c88c145939eedb1c317238, type: 3}
     vars: []
     varKeys: []
     isPlayer: 0
   - commentCount: 1
     s_comment:
-    - text: I might have helped him finding his way back a little time ago.
+    - text: '*Dies*'
       extraData: ExtraData
-      inputSetIndex: 8
-      outputNodeIndex: 9
-      outActionIndex: -1
+      inputSetIndex: 6
+      outputNodeIndex: -1
+      outActionIndex: 4
       showmore: 0
       outRect:
         serializedVersion: 2
         x: 301
-        y: 65
+        y: 63
         width: 30
-        height: 33
+        height: 23
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 8
     rect:
       serializedVersion: 2
-      x: 750
-      y: -220
+      x: 2100
+      y: 420
       width: 348
-      height: 141.6
+      height: 225
     pTag: 
-    expand: 0
-    sprite: {fileID: 0}
+    expand: 1
+    sprite: {fileID: 21300000, guid: 281a9b8439c88c145939eedb1c317238, type: 3}
     vars: []
     varKeys: []
-    isPlayer: 1
-  - commentCount: 1
-    s_comment:
-    - text: Really? Thank you sir.
-      extraData: ExtraData
-      inputSetIndex: 9
-      outputNodeIndex: 10
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 301
-        y: 65
-        width: 30
-        height: 24
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
+    isPlayer: 0
+  S_actionNodes:
+  - pauseHere: 0
+    gameObjectName: StorageCharacters
+    methodName: DialogActionGoToLocation
+    nameIndex: 1
+    methodIndex: 9
+    paramIndex: 3
+    opts:
+    - '[No method]'
+    - GetAssigned
+    - AssignNew
+    - SaveState
+    - LoadState
+    - OnBeforeSerialize
+    - OnAfterDeserialize
+    - PerformAction
+    - UpdateState
+    - DialogActionGoToLocation
+    nameOpts:
+    - '[No object]'
+    - StorageCharacters
+    - GameManager (1)
+    - CM vcam2 (32)
+    - Checkpoint smelteryGateway
+    - CM vcam2 (21)
+    - cm
+    - cm
+    - CM vcam2 (12)
+    - cm
+    - Leave
+    - altar
+    - cm
+    - cm
+    - cm
+    - Checkpoint storage
+    - Checkpoint AltarSceneStart
+    - cm
+    - cam pos C
+    - CM vcam2 (22)
+    - cm
+    - talk
+    - StoryManager (1)
+    - cm
+    - CM vcam2 (31)
+    - lava
+    - CM vcam2 (16)
+    - cm
+    - cm
+    - cm
+    - CM vcam2 (17)
+    - cm
+    - throne
+    - InteractDemon
+    - cam pos B
+    - storage
+    - CM vcam2 (25)
+    - cam pos A
+    - CM vcam2 (11)
+    - smeltery
+    - CM vcam2 (33)
+    - cm
+    - walk away
+    - talk
+    - cam pos A
+    - CM vcam2 (29)
+    - cm
+    - CM vcam2 (18)
+    - Purify
+    - cam pos A
+    - searchKing
+    - cam pos A
+    - cm
+    - Checkpoint smeltery2
+    - cm
+    - cm
+    - CM vcam2 (20)
+    - Checkpoint workplace
+    - Main Camera (1)
+    - CM vcam2 (30)
+    - cm
+    - join
+    - cm
+    - cm
+    - advance
+    - cm
+    - checkpoint throne room
+    - Checkpoint lavapool
+    - checkpoint throne room2
+    - cm
+    - CM vcam2 (27)
+    - CM vcam2 (24)
+    - CM vcam2 (10)
+    - cm
+    - cam pos A
+    - cam pos A
+    - altar
+    - cm
+    - cm
+    - CM vcam2 (15)
+    - cam pos A
+    - cm
+    - battle
+    - cam pos A
+    - cm
+    - CM vcam2 (28)
+    - CM vcam2 (23)
+    - CM vcam2 (13)
+    - CM vcam2 (9)
+    - Checkpoint outside
+    - cm
+    - cm
+    - cam pos A
+    - cam pos A
+    - cm
+    - cm
+    - CM vcam2 (14)
+    - cam pos A
+    - cm
+    - cm
+    - cm
+    - CM vcam2 (26)
+    - CM ClearShot1 (1)
+    - ThroneCharacters
+    - workplace
+    - cm
+    - searchKing
+    - cm
+    - Checkpoint hallway flame
+    - Checkpoint smeltery1
+    - cm
+    - cam pos A
+    - cm
+    - CM vcam2 (19)
+    param_bool: 0
+    param_string: 
+    param_int: 0
+    param_float: 0
+    rect:
+      serializedVersion: 2
+      x: 1710
+      y: 640
+      width: 200
+      height: 190
+    ID: 4
+    outPlayerIndex: -1
+    outActionIndex: -1
+    more: 0
+    ovrStartNode: -1
+    renameDialogue: 
+  - pauseHere: 0
+    gameObjectName: StorageCharacters
+    methodName: DialogActionGoToLocation
+    nameIndex: 1
+    methodIndex: 9
+    paramIndex: 3
+    opts:
+    - '[No method]'
+    - GetAssigned
+    - AssignNew
+    - SaveState
+    - LoadState
+    - OnBeforeSerialize
+    - OnAfterDeserialize
+    - PerformAction
+    - UpdateState
+    - DialogActionGoToLocation
+    nameOpts:
+    - '[No object]'
+    - StorageCharacters
+    - GameManager (1)
+    - CM vcam2 (32)
+    - Checkpoint smelteryGateway
+    - CM vcam2 (21)
+    - cm
+    - cm
+    - CM vcam2 (12)
+    - cm
+    - Leave
+    - altar
+    - cm
+    - cm
+    - cm
+    - Checkpoint storage
+    - Checkpoint AltarSceneStart
+    - cm
+    - cam pos C
+    - CM vcam2 (22)
+    - cm
+    - talk
+    - StoryManager (1)
+    - cm
+    - CM vcam2 (31)
+    - lava
+    - CM vcam2 (16)
+    - cm
+    - cm
+    - cm
+    - CM vcam2 (17)
+    - cm
+    - throne
+    - InteractDemon
+    - cam pos B
+    - storage
+    - CM vcam2 (25)
+    - cam pos A
+    - CM vcam2 (11)
+    - smeltery
+    - CM vcam2 (33)
+    - cm
+    - walk away
+    - talk
+    - cam pos A
+    - CM vcam2 (29)
+    - cm
+    - CM vcam2 (18)
+    - Purify
+    - cam pos A
+    - searchKing
+    - cam pos A
+    - cm
+    - Checkpoint smeltery2
+    - cm
+    - cm
+    - CM vcam2 (20)
+    - Checkpoint workplace
+    - Main Camera (1)
+    - CM vcam2 (30)
+    - cm
+    - join
+    - cm
+    - cm
+    - advance
+    - cm
+    - checkpoint throne room
+    - Checkpoint lavapool
+    - checkpoint throne room2
+    - cm
+    - CM vcam2 (27)
+    - CM vcam2 (24)
+    - CM vcam2 (10)
+    - cm
+    - cam pos A
+    - cam pos A
+    - altar
+    - cm
+    - cm
+    - CM vcam2 (15)
+    - cam pos A
+    - cm
+    - battle
+    - cam pos A
+    - cm
+    - CM vcam2 (28)
+    - CM vcam2 (23)
+    - CM vcam2 (13)
+    - CM vcam2 (9)
+    - Checkpoint outside
+    - cm
+    - cm
+    - cam pos A
+    - cam pos A
+    - cm
+    - cm
+    - CM vcam2 (14)
+    - cam pos A
+    - cm
+    - cm
+    - cm
+    - CM vcam2 (26)
+    - CM ClearShot1 (1)
+    - ThroneCharacters
+    - workplace
+    - cm
+    - searchKing
+    - cm
+    - Checkpoint hallway flame
+    - Checkpoint smeltery1
+    - cm
+    - cam pos A
+    - cm
+    - CM vcam2 (19)
+    param_bool: 0
+    param_string: 
+    param_int: 0
+    param_float: 0
+    rect:
+      serializedVersion: 2
+      x: 2330
+      y: 140
+      width: 200
+      height: 190
+    ID: 6
+    outPlayerIndex: -1
+    outActionIndex: -1
+    more: 0
+    ovrStartNode: -1
+    renameDialogue: 
+  - pauseHere: 0
+    gameObjectName: StorageCharacters
+    methodName: DialogActionGoToLocation
+    nameIndex: 1
+    methodIndex: 9
+    paramIndex: 3
+    opts:
+    - '[No method]'
+    - GetAssigned
+    - AssignNew
+    - SaveState
+    - LoadState
+    - OnBeforeSerialize
+    - OnAfterDeserialize
+    - PerformAction
+    - UpdateState
+    - DialogActionGoToLocation
+    nameOpts:
+    - '[No object]'
+    - StorageCharacters
+    - GameManager (1)
+    - CM vcam2 (32)
+    - Checkpoint smelteryGateway
+    - CM vcam2 (21)
+    - cm
+    - cm
+    - CM vcam2 (12)
+    - cm
+    - Leave
+    - altar
+    - cm
+    - cm
+    - cm
+    - Checkpoint storage
+    - Checkpoint AltarSceneStart
+    - cm
+    - cam pos C
+    - CM vcam2 (22)
+    - cm
+    - talk
+    - StoryManager (1)
+    - cm
+    - CM vcam2 (31)
+    - lava
+    - CM vcam2 (16)
+    - cm
+    - cm
+    - cm
+    - CM vcam2 (17)
+    - cm
+    - throne
+    - InteractDemon
+    - cam pos B
+    - storage
+    - CM vcam2 (25)
+    - cam pos A
+    - CM vcam2 (11)
+    - smeltery
+    - CM vcam2 (33)
+    - cm
+    - walk away
+    - talk
+    - cam pos A
+    - CM vcam2 (29)
+    - cm
+    - CM vcam2 (18)
+    - Purify
+    - cam pos A
+    - searchKing
+    - cam pos A
+    - cm
+    - Checkpoint smeltery2
+    - cm
+    - cm
+    - CM vcam2 (20)
+    - Checkpoint workplace
+    - Main Camera (1)
+    - CM vcam2 (30)
+    - cm
+    - join
+    - cm
+    - cm
+    - advance
+    - cm
+    - checkpoint throne room
+    - Checkpoint lavapool
+    - checkpoint throne room2
+    - cm
+    - CM vcam2 (27)
+    - CM vcam2 (24)
+    - CM vcam2 (10)
+    - cm
+    - cam pos A
+    - cam pos A
+    - altar
+    - cm
+    - cm
+    - CM vcam2 (15)
+    - cam pos A
+    - cm
+    - battle
+    - cam pos A
+    - cm
+    - CM vcam2 (28)
+    - CM vcam2 (23)
+    - CM vcam2 (13)
+    - CM vcam2 (9)
+    - Checkpoint outside
+    - cm
+    - cm
+    - cam pos A
+    - cam pos A
+    - cm
+    - cm
+    - CM vcam2 (14)
+    - cam pos A
+    - cm
+    - cm
+    - cm
+    - CM vcam2 (26)
+    - CM ClearShot1 (1)
+    - ThroneCharacters
+    - workplace
+    - cm
+    - searchKing
+    - cm
+    - Checkpoint hallway flame
+    - Checkpoint smeltery1
+    - cm
+    - cam pos A
+    - cm
+    - CM vcam2 (19)
+    param_bool: 0
+    param_string: 
+    param_int: 0
+    param_float: 0
+    rect:
+      serializedVersion: 2
+      x: 2790
+      y: 390
+      width: 200
+      height: 190
     ID: 9
+    outPlayerIndex: -1
+    outActionIndex: 5
+    more: 0
+    ovrStartNode: -1
+    renameDialogue: 
+  - pauseHere: 0
+    gameObjectName: GameManager
+    methodName: ChangeKarmaBy
+    nameIndex: 16
+    methodIndex: 5
+    paramIndex: 3
+    opts:
+    - '[No method]'
+    - LoadFightSceneAgain
+    - LoadNextLevel
+    - AddSpell
+    - GetSpell
+    - ChangeKarmaBy
+    - GetKarma
+    nameOpts:
+    - '[No object]'
+    - Karma
+    - Text (TMP) (3)
+    - Text (TMP) (2)
+    - Text (TMP) (1)
+    - Text (TMP)
+    - Sign
+    - GoToSmeltery
+    - Sign
+    - Throne Room
+    - Sign
+    - Workshop
+    - Sign
+    - ReturnFromLava
+    - Sign
+    - ReturnFromSmeltery
+    - GameManager
+    - Sign
+    - ReturnFromWorkshop
+    - Sign
+    - WalkBack
+    - Sign
+    - ReturnFromAltar
+    - Sign
+    - GoToHallway
+    - Sign
+    - GoToThrone
+    - Sign
+    - GoToStorage
+    - Sign
+    - Hallway
+    - Sign
+    - WalkAway
+    - Player (1)
+    - Sign
+    - DragonAltar
+    - Sign
+    - Lava Pool
+    - CM vcam2 (32)
+    - Checkpoint smelteryGateway
+    - CM vcam2 (21)
+    - cm
+    - cm
+    - CM vcam2 (12)
+    - cm
+    - CM ClearShot6
+    - cm
+    - cm
+    - Checkpoint storage
+    - Checkpoint AltarSceneStart
+    - cm
+    - cam pos C
+    - CM vcam2 (22)
+    - cm
+    - StoryManager
+    - cm
+    - CM vcam2 (31)
+    - LavaCharacters
+    - CM vcam2 (16)
+    - cm
+    - cm
+    - cm
+    - CM vcam2 (17)
+    - cm
+    - cam pos B
+    - CM ClearShot5
+    - CM ClearShot4
+    - CM vcam2 (25)
+    - CM ClearShot1
+    - cam pos A
+    - CM vcam2 (11)
+    - CM vcam2 (33)
+    - cm
+    - cam pos A
+    - CM vcam2 (29)
+    - cm
+    - CM vcam2 (18)
+    - AltarCharacters
+    - cam pos A
+    - cam pos A
+    - cm
+    - Checkpoint smeltery
+    - cm
+    - cm
+    - CM ClearShot8
+    - CM vcam2 (20)
+    - Checkpoint workplace
+    - Main Camera
+    - CM vcam2 (30)
+    - cm
+    - cm
+    - cm
+    - cm
+    - checkpoint throne room
+    - Checkpoint lavapool
+    - checkpoint throne room2
+    - cm
+    - CM vcam2 (27)
+    - CM vcam2 (24)
+    - CM vcam2 (10)
+    - cm
+    - cam pos A
+    - cam pos A
+    - cm
+    - SmelteryCharacters
+    - cm
+    - CM vcam2 (15)
+    - cam pos A
+    - cm
+    - cm
+    - CM vcam2 (28)
+    - CM vcam2 (23)
+    - CM vcam2 (13)
+    - CM vcam2 (9)
+    - Checkpoint outside
+    - cm
+    - CM ClearShot3
+    - cm
+    - cam pos A
+    - cam pos A
+    - cm
+    - cm
+    - CM vcam2 (14)
+    - CM ClearShot7
+    - CM ClearShot9
+    - cam pos A
+    - cm
+    - cm
+    - cm
+    - CM vcam2 (26)
+    - CM ClearShot1 (1)
+    - WorkshopCharacters
+    - ThroneCharacters
+    - cm
+    - cm
+    - Checkpoint hallway flame
+    - StorageCharacters
+    - cm
+    - cam pos A
+    - cm
+    - CM ClearShot10
+    - CM ClearShot2
+    - CM vcam2 (19)
+    param_bool: 0
+    param_string: 
+    param_int: -5
+    param_float: 0
     rect:
       serializedVersion: 2
-      x: 760
-      y: -60
-      width: 348
-      height: 133
-    pTag: 
-    expand: 0
-    sprite: {fileID: 0}
-    vars: []
-    varKeys: []
-    isPlayer: 0
-  - commentCount: 1
-    s_comment:
-    - text: "You know, I once found a magic scroll. I\u2019m not really a adventurer
-        so I have no real need for it."
-      extraData: ExtraData
-      inputSetIndex: 10
-      outputNodeIndex: 11
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 301
-        y: 65
-        width: 30
-        height: 47
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
+      x: 2070
+      y: 120
+      width: 200
+      height: 190
     ID: 10
+    outPlayerIndex: -1
+    outActionIndex: 1
+    more: 0
+    ovrStartNode: -1
+    renameDialogue: 
+  - pauseHere: 0
+    gameObjectName: GameManager
+    methodName: ChangeKarmaBy
+    nameIndex: 16
+    methodIndex: 5
+    paramIndex: 3
+    opts:
+    - '[No method]'
+    - LoadFightSceneAgain
+    - LoadNextLevel
+    - AddSpell
+    - GetSpell
+    - ChangeKarmaBy
+    - GetKarma
+    nameOpts:
+    - '[No object]'
+    - Karma
+    - Text (TMP) (3)
+    - Text (TMP) (2)
+    - Text (TMP) (1)
+    - Text (TMP)
+    - Sign
+    - GoToSmeltery
+    - Sign
+    - Throne Room
+    - Sign
+    - Workshop
+    - Sign
+    - ReturnFromLava
+    - Sign
+    - ReturnFromSmeltery
+    - GameManager
+    - Sign
+    - ReturnFromWorkshop
+    - Sign
+    - WalkBack
+    - Sign
+    - ReturnFromAltar
+    - Sign
+    - GoToHallway
+    - Sign
+    - GoToThrone
+    - Sign
+    - GoToStorage
+    - Sign
+    - Hallway
+    - Sign
+    - WalkAway
+    - Player (1)
+    - Sign
+    - DragonAltar
+    - Sign
+    - Lava Pool
+    - CM vcam2 (32)
+    - Checkpoint smelteryGateway
+    - CM vcam2 (21)
+    - cm
+    - cm
+    - CM vcam2 (12)
+    - cm
+    - CM ClearShot6
+    - cm
+    - cm
+    - Checkpoint storage
+    - Checkpoint AltarSceneStart
+    - cm
+    - cam pos C
+    - CM vcam2 (22)
+    - cm
+    - StoryManager
+    - cm
+    - CM vcam2 (31)
+    - LavaCharacters
+    - CM vcam2 (16)
+    - cm
+    - cm
+    - cm
+    - CM vcam2 (17)
+    - cm
+    - cam pos B
+    - CM ClearShot5
+    - CM ClearShot4
+    - CM vcam2 (25)
+    - CM ClearShot1
+    - cam pos A
+    - CM vcam2 (11)
+    - CM vcam2 (33)
+    - cm
+    - cam pos A
+    - CM vcam2 (29)
+    - cm
+    - CM vcam2 (18)
+    - AltarCharacters
+    - cam pos A
+    - cam pos A
+    - cm
+    - Checkpoint smeltery
+    - cm
+    - cm
+    - CM ClearShot8
+    - CM vcam2 (20)
+    - Checkpoint workplace
+    - Main Camera
+    - CM vcam2 (30)
+    - cm
+    - cm
+    - cm
+    - cm
+    - checkpoint throne room
+    - Checkpoint lavapool
+    - checkpoint throne room2
+    - cm
+    - CM vcam2 (27)
+    - CM vcam2 (24)
+    - CM vcam2 (10)
+    - cm
+    - cam pos A
+    - cam pos A
+    - cm
+    - SmelteryCharacters
+    - cm
+    - CM vcam2 (15)
+    - cam pos A
+    - cm
+    - cm
+    - CM vcam2 (28)
+    - CM vcam2 (23)
+    - CM vcam2 (13)
+    - CM vcam2 (9)
+    - Checkpoint outside
+    - cm
+    - CM ClearShot3
+    - cm
+    - cam pos A
+    - cam pos A
+    - cm
+    - cm
+    - CM vcam2 (14)
+    - CM ClearShot7
+    - CM ClearShot9
+    - cam pos A
+    - cm
+    - cm
+    - cm
+    - CM vcam2 (26)
+    - CM ClearShot1 (1)
+    - WorkshopCharacters
+    - ThroneCharacters
+    - cm
+    - cm
+    - Checkpoint hallway flame
+    - StorageCharacters
+    - cm
+    - cam pos A
+    - cm
+    - CM ClearShot10
+    - CM ClearShot2
+    - CM vcam2 (19)
+    param_bool: 0
+    param_string: 
+    param_int: 5
+    param_float: 0
     rect:
       serializedVersion: 2
-      x: 760
-      y: 100
-      width: 348
-      height: 156
-    pTag: 
-    expand: 0
-    sprite: {fileID: 0}
-    vars: []
-    varKeys: []
-    isPlayer: 0
-  - commentCount: 1
-    s_comment:
-    - text: You can have it.
-      extraData: ExtraData
-      inputSetIndex: 11
-      outputNodeIndex: 12
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 301
-        y: 65
-        width: 30
-        height: 24
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
+      x: 2490
+      y: 390
+      width: 200
+      height: 190
     ID: 11
+    outPlayerIndex: -1
+    outActionIndex: 2
+    more: 0
+    ovrStartNode: -1
+    renameDialogue: 
+  - pauseHere: 0
+    gameObjectName: StorageCharacters
+    methodName: DisableDialog
+    nameIndex: 137
+    methodIndex: 10
+    paramIndex: 0
+    opts:
+    - '[No method]'
+    - GetAssigned
+    - AssignNew
+    - SaveState
+    - LoadState
+    - OnBeforeSerialize
+    - OnAfterDeserialize
+    - PerformAction
+    - UpdateState
+    - DialogActionGoToLocation
+    - DisableDialog
+    nameOpts:
+    - '[No object]'
+    - Sign
+    - GoToSmeltery
+    - Sign
+    - Throne Room
+    - Sign
+    - Workshop
+    - Sign
+    - ReturnFromLava
+    - Sign
+    - ReturnFromSmeltery
+    - GameManager
+    - Sign
+    - ReturnFromWorkshop
+    - Sign
+    - WalkBack
+    - Sign
+    - ReturnFromAltar
+    - Sign
+    - GoToHallway
+    - Text (TMP) (3)
+    - Text (TMP) (2)
+    - Text (TMP) (1)
+    - Text (TMP)
+    - Karma
+    - Sign
+    - GoToThrone
+    - Sign
+    - GoToStorage
+    - Sign
+    - Hallway
+    - Sign
+    - WalkAway
+    - Player (1)
+    - Sign
+    - DragonAltar
+    - Sign
+    - Lava Pool
+    - CM vcam2 (32)
+    - Checkpoint smelteryGateway
+    - CM vcam2 (21)
+    - cm
+    - cm
+    - CM vcam2 (12)
+    - cm
+    - CM ClearShot6
+    - cm
+    - cm
+    - Checkpoint storage
+    - Checkpoint AltarSceneStart
+    - cm
+    - cam pos C
+    - CM vcam2 (22)
+    - cm
+    - StoryManager
+    - cm
+    - CM vcam2 (31)
+    - LavaCharacters
+    - CM vcam2 (16)
+    - cm
+    - cm
+    - cm
+    - CM vcam2 (17)
+    - cm
+    - cam pos B
+    - CM ClearShot5
+    - CM ClearShot4
+    - CM vcam2 (25)
+    - CM ClearShot1
+    - cam pos A
+    - CM vcam2 (11)
+    - CM vcam2 (33)
+    - cm
+    - cam pos A
+    - CM vcam2 (29)
+    - cm
+    - CM vcam2 (18)
+    - AltarCharacters
+    - cam pos A
+    - cam pos A
+    - cm
+    - Checkpoint smeltery
+    - cm
+    - cm
+    - CM ClearShot8
+    - CM vcam2 (20)
+    - Checkpoint workplace
+    - Main Camera
+    - ToEnding
+    - CM vcam2 (30)
+    - cm
+    - cm
+    - cm
+    - cm
+    - checkpoint throne room
+    - Checkpoint lavapool
+    - checkpoint throne room2
+    - cm
+    - CM vcam2 (27)
+    - CM vcam2 (24)
+    - CM vcam2 (10)
+    - cm
+    - cam pos A
+    - cam pos A
+    - cm
+    - SmelteryCharacters
+    - cm
+    - CM vcam2 (15)
+    - cam pos A
+    - cm
+    - cm
+    - CM vcam2 (28)
+    - CM vcam2 (23)
+    - CM vcam2 (13)
+    - CM vcam2 (9)
+    - Checkpoint outside
+    - cm
+    - CM ClearShot3
+    - cm
+    - cam pos A
+    - cam pos A
+    - cm
+    - cm
+    - CM vcam2 (14)
+    - CM ClearShot7
+    - CM ClearShot9
+    - cam pos A
+    - cm
+    - cm
+    - cm
+    - CM vcam2 (26)
+    - CM ClearShot1 (1)
+    - WorkshopCharacters
+    - ThroneCharacters
+    - cm
+    - cm
+    - Checkpoint hallway flame
+    - StorageCharacters
+    - cm
+    - cam pos A
+    - cm
+    - CM ClearShot10
+    - CM ClearShot2
+    - CM vcam2 (19)
+    param_bool: 0
+    param_string: 
+    param_int: 0
+    param_float: 0
     rect:
       serializedVersion: 2
-      x: 1020
-      y: -160
-      width: 348
-      height: 133
-    pTag: 
-    expand: 0
-    sprite: {fileID: 0}
-    vars: []
-    varKeys: []
-    isPlayer: 0
-  - commentCount: 1
-    s_comment:
-    - text: Comment...
-      extraData: ExtraData
-      inputSetIndex: 12
-      outputNodeIndex: -1
-      outActionIndex: -1
-      showmore: 0
-      outRect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 0
-        height: 0
-      sprites: {fileID: 0}
-      audios: {fileID: 0}
-      visible: 1
+      x: 3050
+      y: 400
+      width: 200
+      height: 170
     ID: 12
-    rect:
-      serializedVersion: 2
-      x: 1200
-      y: 50
-      width: 348
-      height: 133
-    pTag: 
-    expand: 0
-    sprite: {fileID: 0}
-    vars: []
-    varKeys: []
-    isPlayer: 0
-  S_actionNodes: []
+    outPlayerIndex: -1
+    outActionIndex: -1
+    more: 0
+    ovrStartNode: -1
+    renameDialogue: 
   S_selNodes: []

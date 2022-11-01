@@ -7,7 +7,8 @@ public class DogDie : MonoBehaviour {
 	public Transform happyGuy, dog, sadGuy;
 	void Start() {
 		if (StoryManager.story.level == Level.GRASSLAND) {
-			GameManager.game.storyData.isDogDeath = true;
+			//GameManager.game.storyData.isDogDeath = true;
+			//Debug.Log("Is dog dead?: " + GameManager.game.storyData.isDogDeath);
 			if (GameManager.game.storyData.isDogDeath) {
 				GetComponent<VIDE_Assign>().overrideStartNode = 1;
 				happyGuy.gameObject.SetActive(false);
@@ -19,5 +20,9 @@ public class DogDie : MonoBehaviour {
 
 	public void Die() {
 		GetComponent<Animator>().SetTrigger("Die");
+	}
+
+	public void KillDog() {
+		GameManager.game.storyData.isDogDeath = true;
 	}
 }

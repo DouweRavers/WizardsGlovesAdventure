@@ -14,6 +14,7 @@ public class StartMenu : MonoBehaviour {
 
 	void Start() {
 		if (videoPlayer != null) videoPlayer.gameObject.SetActive(false);
+		//GameManager.game.difficultyModifier = 1.0f;
 	}
 	public void OnPlay() {
 		klick.Play();
@@ -31,11 +32,25 @@ public class StartMenu : MonoBehaviour {
 		klick.Play();
 		settings.SetActive(setView);
 	}
+
+	public void OnDifficulty(int value)
+	{
+		klick.Play();
+		//Debug.Log("The string: " + value);
+		if (value == 0) { GameManager.game.difficultyModifier = 1.0f; }
+		else if (value == 1) { GameManager.game.difficultyModifier = 1.2f; }
+		else if (value == 2) { GameManager.game.difficultyModifier = 1.5f; }
+		else { GameManager.game.difficultyModifier = 1.0f; }
+		//Debug.Log("Difficulty is: " + GameManager.game.difficultyModifier);
+	}
+
 	public void OnComLeft(int value) {
+		value += 1;
 		klick.Play();
 		GameManager.game.COM1 = "COM" + value;
 	}
 	public void OnComRight(int value) {
+		value += 1;
 		klick.Play();
 		GameManager.game.COM2 = "COM" + value;
 	}

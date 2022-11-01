@@ -3881,7 +3881,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 26968521}
         m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
-        m_MethodName: OnComLeft
+        m_MethodName: OnDifficulty
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23715,11 +23715,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8609866996938256863, guid: 256be9dd5ed47284cb28fd2b9320579c, type: 3}
       propertyPath: COM1
-      value: COM3
+      value: COM2
       objectReference: {fileID: 0}
     - target: {fileID: 8609866996938256863, guid: 256be9dd5ed47284cb28fd2b9320579c, type: 3}
       propertyPath: COM2
-      value: COM4
+      value: COM7
       objectReference: {fileID: 0}
     - target: {fileID: 8609866996938256863, guid: 256be9dd5ed47284cb28fd2b9320579c, type: 3}
       propertyPath: LoadingScreenPrefab

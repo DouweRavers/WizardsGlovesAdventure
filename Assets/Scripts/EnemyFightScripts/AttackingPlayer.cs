@@ -605,6 +605,7 @@ public class AttackingPlayer : MonoBehaviour
     }
 
     //FUNCTIONS FOR TUTORIALS
+
     IEnumerator EnemyImmuneTutorial()
     {
         if (GameManager.game.enemyFightData.tutorialBeginnerEnabled && !tutorialImmunePlayed)
