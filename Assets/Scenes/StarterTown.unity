@@ -936,13 +936,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 17362689}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -1.3877786e-16, y: 0.999788, z: -1.1102229e-16, w: -0.020590095}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1293590924}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 182.36, z: 0}
 --- !u!212 &17362691
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2103,9 +2103,9 @@ Transform:
   - {fileID: 1437867154}
   - {fileID: 285363697}
   - {fileID: 821239505}
-  - {fileID: 356136775}
-  - {fileID: 1166253057}
   - {fileID: 1360399244}
+  - {fileID: 1166253057}
+  - {fileID: 356136775}
   - {fileID: 401700482}
   m_Father: {fileID: 848380063}
   m_RootOrder: 1
@@ -4930,6 +4930,7 @@ Transform:
   - {fileID: 369220363}
   - {fileID: 1918203700}
   - {fileID: 454244190}
+  - {fileID: 1044528547}
   m_Father: {fileID: 848380063}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11649,7 +11650,7 @@ PrefabInstance:
       objectReference: {fileID: 1960062001}
     - target: {fileID: 4738444447344894699, guid: 1f8aedf822eb4e24f810d91a90cb62b3, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4738444447344894699, guid: 1f8aedf822eb4e24f810d91a90cb62b3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -32211,6 +32212,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 475842, guid: 576b6d70e3da01b489b5b99e260ddc93, type: 3}
   m_PrefabInstance: {fileID: 1240393009}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1044528546
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1044528547}
+  - component: {fileID: 1044528548}
+  m_Layer: 0
+  m_Name: DogDeath
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1044528547
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044528546}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 141272721}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1044528548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044528546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9be6fa96b029744eb384ca2572ab216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  happyGuy: {fileID: 0}
+  dog: {fileID: 0}
+  sadGuy: {fileID: 0}
 --- !u!4 &1045726593 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 475842, guid: 576b6d70e3da01b489b5b99e260ddc93, type: 3}
@@ -42916,7 +42963,7 @@ PrefabInstance:
       objectReference: {fileID: 1790612277}
     - target: {fileID: 4738444447344894699, guid: 1f8aedf822eb4e24f810d91a90cb62b3, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4738444447344894699, guid: 1f8aedf822eb4e24f810d91a90cb62b3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -60541,7 +60588,19 @@ MonoBehaviour:
   title: Mr. Dog
   OnDisabled:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 508067793}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   dialogDestinations:
   - {fileID: 43822810}
 --- !u!114 &1918203702
@@ -60576,6 +60635,7 @@ MonoBehaviour:
   - GrasslandsTowerSoldiers
   - HugeDemon
   - Item_LookUp
+  - KingGui
   - KnightInTown
   - Laura
   - LavaPool
@@ -60725,8 +60785,7 @@ MonoBehaviour:
     isPlayer: 0
   - commentCount: 1
     s_comment:
-    - text: "You seem to be a very helpful person. Somebody truly light of heart.He
-        calls him somebody light of heart and grants them the Light Element. \r"
+    - text: "You seem to be a very helpful person. Somebody truly light of heart.\r"
       extraData: ExtraData
       inputSetIndex: 7
       outputNodeIndex: 8
@@ -60747,7 +60806,7 @@ MonoBehaviour:
       extraData: ExtraData
       inputSetIndex: 8
       outputNodeIndex: -1
-      outActionIndex: 2
+      outActionIndex: 1
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
@@ -60777,8 +60836,7 @@ MonoBehaviour:
     isPlayer: 0
   - commentCount: 1
     s_comment:
-    - text: "Your heart is truly tainted and rotten to the core. He says that this
-        element might suit them, giving him the Dark Element.\r"
+    - text: Your heart is truly tainted and rotten to the core.
       extraData: ExtraData
       inputSetIndex: 10
       outputNodeIndex: 11
@@ -60799,7 +60857,7 @@ MonoBehaviour:
       extraData: ExtraData
       inputSetIndex: 11
       outputNodeIndex: -1
-      outActionIndex: 3
+      outActionIndex: 2
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
@@ -60825,20 +60883,6 @@ MonoBehaviour:
     ovrStartNode: -1
     renameDialogue: 
   - pauseHere: 0
-    gameObjectName: GoToNextLevel
-    methodName: EnableVision
-    paramType: 0
-    gotoNode: -1
-    param_bool: 0
-    param_string: 
-    param_int: 0
-    param_float: 0
-    ID: 13
-    outPlayerIndex: -1
-    outActionIndex: 6
-    ovrStartNode: -1
-    renameDialogue: 
-  - pauseHere: 0
     gameObjectName: GameManager
     methodName: AddSpell
     paramType: 3
@@ -60849,7 +60893,7 @@ MonoBehaviour:
     param_float: 0
     ID: 14
     outPlayerIndex: -1
-    outActionIndex: 4
+    outActionIndex: 3
     ovrStartNode: -1
     renameDialogue: 
   - pauseHere: 0
@@ -60863,7 +60907,7 @@ MonoBehaviour:
     param_float: 0
     ID: 15
     outPlayerIndex: -1
-    outActionIndex: 5
+    outActionIndex: 4
     ovrStartNode: -1
     renameDialogue: 
   - pauseHere: 0
@@ -60873,11 +60917,11 @@ MonoBehaviour:
     gotoNode: -1
     param_bool: 0
     param_string: 
-    param_int: 2
+    param_int: 4
     param_float: 0
     ID: 16
     outPlayerIndex: -1
-    outActionIndex: 1
+    outActionIndex: 6
     ovrStartNode: -1
     renameDialogue: 
   - pauseHere: 0
@@ -60887,11 +60931,11 @@ MonoBehaviour:
     gotoNode: -1
     param_bool: 0
     param_string: 
-    param_int: -2
+    param_int: -4
     param_float: 0
     ID: 17
     outPlayerIndex: -1
-    outActionIndex: 1
+    outActionIndex: 7
     ovrStartNode: -1
     renameDialogue: 
   - pauseHere: 0
@@ -60906,6 +60950,34 @@ MonoBehaviour:
     ID: 18
     outPlayerIndex: -1
     outActionIndex: -1
+    ovrStartNode: -1
+    renameDialogue: 
+  - pauseHere: 0
+    gameObjectName: GoToNextLevel
+    methodName: EnableVision
+    paramType: 0
+    gotoNode: -1
+    param_bool: 0
+    param_string: 
+    param_int: 0
+    param_float: 0
+    ID: 13
+    outPlayerIndex: -1
+    outActionIndex: 5
+    ovrStartNode: -1
+    renameDialogue: 
+  - pauseHere: 0
+    gameObjectName: DogDeath
+    methodName: KillDog
+    paramType: 0
+    gotoNode: -1
+    param_bool: 0
+    param_string: 
+    param_int: 0
+    param_float: 0
+    ID: 19
+    outPlayerIndex: -1
+    outActionIndex: 6
     ovrStartNode: -1
     renameDialogue: 
 --- !u!1001 &1918652381
@@ -67690,7 +67762,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  tutorialEnabled: 1
+  tutorialEnabled: 0
 --- !u!82 &2128933775
 AudioSource:
   m_ObjectHideFlags: 0

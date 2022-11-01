@@ -13,8 +13,8 @@ public class EnemyAI : MonoBehaviour {
 	public Text[] Tutorial;
 
 	float timeBeforeNextAttack;
-	float healthPoints = 50;
-	public float health { get { return healthPoints; } }
+	public float healthPoints; //= 50;
+	public float health; //{ get { return healthPoints; } }
 	public int damage;
 	public int defense;
 
@@ -35,8 +35,11 @@ public class EnemyAI : MonoBehaviour {
 
 	void Start() {
 		AI = this;
-		healthBar.maxValue = healthPoints;
-
+		//healthBar.maxValue = healthPoints;
+		healthBar.value = health;
+		//Debug.Log("Enemy: " + enemyType + " has maxvalue"+ healthBar.maxValue);
+		//Debug.Log("Enemy: " + enemyType + " has value: " + healthBar.value);
+		//Debug.Log("EnemyID: " + GameManager.game.enemyFightData.enemyID);
 		if (GameManager.game.enemyFightData.tutorialBeginnerEnabled) {
 			isActive = false;
 		} else {
@@ -67,8 +70,10 @@ public class EnemyAI : MonoBehaviour {
 			//GetComponentInChildren<Animator>().SetTrigger("DefendBoost");
 			//}
 		} else {
-			healthPoints -= points;
-			healthBar.value = healthPoints;
+			health -= points;
+			healthBar.value = health;
+			//Debug.Log("Enemy: " + enemyType + " has Current health: " + health);
+			//Debug.Log("Enemy: " + enemyType + " has Current healthBar value: " + healthBar.value);
 			if (health <= 0) {
 				Die();
 				return;
@@ -118,7 +123,7 @@ public class EnemyAI : MonoBehaviour {
 				i = 0;
 				hit = false;
 			}
-			if (healthPoints <= 0) yield return null; // end attack because death
+			if (health <= 0) yield return null; // end attack because death
 			yield return new WaitForSeconds(timeBeforeNextAttack / 5f);
 		}
 		EnemyAttack();
@@ -212,6 +217,10 @@ public class EnemyAI : MonoBehaviour {
 		Array.Copy(deathEnemyIDs, newDeathEnemyIDs, deathEnemyIDs.Length);
 		newDeathEnemyIDs[deathEnemyIDs.Length] = GameManager.game.enemyFightData.enemyID;
 		GameManager.game.storyData.deathEnemyIDs = newDeathEnemyIDs;
+
+		if (enemyType == EnemyType.KOBOLD) { GameManager.game.AddSpell(0); }
+		else if (enemyType == EnemyType.TROLL) { GameManager.game.AddSpell(1); }
+
 		GameManager.game.LoadLevel(GameManager.game.storyData.level);
 	}
 

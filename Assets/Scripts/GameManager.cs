@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour {
 	public EnemyFightData enemyFightData;
 	public PlayerFightData playerFightData;
 	public GameObject LoadingScreenPrefab;
+	public float difficultyModifier = 1.0f;
 	public string COM1 = "COM2", COM2 = "COM7";
 	Transform loadingScreenTransform;
 	private AsyncOperation loader;
@@ -28,6 +29,8 @@ public class GameManager : MonoBehaviour {
 		DontDestroyOnLoad(gameObject);
 		// Easy reference to object for other classes
 		game = this;
+		if (game.difficultyModifier == 0) { game.difficultyModifier = 1.0f; }
+		//Debug.Log("Difficulty modifier: " + game.difficultyModifier);
 		storyData = new StoryData(0);
 		enemyFightData = new EnemyFightData(0, EnemyType.KOBOLD, false);
 		playerFightData = new PlayerFightData();

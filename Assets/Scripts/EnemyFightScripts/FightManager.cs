@@ -17,7 +17,13 @@ public class FightManager : MonoBehaviour {
 	void Start() {
 		fight = this;
 		foreach (EnemyAI enemyAI in enemies.GetComponentsInChildren(typeof(EnemyAI), true)) {
-			if (enemyAI.enemyType == GameManager.game.enemyFightData.enemyType) enemyAI.gameObject.SetActive(true);
+			if (enemyAI.enemyType == GameManager.game.enemyFightData.enemyType){
+				//Debug.Log("New enemy type activated: " + enemyAI.enemyType);
+				enemyAI.healthBar.maxValue = enemyAI.healthPoints * GameManager.game.difficultyModifier;
+				enemyAI.healthBar.value = enemyAI.healthPoints * GameManager.game.difficultyModifier;
+				enemyAI.health = enemyAI.healthPoints * GameManager.game.difficultyModifier;
+				enemyAI.gameObject.SetActive(true);
+			}
 			else enemyAI.gameObject.SetActive(false);
 		}
 		txtWarning.enabled = false;
